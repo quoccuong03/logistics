@@ -8,6 +8,9 @@ export const metadata = {
         default: "Home",
     },
     description: "App Showniq",
+    icons: {
+        icon: "/favicon.png",
+    },
 };
 
 export default function RootLayout({
@@ -20,7 +23,7 @@ export default function RootLayout({
             <Layout>
                 <div className="max-w-[650px] mx-auto border-2 relative">
                     <Navbar />
-                    <main className="min-h-screen px-5">{children}</main>
+                    <main className="min-h-screen">{children}</main>
                 </div>
             </Layout>
         </html>

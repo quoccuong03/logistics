@@ -1,15 +1,15 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-// import { useKeenSlider } from "keen-slider/react";
+"use client";
 import "keen-slider/keen-slider.min.css";
-const inter = Inter({ subsets: ["latin"] });
+import Carousel from "@/components/home/Carousel";
+import Section2 from "@/components/home/Section2";
+import Section3 from "@/components/home/Section3";
 
 export default function HomePage() {
-    // const [ref] = useKeenSlider<HTMLDivElement>();
     return (
-        <div className="mt-5">
-            Home page
-            {/* <PageSection /> */}
+        <div>
+            <Carousel />
+            <Section2 />
+            <Section3 />
         </div>
     );
 }
