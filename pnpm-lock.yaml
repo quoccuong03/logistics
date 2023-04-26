@@ -6,6 +6,7 @@ specifiers:
   '@mui/material': ^5.12.1
   '@tanstack/react-query': ^4.29.5
   '@tanstack/react-query-devtools': ^4.29.5
+  '@types/lodash': ^4.14.194
   '@types/node': 18.16.0
   '@types/react': 18.0.38
   '@types/react-dom': 18.0.11
@@ -14,6 +15,7 @@ specifiers:
   eslint: 8.39.0
   eslint-config-next: 13.3.1
   keen-slider: ^6.8.5
+  lodash: ^4.17.21
   next: 13.3.1
   postcss: 8.4.23
   query-string: ^8.1.0
@@ -33,6 +35,7 @@ dependencies:
   eslint: 8.39.0
   eslint-config-next: 13.3.1_iacogk7kkaymxepzhgcbytyi7q
   keen-slider: 6.8.5
+  lodash: 4.17.21
   next: 13.3.1_biqbaboplfbrettd7655fr4n2y
   postcss: 8.4.23
   query-string: 8.1.0
@@ -43,6 +46,7 @@ dependencies:
 
 devDependencies:
   '@tanstack/react-query-devtools': 4.29.5_6ufraba7zs65ngvban5jjen7be
+  '@types/lodash': 4.14.194
   '@types/node': 18.16.0
   '@types/react': 18.0.38
   '@types/react-dom': 18.0.11
@@ -647,6 +651,10 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
+
+  /@types/lodash/4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
+    dev: true
 
   /@types/node/18.16.0:
     resolution: {integrity: sha512-BsAaKhB+7X+H4GnSjGhJG9Qi8Tw+inU9nJDwmD5CgOmBLEI6ArdhikpLX7DjbjDRDTbqZzU2LSQNZg8WGPiSZQ==}
@@ -2229,6 +2237,10 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: false
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /loose-envify/1.4.0:
