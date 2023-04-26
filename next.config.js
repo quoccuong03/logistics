@@ -4,7 +4,7 @@ const nextConfig = {
 		appDir: true,
 	},
 	server: {
-		BASE_API: process.env.BASE_API,
+		BASE_API_URL: process.env.BASE_API,
 	},
 	images: {
 		remotePatterns: [

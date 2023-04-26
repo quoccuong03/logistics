@@ -1,0 +1,12 @@
+.filter {
+}
+.filterIcon {
+	fill: none !important;
+	height: 16px !important;
+	width: 16px !important;
+}
+@media (max-width: 768px) {
+	.filter {
+		margin-top: 20px !important;
+	}
+}
