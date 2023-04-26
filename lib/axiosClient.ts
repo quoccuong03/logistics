@@ -1,15 +1,12 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import queryString from "query-string";
 import * as https from "https";
+import { ACCESS_TOKEN } from "@/config/constants";
 const headers: Readonly<Record<string, string | boolean>> = {
     Accept: "application/json",
     "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
-    "X-FS-Client-Device": "W",
-    "X-FS-Client-Type": "L",
-    "X-Auth": false,
-    // "X-Requested-With": "XMLHttpRequest",
 };
 
 const agent = new https.Agent({
@@ -42,6 +39,10 @@ axiosClient.interceptors.request.use(async (config) => {
     //         };
     //     }
     // }
+    config.headers = {
+        ...config.headers,
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+    };
     return config;
 });
 
