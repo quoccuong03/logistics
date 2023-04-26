@@ -1,6 +1,7 @@
 import Layout from "@/components/layout";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 export const metadata = {
     title: {
@@ -24,6 +25,7 @@ export default function RootLayout({
                 <div className="max-w-[650px] mx-auto border-2 relative">
                     <Navbar />
                     <main className="min-h-screen">{children}</main>
+                    <Footer />
                 </div>
             </Layout>
         </html>

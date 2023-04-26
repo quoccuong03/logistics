@@ -1,17 +1,14 @@
+import DetailPageClient from "@/components/detail";
 import { getDetail } from "@/lib/get-detail";
-
+import { notFound } from "next/navigation";
 export default async function DetailPage({
     params,
 }: {
     params: { slug: string };
 }) {
     const data = await getDetail(params?.slug);
-    console.log("data", data);
-
-    return (
-        <div className="mt-5">
-            {params?.slug}
-            {/* <PageSection /> */}
-        </div>
-    );
+    if (!data) {
+        return notFound();
+    }
+    return <DetailPageClient data={data} />;
 }
