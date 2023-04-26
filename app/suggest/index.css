@@ -1,0 +1,9 @@
+@media (min-width: 768px) {
+	.suggest {
+		padding: 36px 26px;
+	}
+}
+
+.suggest {
+	padding: 5px 10px;
+}

@@ -1,25 +1,23 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-// import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import Link from "next/link";
-const inter = Inter({ subsets: ["latin"] });
+import { getRecomendationCall } from "@hooks/useRecomendation";
+import Message from "@components/Message";
+import Filter from "@components/Filter";
+import "./index.css";
 export const metadata = {
-    title: "Gợi ý outfits",
+	title: "Gợi ý outfits",
 };
 
-export default function SuggestPage() {
-    // const [ref] = useKeenSlider<HTMLDivElement>();
-    return (
-        <div className="mt-5">
-            SUGGEST page
-            <Link
-                className="border border-lime-400 px-3 py-1 ml-2 inline-block bg-cyan-500"
-                href={"/detail/1"}
-            >
-                Xem chi tiết
-            </Link>
-            {/* <PageSection /> */}
-        </div>
-    );
+export default async function SuggestPage() {
+	const { data } = await getRecomendationCall({
+		orderBy: "createdAt",
+		sortedBy: "desc",
+		"gender[]": "63e0ae94144f0000ff004b97",
+	});
+
+	return (
+		<div className="mt-5 suggest">
+			<Message minToday={data?.minToday} totalCount={data?.totalCount} />
+			<Filter {...data} />
+		</div>
+	);
 }
