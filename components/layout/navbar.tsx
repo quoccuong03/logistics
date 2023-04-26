@@ -28,7 +28,7 @@ export default function Navbar() {
                         <li
                             className={`px-5 ${
                                 pathname === item.to
-                                    ? "border-b-2 border-black"
+                                    ? "border-b-[3px] border-black"
                                     : ""
                             }`}
                             key={idx}
