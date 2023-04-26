@@ -4,3 +4,4 @@ export enum Atoms {
 
 export const MODAL_ATOM_TOGGLE_KEY = "MODAL_ATOM_TOGGLE_KEY";
 export const MODAL_ATOM_VIEW_KEY = "MODAL_ATOM_VIEW_KEY";
+export const STORE_ATOM_KEY = "STORE";

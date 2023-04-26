@@ -1,18 +1,24 @@
 "use client";
-import React, { useRef } from "react";
-import Image from "next/image";
-import bg from "@images/bg-1.png";
-import { Button, Icon } from "@mui/material";
-import { ArrowRightIcon, DownloadIcon, RotateIcon } from "@/components/icons";
+import { useRef, useState } from "react";
+import { Button } from "@mui/material";
+import { ArrowRightIcon, RotateIcon } from "@/components/icons";
+import { useRouter } from "next/navigation";
 
 export default function Section3() {
     const vidRef = useRef(null);
+    const router = useRouter();
+    const [isShow, setIsShow] = useState<boolean>(false);
     const handlePlayVideo = () => {
         // @ts-ignore
         vidRef?.current?.play();
     };
+
+    const handlerGoto = () => {
+        router.push("/suggest");
+    };
+
     return (
-        <div className="bg-[#FDF5E7] relative min-h-[1268px] px-[26px]">
+        <div className="bg-[#FDF5E7] relative pb-[20px] px-[26px]">
             <div className="text-center mx-20 pt-[111px]">
                 <h2 className="text-[30px] font-bold leading-9 mb-3">
                     Với thao tác đơn giản
@@ -41,8 +47,11 @@ export default function Section3() {
                     width="334"
                     height="723"
                     autoPlay
+                    muted
                     playsInline
+                    preload="none"
                     ref={vidRef}
+                    onEnded={() => setIsShow(true)}
                 >
                     <source
                         src="https://static.showniq.ai/public/app/landingpage/home/HDSD.mp4"
@@ -52,36 +61,24 @@ export default function Section3() {
                 </video>
             </div>
             <div className="mt-[72px]">
-                <Button
-                    endIcon={<ArrowRightIcon />}
-                    className="bg-[#FF8CA8] text-base font-bold text-black flex justify-end min-h-[48px]"
-                    variant="contained"
-                    fullWidth
-                    sx={{
-                        textTransform: "initial !important",
-                        // "& .MuiButton-endIcon": {
-                        //     mx: "auto",
-                        // },
-                    }}
-                >
-                    <span className="mx-auto">Đến đề xuất ngay</span>
-                </Button>
-                <Button
-                    endIcon={<DownloadIcon />}
-                    className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px]"
-                    variant="contained"
-                    fullWidth
-                    sx={{
-                        textTransform: "initial !important",
-                        background:
-                            "linear-gradient(90deg, #71EAB0 4.3%, #71EAB0 26.74%, #FFC1C1 58.52%, #FFA1A1 94.04%) !important",
-                        // "& .MuiButton-endIcon": {
-                        //     mx: "auto",
-                        // },
-                    }}
-                >
-                    <span className="mx-auto">Xem hơn 40,000 phong cách</span>
-                </Button>
+                {isShow && (
+                    <Button
+                        endIcon={<ArrowRightIcon />}
+                        className="bg-[#FF8CA8] text-base font-bold text-black flex justify-end min-h-[48px]"
+                        variant="contained"
+                        fullWidth
+                        disableRipple
+                        onClick={handlerGoto}
+                        sx={{
+                            textTransform: "initial !important",
+                            // "& .MuiButton-endIcon": {
+                            //     mx: "auto",
+                            // },
+                        }}
+                    >
+                        <span className="mx-auto">Đến đề xuất ngay</span>
+                    </Button>
+                )}
             </div>
         </div>
     );
