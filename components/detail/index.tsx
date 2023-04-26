@@ -5,8 +5,6 @@ type Props = {
     data: any;
 };
 export default function DetailPageClient({ data }: Props) {
-    console.log("data", data);
-
     const { onShowStore } = useStore();
     useEffect(() => {
         onShowStore(data?.store);

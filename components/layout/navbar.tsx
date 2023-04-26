@@ -17,7 +17,6 @@ export default function Navbar() {
     const pathname = usePathname();
     const router = useRouter();
     const { currentStore } = useStore();
-    console.log("currentStore", currentStore);
 
     return (
         <div className="flex flex-col sticky z-50 top-0 bg-white">
@@ -31,7 +30,20 @@ export default function Navbar() {
                         <Image src={require("@images/logo.svg")} alt="Logo" />
                     </Link>
                 )}
-
+                {currentStore ? (
+                    <div className="flex items-center">
+                        <Image
+                            src={currentStore?.avatar?.thumb?.url}
+                            width={currentStore?.avatar?.thumb?.width}
+                            height={currentStore?.avatar?.thumb?.height}
+                            alt={currentStore?.name}
+                            className="max-w-[20px] h-auto"
+                        />
+                        <h3 className="text-sm font-normal uppercase">
+                            {currentStore?.name}
+                        </h3>
+                    </div>
+                ) : null}
                 <IconButton>
                     <BellIcon sx={{ fill: "#000" }} />
                 </IconButton>
