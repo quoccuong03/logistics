@@ -14,7 +14,7 @@ const agent = new https.Agent({
 });
 
 const config: AxiosRequestConfig = {
-	baseURL: process.env.BASE_API,
+	baseURL: process.env.BASE_API_URL,
 	headers,
 	httpsAgent: agent,
 	paramsSerializer: (params) => queryString.stringify(params),

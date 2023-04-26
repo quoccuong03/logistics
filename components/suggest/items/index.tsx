@@ -1,5 +1,6 @@
 "use client";
 import "./index.css";
+
 type Props = {
 	data: Array<{
 		_id: string;
@@ -34,9 +35,11 @@ export default function Items(props: Props): JSX.Element {
 	return (
 		<>
 			<div className="font-bold mt-[25px] text-[12px]">PHONG CÁCH ĐỀ XUẤT </div>
-			{data?.map((el) => (
-				<>fsdfsdf</>
-			))}
+			<div className="flex flex-wrap gap-[3px] mb-[3px]">
+				{data?.map((el) => (
+					<div></div>
+				))}
+			</div>
 		</>
 	);
 }
