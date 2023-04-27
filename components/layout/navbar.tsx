@@ -33,9 +33,9 @@ export default function Navbar() {
                 {currentStore ? (
                     <div className="flex items-center">
                         <Image
-                            src={currentStore?.avatar?.thumb?.url}
-                            width={currentStore?.avatar?.thumb?.width}
-                            height={currentStore?.avatar?.thumb?.height}
+                            src={currentStore?.avatar?.medium?.url}
+                            width={currentStore?.avatar?.medium?.width}
+                            height={currentStore?.avatar?.medium?.height}
                             alt={currentStore?.name}
                             className="max-w-[20px] h-auto"
                         />

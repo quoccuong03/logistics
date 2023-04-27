@@ -7,4 +7,7 @@ export const lightTheme = createTheme({
             main: "#000",
         },
     },
+    typography: {
+        fontFamily: "var(--montserrat-font)",
+    },
 });

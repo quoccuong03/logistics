@@ -1,4 +1,4 @@
-import { isObject } from "lodash";
+import { map } from "lodash";
 interface ImageData {
     origin: {
         url: string;
@@ -30,9 +30,36 @@ export const getImageUrl = (
         return null;
     }
     if (!type) {
-        if (isObject(imgData)) {
-            // @ts-ignore
-            return imgData?.origin?.url;
-        }
+        // @ts-ignore
+        return imgData?.origin?.url;
+    }
+    if (Array.isArray(imgData)) {
+        return map(imgData, (item) => {
+            return item?.[type]?.url;
+        });
+    } else {
+        // @ts-ignore
+        return imgData?.origin?.url;
+    }
+};
+
+export const getImages = (
+    imgData: ImageData | ImageData[],
+    type?: "origin" | "large" | "medium" | "thumb"
+) => {
+    if (!imgData) {
+        return null;
+    }
+    if (!type) {
+        // @ts-ignore
+        return imgData?.origin;
+    }
+    if (Array.isArray(imgData)) {
+        return map(imgData, (item) => {
+            return item?.[type];
+        });
+    } else {
+        // @ts-ignore
+        return imgData?.origin;
     }
 };

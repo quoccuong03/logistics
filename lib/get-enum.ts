@@ -1,9 +1,13 @@
 import { apiRoutes } from "@/config/apiRouters";
 import axiosClient from "./axiosClient";
 
-export async function getDetail(id: string): Promise<any> {
+export async function getEnums(params: string[]): Promise<any> {
     try {
-        const res = await axiosClient.get(`${apiRoutes.getStyleDetail}/${id}`);
+        const res = await axiosClient.get(`${apiRoutes.getStyleEnum}`, {
+            params: {
+                params,
+            },
+        });
         return res?.data;
     } catch (error: any) {
         console.log("error", error);

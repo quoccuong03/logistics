@@ -8,7 +8,10 @@ import { ReactNode } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
-const montserrat = Montserrat({ subsets: ["latin", "vietnamese"] });
+const montserrat = Montserrat({
+    subsets: ["latin", "vietnamese"],
+    variable: "--montserrat-font",
+});
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
