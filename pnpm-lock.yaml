@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@emotion/react': ^11.10.6
   '@emotion/styled': ^11.10.6
+  '@mui/lab': ^5.0.0-alpha.128
   '@mui/material': ^5.12.1
   '@tanstack/react-query': ^4.29.5
   '@tanstack/react-query-devtools': ^4.29.5
@@ -28,6 +29,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.10.6_mj3jo2baq3jslihcop7oivercy
   '@emotion/styled': 11.10.6_vh4sscningxoupn6etopfj4xpy
+  '@mui/lab': 5.0.0-alpha.128_qmgeyvhh3st7k3vb3fuyxbfhwe
   '@mui/material': 5.12.1_3xalaetzz5kb6sfo4xsrfwwhbe
   '@tanstack/react-query': 4.29.5_biqbaboplfbrettd7655fr4n2y
   autoprefixer: 10.4.14_postcss@8.4.23
@@ -334,8 +336,66 @@ packages:
       react-is: 18.2.0
     dev: false
 
+  /@mui/base/5.0.0-alpha.127_g6eqzmexmujy3zvaqhkicj5z64:
+    resolution: {integrity: sha512-FoRQd0IOH9MnfyL5yXssyQRnC4vXI+1bwkU1idr+wNkP1ZfxE+JsThHcfl1dy5azLssVUGTtQFD9edQLdbyJog==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.21.0
+      '@emotion/is-prop-valid': 1.2.0
+      '@mui/types': 7.2.4_@types+react@18.0.38
+      '@mui/utils': 5.12.0_react@18.2.0
+      '@popperjs/core': 2.11.7
+      '@types/react': 18.0.38
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
+    dev: false
+
   /@mui/core-downloads-tracker/5.12.1:
     resolution: {integrity: sha512-rNiQYHtkXljcvCEnhWrJzie1ifff5O98j3uW7ZlchFgD8HWxEcz/QoxZvo+sCKC9aayAgxi9RsVn2VjCyp5CrA==}
+    dev: false
+
+  /@mui/lab/5.0.0-alpha.128_qmgeyvhh3st7k3vb3fuyxbfhwe:
+    resolution: {integrity: sha512-jsGP8bbAvnG+cBCveHhF49BHhVNojBvblWrNUuMkkLYS6T239Dela/+UvVnfIn/1hfUUNf/G/RiB42qC6ud7vQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@emotion/react': ^11.5.0
+      '@emotion/styled': ^11.3.0
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/react':
+        optional: true
+      '@emotion/styled':
+        optional: true
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.21.0
+      '@emotion/react': 11.10.6_mj3jo2baq3jslihcop7oivercy
+      '@emotion/styled': 11.10.6_vh4sscningxoupn6etopfj4xpy
+      '@mui/base': 5.0.0-alpha.127_g6eqzmexmujy3zvaqhkicj5z64
+      '@mui/material': 5.12.1_3xalaetzz5kb6sfo4xsrfwwhbe
+      '@mui/system': 5.12.1_wdpjoxvnwxmfxsstl2rvqqgmhu
+      '@mui/types': 7.2.4_@types+react@18.0.38
+      '@mui/utils': 5.12.0_react@18.2.0
+      '@types/react': 18.0.38
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
     dev: false
 
   /@mui/material/5.12.1_3xalaetzz5kb6sfo4xsrfwwhbe:
