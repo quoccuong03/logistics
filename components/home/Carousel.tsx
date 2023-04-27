@@ -35,7 +35,20 @@ export default function Carousel() {
             <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
                     <div className="keen-slider__slide text-center" key={idx}>
-                        <Image
+                        <video
+                            // width="448"
+                            // height="965"
+                            autoPlay
+                            muted
+                            playsInline
+                            preload="none"
+                            loop
+                            className="mx-auto max-w-lg mt-4"
+                        >
+                            <source src={item.video} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        {/* <Image
                             alt={item.title}
                             width={480}
                             height={1034}
@@ -45,7 +58,7 @@ export default function Carousel() {
                                 maxWidth: "100%",
                                 height: "auto",
                             }}
-                        />
+                        /> */}
                     </div>
                 ))}
             </div>

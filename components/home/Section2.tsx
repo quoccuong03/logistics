@@ -16,7 +16,7 @@ export default function Section2() {
                     maxWidth: 650,
                 }}
             />
-            <div className="text-center mx-20 pt-[111px]">
+            <div className="text-center mx-20 pt-[111px] relative z-10">
                 <h2 className="text-[30px] font-bold leading-9 mb-3">
                     Nhận ý tưởng <br />
                     thật dễ dàng và nhanh chóng

@@ -28,7 +28,7 @@ export default function Section3() {
                     phù hợp sở thích
                 </p>
             </div>
-            <div className="flex flex-col mt-12 items-center">
+            <div className="flex flex-col mt-7 items-center">
                 <Button
                     endIcon={<RotateIcon />}
                     variant="contained"

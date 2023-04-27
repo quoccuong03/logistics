@@ -1,17 +1,12 @@
+"use client";
 import { FC } from "react";
-import {
-    Box,
-    Button,
-    Drawer,
-    Stack,
-    Typography,
-    useMediaQuery,
-} from "@mui/material";
+import { Box, Button, Drawer, Stack, Typography } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { HIDE_POPUP } from "@config/constants";
-import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 interface Props {
     isOpen: boolean;
     onClose: () => void;
@@ -25,45 +20,37 @@ interface Props {
 
 const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
-    const handleClosePopup = () => {
-        setHidePopup(1);
+    const router = useRouter();
+    const handleClosePopup = (hidden?: boolean) => {
+        if (hidden) {
+            setHidePopup(1);
+            router.push("/download");
+        }
         onClose();
     };
 
     return (
         <Drawer
             anchor={"bottom"}
+            container={() => document?.getElementById("layout")}
             open={isOpen}
-            onClose={handleClosePopup}
+            onClose={() => handleClosePopup()}
             sx={{
                 ".MuiPaper-root": {
                     backgroundColor: "#FBF5E8 !important",
                     boxShadow: "none !important",
                     maxWidth: 650,
                     mx: "auto",
-                },
-                // position: "relative",
-                "& .MuiTypography-root": {
-                    fontFamily: "SF Pro",
+                    borderRadius: "20px 20px 0 0",
                 },
             }}
             id={data.id}
         >
-            <Image
-                id={data.id}
-                alt="Bottom arrow"
-                src={data.img}
-                fill
-                style={{
-                    objectPosition: "bottom",
-                    objectFit: "contain",
-                }}
-            />
             <Box
                 sx={{
-                    minHeight: 410,
+                    minHeight: 510,
                     position: "relative",
-                    ml: 4,
+                    ml: 10,
                 }}
                 id={data.id}
             >
@@ -76,117 +63,89 @@ const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
                         fontSize: 32,
                         // color: "white",
                     }}
-                    onClick={handleClosePopup}
+                    onClick={() => handleClosePopup()}
                 />
                 <Box
                     sx={{
-                        bgcolor: "#1884ED",
-                        width: 77,
-                        height: 55,
+                        bgcolor: "#FFA1A1",
+                        width: 160,
+                        height: 82,
                         borderRadius: "0 0 11px 11px",
                         position: "relative",
                         zIndex: 9999,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
+                        pl: 2,
                     }}
                 >
                     <Typography
-                        fontSize={18}
-                        lineHeight={"20px"}
-                        fontWeight={600}
-                        fontFamily={"SF Pro"}
-                        color={"#FFF"}
-                        textTransform={"uppercase"}
+                        fontSize={23}
+                        lineHeight={"25px"}
+                        fontWeight={300}
                     >
-                        Giảm <br />
-                        40%
+                        <strong className="font-bold uppercase">
+                            AI stylist
+                        </strong>
+                        <br />
+                        của bạn
                     </Typography>
                 </Box>
-                <Link href={data.url} onClick={handleClosePopup} id={data.id}>
-                    <Stack
-                        justifyContent={"center"}
-                        height={245}
-                        alignItems={"flex-start"}
-                    >
-                        <Typography
-                            fontSize={18}
-                            lineHeight={"18px"}
-                            fontWeight={700}
-                            textTransform={"uppercase"}
-                        >
-                            Áo khoác <span className="blue">chống nắng</span>
-                        </Typography>
-                        <Typography
-                            fontSize={18}
-                            fontWeight={700}
-                            textTransform={"uppercase"}
-                        >
-                            đã có <span className="blue">màu bạn thích!</span>
-                        </Typography>
-                        <Box
-                            sx={{
-                                mt: 1.25,
-                                span: {
-                                    display: "inline-flex",
-                                    width: 16,
-                                    height: 16,
-                                    borderRadius: "50%",
-                                    mr: 1.25,
-                                    "&:nth-of-type(1)": { bgcolor: "#FF8578" },
-                                    "&:nth-of-type(2)": { bgcolor: "#FA7799" },
-                                    "&:nth-of-type(3)": { bgcolor: "#BFB7FC" },
-                                    "&:nth-of-type(4)": { bgcolor: "#99C2FF" },
-                                    "&:nth-of-type(5)": { bgcolor: "#0E1645" },
-                                    "&:nth-of-type(6)": { bgcolor: "#A19D9E" },
-                                    "&:nth-of-type(7)": { bgcolor: "#E7E2D5" },
-                                },
-                            }}
-                        >
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                        </Box>
+                {/* <Link href={data.url} onClick={handleClosePopup} id={data.id}> */}
+                <Stack
+                    justifyContent={"space-between"}
+                    alignItems={"flex-start"}
+                    direction={"row"}
+                    className="relative"
+                >
+                    <Box>
+                        <Image
+                            src={require("@images/txt-g.svg")}
+                            alt=""
+                            className="max-w-[230px] h-auto mt-12 mb-5"
+                        />
                         <Button
                             variant="contained"
+                            onClick={() => handleClosePopup(true)}
                             sx={{
-                                bgcolor: "#1884ED",
+                                bgcolor: "#FFA1A1 !important",
                                 fontSize: 10,
                                 lineHeight: "12px",
-                                color: "#fff",
                                 fontWeight: 600,
                                 textTransform: "uppercase",
                                 boxShadow: "none",
                                 borderRadius: "28px",
-                                my: "17px",
+                                my: 1.25,
+                                color: "#000",
                             }}
                             endIcon={<ArrowRightLongIcon />}
                         >
-                            Đặt trước ngay
+                            Tải app ngay
                         </Button>
-                        <Typography
-                            fontSize={14}
-                            lineHeight={"16px"}
-                            fontWeight={600}
-                            textTransform={"uppercase"}
-                        >
-                            Chỉ từ
-                        </Typography>
-                        <Typography
-                            fontSize={51}
-                            lineHeight={"61px"}
-                            fontWeight={600}
-                            textTransform={"uppercase"}
-                            color={"#1884ED"}
-                        >
-                            389K
-                        </Typography>
-                    </Stack>
-                </Link>
+                        <Image
+                            src={require("@images/txt-g2.svg")}
+                            alt=""
+                            className="max-w-[185px] h-auto"
+                        />
+                        <Image
+                            src={require("@images/logo-txt.svg")}
+                            alt=""
+                            className="max-w-[68px] h-auto mt-10"
+                        />
+                    </Box>
+                    <Image
+                        id={data.id}
+                        alt="Bottom arrow"
+                        src={data.img}
+                        className="max-w-[275px] mr-5 mt-[-60px]"
+                        // fill
+                        // style={{
+                        //     objectPosition: "bottom",
+                        //     objectFit: "contain",
+                        // }}
+                    />
+                </Stack>
+                {/* </Link> */}
 
                 {/* <a
             target="_blank"

@@ -23,7 +23,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <Layout>
-                <div className="max-w-[650px] mx-auto border-2 relative">
+                <div
+                    className="max-w-[650px] mx-auto border-2 relative"
+                    id="layout"
+                >
                     <Navbar />
                     <main className="min-h-screen">{children}</main>
                     <Footer />

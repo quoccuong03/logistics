@@ -1,5 +1,8 @@
-import React from "react";
-
+import CreateQrCode from "@/components/download/qrcode";
+import { headers } from "next/headers";
 export default function DownloadPage() {
-    return <div>DownloadPage</div>;
+    const headersList = headers();
+    console.log("headersList", headersList);
+
+    return <CreateQrCode />;
 }

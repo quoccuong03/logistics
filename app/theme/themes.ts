@@ -1,5 +1,10 @@
 "use client";
 import { createTheme } from "@mui/material/styles";
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+    subsets: ["latin", "vietnamese"],
+    variable: "--montserrat-font",
+});
 export const lightTheme = createTheme({
     palette: {
         mode: "light",
@@ -8,6 +13,6 @@ export const lightTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: "var(--montserrat-font)",
+        fontFamily: montserrat.style.fontFamily,
     },
 });

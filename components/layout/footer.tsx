@@ -5,17 +5,18 @@ import { DownloadIcon } from "@/components/icons";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
-    // const pathname = usePathname();
-    // if (pathname === "/") {
-    //     return <></>;
-    // }
+    const pathname = usePathname();
+    if (pathname === "/download") {
+        return <></>;
+    }
     return (
-        <footer className="sticky bottom-5 pl-5 pr-5">
+        <footer className="sticky bottom-5 pl-5 pr-5 bg-[#FDF5E7]">
             <Button
                 endIcon={<DownloadIcon />}
                 className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px]"
                 variant="contained"
                 fullWidth
+                href="/download"
                 sx={{
                     textTransform: "initial !important",
                     background:
