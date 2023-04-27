@@ -1,0 +1,7 @@
+.suggest-item {
+	width: calc(50% - 1.5px);
+}
+
+.suggest-item-second {
+	margin-left: auto;
+}
