@@ -50,6 +50,7 @@ export default function Items(props: Props): JSX.Element {
 					${_index === data.length - 1 ? "rounded-br-[10px]" : ""}`}
 					alt="image"
 					fill
+					loading={"lazy"}
 				/>
 			</Link>
 		);

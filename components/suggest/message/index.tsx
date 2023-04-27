@@ -10,7 +10,7 @@ type data = {
 export default function Message(props: data) {
 	const { minToday, totalCount } = props;
 	function formatDate(date: string) {
-		var d = new Date(date),
+		let d = new Date(),
 			month = "" + (d.getMonth() + 1),
 			day = "" + d.getDate(),
 			year = d.getFullYear();
