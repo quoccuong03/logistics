@@ -12,9 +12,9 @@ const headers: Readonly<Record<string, string | boolean>> = {
 const agent = new https.Agent({
 	rejectUnauthorized: false,
 });
-
+console.log(process.env.NEXT_PUBLIC_BASE_API_SERVER);
 const config: AxiosRequestConfig = {
-	baseURL: process.env.BASE_API_URL,
+	baseURL: process.env.NEXT_PUBLIC_BASE_API_SERVER,
 	headers,
 	httpsAgent: agent,
 	paramsSerializer: (params) => queryString.stringify(params),
