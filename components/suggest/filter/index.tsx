@@ -25,12 +25,18 @@ export default function Filter(props: Props): JSX.Element {
 			<div className="ml-[19px]"></div>
 			<div className="flex items-center overflow-x-auto">
 				{dataActive?.map((item) => (
-					<div className="bg-[#FAFAFA] text-center min-w-[90px] text-[#FFA1A1] px-[5px] py-[3px] rounded-[3px]  text-[12px]  ml-[6px] hover:bg-[#FFA1A1] hover:text-[#fff] cursor-pointer">
+					<div
+						key={item[`title${lang}`]}
+						className="bg-[#FAFAFA] text-center min-w-[90px] text-[#FFA1A1] px-[5px] py-[3px] rounded-[3px]  text-[12px]  ml-[6px] hover:bg-[#FFA1A1] hover:text-[#fff] cursor-pointer"
+					>
 						#{item[`title${lang}`]}
 					</div>
 				))}
 				{dataInActive?.map((item) => (
-					<div className="bg-[#FAFAFA] text-center min-w-[90px] text-[##999999] px-[5px] py-[3px] rounded-[3px]  text-[12px]  ml-[6px] hover:bg-[#FFA1A1] hover:text-[#fff] cursor-pointer">
+					<div
+						key={item[`title${lang}`]}
+						className="bg-[#FAFAFA] text-center min-w-[90px] text-[##999999] px-[5px] py-[3px] rounded-[3px]  text-[12px]  ml-[6px] hover:bg-[#FFA1A1] hover:text-[#fff] cursor-pointer"
+					>
 						#{item[`title${lang}`]}
 					</div>
 				))}
