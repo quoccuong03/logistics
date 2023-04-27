@@ -1,0 +1,39 @@
+.pagination-showniq {
+    .MuiButtonBase-root {
+        border-color: #f2f2f2;
+        border-radius: 0;
+        color: #999;
+        &.Mui-selected {
+            border-color: #ffa1a1;
+            color: #ffa1a1;
+        }
+    }
+}
+.slider {
+    &__label {
+        font-size: 10px;
+        color: #bfbfbf;
+        font-weight: 400;
+    }
+    &__item {
+        position: relative;
+        height: 100%;
+        width: 10px;
+        &--bg {
+            background: #999999;
+            border-radius: 4px;
+            height: 100%;
+            display: flex;
+        }
+        &--active {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffa1a1;
+            z-index: 99;
+            border-radius: 4px;
+        }
+    }
+}

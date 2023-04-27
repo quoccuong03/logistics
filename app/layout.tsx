@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import "./globals.css";
+import "./main.scss";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 

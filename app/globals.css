@@ -3,37 +3,38 @@
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
-	--pink: #ffa1a1;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --pink: #ffa1a1;
+    --txt-gray: "#999999";
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
-	}
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-	//color: rgb(var(--foreground-rgb));
+    //color: rgb(var(--foreground-rgb));
 }
 
 .global-content {
-	padding: 20px 10px;
+    padding: 20px 10px;
 }
 
 @media (min-width: 768px) {
-	.global-content {
-		padding: 36px 26px;
-	}
+    .global-content {
+        padding: 36px 26px;
+    }
 }
 
 ::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
 ::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
