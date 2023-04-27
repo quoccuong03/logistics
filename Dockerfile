@@ -31,7 +31,7 @@ COPY --from=BUILD /app/public ./public
 COPY --from=BUILD /app/next.config.js ./
 
 # Set mode "standalone" in file "next.config.js"
-COPY --from=BUILD /app/.next/standalone ./
+# COPY --from=BUILD /app/.next/standalone ./
 COPY --from=BUILD /app/.next/static ./.next/static
 
 EXPOSE 3008
