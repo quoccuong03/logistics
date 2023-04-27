@@ -16,10 +16,10 @@ WORKDIR /app
 COPY --from=BASE /app/node_modules ./node_modules
 COPY . .
 RUN apk add --no-cache git curl \
-    && yarn build \
+    && yarn build 
     # && cd .next/standalone \
     # Follow https://github.com/ductnn/Dockerfile/blob/master/nodejs/node/16/alpine/Dockerfile
-    && node-prune
+    
 
 # Build production
 FROM node:16-alpine AS PRODUCTION
