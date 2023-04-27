@@ -1,7 +1,7 @@
 "use client";
 import "./index.css";
 import Image from "next/image";
-import { Key } from "react";
+import Link from "next/link";
 type Props = {
 	data: Array<Item>;
 };
@@ -33,8 +33,9 @@ export default function Items(props: Props): JSX.Element {
 
 	function renderItem(_index: number, _el: Item) {
 		return (
-			<div
+			<Link
 				key={_index}
+				href={`/detail/${_el._id}`}
 				className={`suggest-item h-[371.94px] relative ${
 					_index % 2 !== 0 ? "suggest-item-second" : ""
 				} `}
@@ -50,7 +51,7 @@ export default function Items(props: Props): JSX.Element {
 					alt="image"
 					fill
 				/>
-			</div>
+			</Link>
 		);
 	}
 	return (

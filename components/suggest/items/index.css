@@ -5,3 +5,9 @@
 .suggest-item-second {
 	margin-left: auto;
 }
+
+@media (max-width: 768px) {
+	.suggest-item {
+		max-height: 240px;
+	}
+}

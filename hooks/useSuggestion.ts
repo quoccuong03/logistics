@@ -10,6 +10,7 @@ export const getRecomendationCall = async (query?: any): Promise<any> => {
 export const getStyleCatalogCall = async (query?: any): Promise<any> => {
 	return await axiosClient.get(`${apiRoutes.getStyleCatalog}?${queryString.stringify(query)}`);
 };
+
 export const getStyleCatalog = (queryKey: any, query?: any, options?: any) =>
 	useQuery(
 		queryKey,
@@ -19,6 +20,7 @@ export const getStyleCatalog = (queryKey: any, query?: any, options?: any) =>
 		},
 		options,
 	);
+
 export const getRecomendation = (queryKey: any, query?: any, options?: any) =>
 	useQuery(
 		queryKey,
