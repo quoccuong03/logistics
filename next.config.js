@@ -3,9 +3,7 @@ const nextConfig = {
 	experimental: {
 		appDir: true,
 	},
-	server: {
-		BASE_API_URL: process.env.BASE_API,
-	},
+
 	images: {
 		remotePatterns: [
 			{
