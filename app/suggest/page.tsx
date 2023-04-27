@@ -3,7 +3,7 @@ import { getRecomendationCall, getStyleCatalogCall } from "@/hooks/useSuggestion
 import Message from "@/components/suggest/message";
 import Filter from "@/components/suggest/filter";
 import Items from "@/components/suggest/items";
-import "./index.css";
+
 export const metadata = {
 	title: "Gợi ý outfits",
 };
@@ -18,7 +18,7 @@ export default async function SuggestPage() {
 	const { data: dataFilter } = await getStyleCatalogCall();
 
 	return (
-		<div className="mt-5 suggest">
+		<div className="global-content">
 			<Message minToday={data?.minToday} totalCount={data?.totalCount} />
 			<Filter data={[...dataFilter]} lang={"VI"} gender={"WOMEN"} />
 			<Items data={data?.listData || []} />

@@ -1,18 +1,17 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-// import { useKeenSlider } from "keen-slider/react";
+import { getInfo } from "@/hooks/useInfo";
 import "keen-slider/keen-slider.min.css";
-const inter = Inter({ subsets: ["latin"] });
+import Info from "@components/info";
+import "./index.css";
 export const metadata = {
-    title: "Tìm hiểu thêm",
+	title: "Tìm hiểu thêm",
 };
 
-export default function InfoPage() {
-    // const [ref] = useKeenSlider<HTMLDivElement>();
-    return (
-        <div className="mt-5">
-            INFO page
-            {/* <PageSection /> */}
-        </div>
-    );
+export default async function InfoPage() {
+	const dataInfo = await getInfo();
+
+	return (
+		<div className="global-content">
+			<Info data={dataInfo} />
+		</div>
+	);
 }

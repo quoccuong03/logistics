@@ -7,3 +7,5 @@ export { default as RotateIcon } from "./RotateIcon";
 export { default as TailIcon } from "./Tail";
 export { default as FilterIcon } from "./FilterIcon";
 export { default as InfoIcon } from "./InfoIcon";
+export { default as CollapseIcon } from "./CollapseIcon";
+export { default as ExpanIcon } from "./ExpanIcon";

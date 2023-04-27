@@ -1,7 +1,9 @@
 import { apiRoutes } from "@config/apiRouters";
 import axiosClient from "@lib/axiosClient";
 import queryString from "query-string";
-
-export const getRecomendationCall = async (query?: any): Promise<any> => {
-	return await axiosClient.get(`${apiRoutes.getRecomendation}?${queryString.stringify(query)}`);
+const baseAuthUrl = { baseURL: process.env.NEXT_PUBLIC_STATIC_API_SERVER };
+export const getInfo = async (query?: any): Promise<any> => {
+	return await axiosClient.get(`${apiRoutes.getInfo}?${queryString.stringify(query)}`, {
+		...baseAuthUrl,
+	});
 };
