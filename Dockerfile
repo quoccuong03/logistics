@@ -34,6 +34,6 @@ COPY --from=BUILD /app/next.config.js ./
 COPY --from=BUILD /app/.next/standalone ./
 COPY --from=BUILD /app/.next/static ./.next/static
 
-EXPOSE 3005
+EXPOSE 3008
 
 CMD ["node", "server.js"]
