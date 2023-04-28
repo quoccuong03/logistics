@@ -15,7 +15,7 @@ export default function CommentBlock({ data }: Props) {
                 <span className="text-[var(--pink)]">5</span> bài đánh giá
             </h3>
             <div className="flex justify-between bg-[#FAFAFA] py-3 rounded">
-                <div className="w-52 flex items-center flex-col border-r-2 border-gray-300 min-h-[100px] justify-center">
+                <div className="w-[50%] md:w-52 flex items-center flex-col border-r-2 border-gray-300 min-h-[100px] justify-center">
                     <Image
                         src={
                             "https://static.showniq.ai/public/app/general/emotion/emo-wm-5.png"

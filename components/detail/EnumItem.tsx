@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-
 import { useCallback, useState } from "react";
 type Props = {
     emoji: any;

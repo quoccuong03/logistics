@@ -2,14 +2,12 @@
 import Image from "next/image";
 import { CommentIcon, RotateIcon } from "@/components/icons";
 import { useModal, useStore } from "@/recoil/hooks";
-import { useCallback, useState } from "react";
 import EnumItem from "./EnumItem";
 type Props = {
     data: any;
 };
 export default function EnumBlock({ data }: Props) {
     const listEmoji = data?.["review_main-emo_type"];
-
     const { currentStore } = useStore();
     const { onOpenModal } = useModal();
     return (
@@ -28,8 +26,8 @@ export default function EnumBlock({ data }: Props) {
                 </div>
             </div>
             <div className="flex items-center mb-5">
-                <div className="mr-1 md:mr-2">
-                    {currentStore ? (
+                {currentStore ? (
+                    <div className="mr-1 md:mr-2">
                         <Image
                             src={require("@images/avatar.png")}
                             alt={currentStore?.name || ""}
@@ -37,12 +35,14 @@ export default function EnumBlock({ data }: Props) {
                             height={currentStore?.avatar?.thumb?.height}
                             className="h-auto max-w-[40px]"
                         />
-                    ) : null}
-                </div>
+                    </div>
+                ) : null}
 
-                {listEmoji?.map((emoji: any, idx: number) => (
-                    <EnumItem emoji={emoji} key={idx} />
-                ))}
+                {listEmoji?.length
+                    ? listEmoji?.map((emoji: any, idx: number) => (
+                          <EnumItem emoji={emoji} key={idx} />
+                      ))
+                    : null}
             </div>
             <div className="flex relative items-center">
                 <textarea

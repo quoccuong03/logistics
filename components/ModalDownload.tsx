@@ -69,7 +69,7 @@ const ModalDownload = () => {
         >
             <Box
                 sx={{
-                    minHeight: { xs: 330, sm: 510 },
+                    minHeight: { xs: 300, sm: 510 },
                     position: "relative",
                     ml: { xs: 2, sm: 10 },
                 }}
@@ -151,7 +151,7 @@ const ModalDownload = () => {
                         <Image
                             src={require("@images/logo-txt.svg")}
                             alt=""
-                            className="max-w-[68px] h-auto mt-10"
+                            className="max-w-[68px] h-auto mt-5 md:mt-10"
                         />
                     </Box>
                     <Image
