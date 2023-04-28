@@ -19,18 +19,22 @@ interface Props {
     };
 }
 
-const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
+const data = {
+    img: require("@images/download-app.png"),
+    url: "/download",
+    id: "banner-160323",
+    buttonText: "Đặt trước ngay",
+};
+
+const ModalDownload = () => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
     const { open, onClose: onCloseM } = useModal();
-    console.log("open", open);
-
     const router = useRouter();
     const handleClosePopup = (hidden?: boolean) => {
         if (hidden) {
             setHidePopup(1);
             router.push("/download");
         }
-        onClose();
         onCloseM();
     };
 
@@ -38,7 +42,7 @@ const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
         <Drawer
             anchor={"bottom"}
             container={() => document?.getElementById("layout")}
-            open={isOpen || open}
+            open={open}
             onClose={() => handleClosePopup()}
             sx={{
                 ".MuiPaper-root": {

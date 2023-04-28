@@ -1,5 +1,5 @@
 "use client";
-import { useStore } from "@/recoil/hooks";
+import { useModal, useStore } from "@/recoil/hooks";
 import React, { useEffect } from "react";
 import Carousel from "./Carousel";
 import {
@@ -15,7 +15,7 @@ type Props = {
 
 export default function DetailPageClient({ data }: Props) {
     const { onShowStore } = useStore();
-
+    const { onOpenModal } = useModal();
     useEffect(() => {
         onShowStore(data?.store);
     }, [data]);
@@ -32,7 +32,10 @@ export default function DetailPageClient({ data }: Props) {
                     <InfoOutlineIcon className="fill-[#888888] text-[22px] pl-1" />
                 </div>
                 <div className="flex items-center">
-                    <div className="flex flex-col justify-center items-center mr-4">
+                    <div
+                        className="flex flex-col justify-center items-center mr-4"
+                        onClick={onOpenModal}
+                    >
                         <HeartIcon className="text-[22px]" />
                         <span className="text-[11px]">{data.likedCnt}</span>
                     </div>

@@ -1,5 +1,4 @@
 "use client";
-
 import RecoilProvider from "@/app/providers/RecoilProvider";
 import { lightTheme } from "@/app/theme/themes";
 import { ThemeProvider, CssBaseline } from "@mui/material";
