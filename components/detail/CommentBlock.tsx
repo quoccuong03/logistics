@@ -53,7 +53,7 @@ export default function CommentBlock({ data }: Props) {
                     >
                         <div className="flex items-start">
                             <Image
-                                src={item.author.avatar}
+                                src={require(`@images/${item.author.avatar}`)}
                                 alt={item.author.name}
                                 width={30}
                                 height={30}

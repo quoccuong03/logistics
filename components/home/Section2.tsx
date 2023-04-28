@@ -5,7 +5,13 @@ import bg from "@images/bg-1.png";
 
 export default function Section2() {
     return (
-        <div className="bg-[#FFD2D2] relative min-h-[800px] md:min-h-[1268px]">
+        <div className="bg-[#FFD2D2] relative min-h-[800px] md:min-h-[1268px] overflow-hidden">
+            <div className="pulse" />
+            {/*  <div className="pulse_holder">
+    <div className="pulse_marker">
+        <div className="pulse_rays"></div>
+    </div>
+  </div> */}
             <Image
                 src={bg}
                 alt="bg"

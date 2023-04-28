@@ -43,23 +43,25 @@ export default function Section3() {
                 >
                     Xem lại
                 </Button>
-                <video
-                    // width="334"
-                    // height="723"
-                    autoPlay
-                    muted
-                    playsInline
-                    preload="none"
-                    ref={vidRef}
-                    onEnded={() => setIsShow(true)}
-                    className="max-w-full md:max-w-[334px]"
-                >
-                    <source
-                        src="https://static.showniq.ai/public/app/landingpage/home/HDSD.mp4"
-                        type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                </video>
+                <div className="inline-flex p-3 bg-[#ffffff] bg-opacity-50 rounded-lg">
+                    <video
+                        // width="334"
+                        // height="723"
+                        autoPlay
+                        muted
+                        playsInline
+                        preload="none"
+                        ref={vidRef}
+                        onEnded={() => setIsShow(true)}
+                        className="max-w-full md:max-w-[334px] rounded-lg"
+                    >
+                        <source
+                            src="https://static.showniq.ai/public/app/landingpage/home/HDSD.mp4"
+                            type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
             {isShow && (

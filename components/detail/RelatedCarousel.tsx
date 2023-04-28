@@ -61,7 +61,7 @@ export default function RelatedCarousel({ items, title, storeName }: Props) {
                                 quality={100}
                             />
                         </Link>
-                        <button onClick={onOpenModal}>
+                        <button onClick={onOpenModal} className="block">
                             <HeartIcon className="fill-white absolute bottom-3 right-3 z-10" />
                         </button>
                     </div>
