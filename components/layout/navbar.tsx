@@ -20,28 +20,36 @@ export default function Navbar() {
         <div className="flex flex-col sticky z-50 top-0 bg-white">
             <div className="flex justify-between items-center w-full px-5">
                 {pathname?.startsWith("/detail") ? (
-                    <IconButton className="pl-0" onClick={() => router.back()}>
-                        <ChevronRightIcon className="rotate-180 text-sm fill-black" />
-                    </IconButton>
+                    <>
+                        <IconButton
+                            className="pl-0"
+                            onClick={() => router.back()}
+                        >
+                            <ChevronRightIcon className="rotate-180 text-sm fill-black" />
+                        </IconButton>
+                        {currentStore ? (
+                            <div className="flex items-center">
+                                <Image
+                                    src={currentStore?.avatar?.medium?.url}
+                                    width={currentStore?.avatar?.medium?.width}
+                                    height={
+                                        currentStore?.avatar?.medium?.height
+                                    }
+                                    alt={currentStore?.name}
+                                    className="max-w-[20px] h-auto rounded-full"
+                                />
+                                <h3 className="text-sm font-normal uppercase ml-2">
+                                    {currentStore?.name}
+                                </h3>
+                            </div>
+                        ) : null}
+                    </>
                 ) : (
                     <Link href={"/"}>
                         <Image src={require("@images/logo.svg")} alt="Logo" />
                     </Link>
                 )}
-                {currentStore ? (
-                    <div className="flex items-center">
-                        <Image
-                            src={currentStore?.avatar?.medium?.url}
-                            width={currentStore?.avatar?.medium?.width}
-                            height={currentStore?.avatar?.medium?.height}
-                            alt={currentStore?.name}
-                            className="max-w-[20px] h-auto rounded-full"
-                        />
-                        <h3 className="text-sm font-normal uppercase ml-2">
-                            {currentStore?.name}
-                        </h3>
-                    </div>
-                ) : null}
+
                 <IconButton>
                     <BellIcon sx={{ fill: "#000" }} />
                 </IconButton>
