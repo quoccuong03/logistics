@@ -3,17 +3,19 @@ import Image from "next/image";
 import { LikeIcon } from "@/components/icons";
 import { Pagination } from "@mui/material";
 import Slider from "./Slider";
+import { useModal } from "@/recoil/hooks";
 type Props = {
     data: any[];
 };
 export default function CommentBlock({ data }: Props) {
+    const { onOpenModal } = useModal();
     return (
         <div className="pb-3 mt-5">
             <h3 className="text-xs font-medium mb-3">
                 <span className="text-[var(--pink)]">5</span> bài đánh giá
             </h3>
             <div className="flex justify-between bg-[#FAFAFA] py-3 rounded">
-                <div className="w-52 flex items-center flex-col border-r-2 border-gray-300 min-h-[100px] justify-center">
+                <div className="w-[50%] md:w-52 flex items-center flex-col border-r-2 border-gray-300 min-h-[100px] justify-center">
                     <Image
                         src={
                             "https://static.showniq.ai/public/app/general/emotion/emo-wm-5.png"
@@ -51,7 +53,7 @@ export default function CommentBlock({ data }: Props) {
                     >
                         <div className="flex items-start">
                             <Image
-                                src={item.author.avatar}
+                                src={require(`@images/${item.author.avatar}`)}
                                 alt={item.author.name}
                                 width={30}
                                 height={30}
@@ -70,18 +72,24 @@ export default function CommentBlock({ data }: Props) {
                         </div>
 
                         <div className="flex flex-col items-center justify-between">
-                            <Image
-                                src={item.emoji}
-                                alt={item.author.name}
-                                width={20}
-                                height={20}
-                            />
-                            <div className="flex items-center">
+                            <button onClick={onOpenModal}>
+                                <Image
+                                    src={item.emoji}
+                                    alt={item.author.name}
+                                    width={20}
+                                    height={20}
+                                />
+                            </button>
+
+                            <button
+                                className="flex items-center"
+                                onClick={onOpenModal}
+                            >
                                 <LikeIcon className="text-sm text-[#999999]" />
                                 <span className="inline-flex ml-1 text-sm text-[#999999]">
                                     {item.likeCnt}
                                 </span>
-                            </div>
+                            </button>
                         </div>
                     </li>
                 ))}
@@ -92,6 +100,7 @@ export default function CommentBlock({ data }: Props) {
                     count={5}
                     variant="outlined"
                     shape="rounded"
+                    onChange={onOpenModal}
                 />
             </div>
         </div>

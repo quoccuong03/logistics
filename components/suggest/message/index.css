@@ -7,8 +7,10 @@
 	right: 0px;
 	bottom: -6px;
 }
+
 @media (max-width: 768px) {
 	.message-content {
 		font-size: 11px !important;
+		padding-top: 10px !important;
 	}
 }

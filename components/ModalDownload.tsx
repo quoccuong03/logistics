@@ -1,12 +1,13 @@
 "use client";
-import { FC } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, Drawer, Stack, Typography } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { HIDE_POPUP } from "@config/constants";
-
+import { getInfoDonwload } from "@/hooks/useInfo";
 import { useRouter } from "next/navigation";
+import { useModal } from "@/recoil/hooks";
 interface Props {
     isOpen: boolean;
     onClose: () => void;
@@ -18,28 +19,38 @@ interface Props {
     };
 }
 
-const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
+const data = {
+    img: require("@images/download-app.png"),
+    url: "/download",
+    id: "banner-160323",
+    buttonText: "Đặt trước ngay",
+};
+
+const qrLink = "https://showniq.ai/share?refType=APP";
+const ModalDownload = () => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
+    const { open, onClose: onCloseM } = useModal();
     const router = useRouter();
+
     const handleClosePopup = (hidden?: boolean) => {
         if (hidden) {
             setHidePopup(1);
             router.push("/download");
         }
-        onClose();
+        onCloseM();
     };
 
     return (
         <Drawer
             anchor={"bottom"}
             container={() => document?.getElementById("layout")}
-            open={isOpen}
+            open={open}
             onClose={() => handleClosePopup()}
             sx={{
                 ".MuiPaper-root": {
                     backgroundColor: "#FBF5E8 !important",
                     boxShadow: "none !important",
-                    maxWidth: 650,
+                    maxWidth: { xs: 1, sm: 650 },
                     mx: "auto",
                     borderRadius: "20px 20px 0 0",
                 },
@@ -48,9 +59,9 @@ const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
         >
             <Box
                 sx={{
-                    minHeight: 510,
+                    minHeight: { xs: 330, sm: 510 },
                     position: "relative",
-                    ml: 10,
+                    ml: { xs: 2, sm: 10 },
                 }}
                 id={data.id}
             >
@@ -68,8 +79,8 @@ const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
                 <Box
                     sx={{
                         bgcolor: "#FFA1A1",
-                        width: 160,
-                        height: 82,
+                        width: { xs: 120, sm: 160 },
+                        height: { xs: 60, sm: 82 },
                         borderRadius: "0 0 11px 11px",
                         position: "relative",
                         zIndex: 9999,
@@ -80,8 +91,8 @@ const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
                     }}
                 >
                     <Typography
-                        fontSize={23}
-                        lineHeight={"25px"}
+                        fontSize={{ xs: 17, sm: 23 }}
+                        lineHeight={{ xs: "20px", sm: "25px" }}
                         fontWeight={300}
                     >
                         <strong className="font-bold uppercase">
@@ -102,42 +113,44 @@ const ModalDownload: FC<Props> = ({ isOpen, onClose, data }) => {
                         <Image
                             src={require("@images/txt-g.svg")}
                             alt=""
-                            className="max-w-[230px] h-auto mt-12 mb-5"
+                            className="max-w-[100px] md:max-w-[230px] h-auto mt-6 md:mt-12 mb-2 md:mb-5"
                         />
-                        <Button
-                            variant="contained"
-                            onClick={() => handleClosePopup(true)}
-                            sx={{
-                                bgcolor: "#FFA1A1 !important",
-                                fontSize: 10,
-                                lineHeight: "12px",
-                                fontWeight: 600,
-                                textTransform: "uppercase",
-                                boxShadow: "none",
-                                borderRadius: "28px",
-                                my: 1.25,
-                                color: "#000",
-                            }}
-                            endIcon={<ArrowRightLongIcon />}
-                        >
-                            Tải app ngay
-                        </Button>
+                        <a href={qrLink}>
+                            <Button
+                                variant="contained"
+                                // onClick={() => handleClosePopup(true)}
+                                sx={{
+                                    bgcolor: "#FFA1A1 !important",
+                                    fontSize: 10,
+                                    lineHeight: "12px",
+                                    fontWeight: 600,
+                                    textTransform: "uppercase",
+                                    boxShadow: "none",
+                                    borderRadius: "28px",
+                                    my: 1.25,
+                                    color: "#000",
+                                }}
+                                endIcon={<ArrowRightLongIcon />}
+                            >
+                                Tải app ngay
+                            </Button>
+                        </a>
                         <Image
                             src={require("@images/txt-g2.svg")}
                             alt=""
-                            className="max-w-[185px] h-auto"
+                            className="max-w-[145px] md:max-w-[185px] h-auto"
                         />
                         <Image
                             src={require("@images/logo-txt.svg")}
                             alt=""
-                            className="max-w-[68px] h-auto mt-10"
+                            className="max-w-[68px] h-auto mt-5 md:mt-10"
                         />
                     </Box>
                     <Image
                         id={data.id}
                         alt="Bottom arrow"
                         src={data.img}
-                        className="max-w-[275px] mr-5 mt-[-60px]"
+                        className="max-w-[180px] md:max-w-[275px] mr-5 mt-[-45px] md:mt-[-60px]"
                         // fill
                         // style={{
                         //     objectPosition: "bottom",

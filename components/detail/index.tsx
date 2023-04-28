@@ -1,5 +1,5 @@
 "use client";
-import { useStore } from "@/recoil/hooks";
+import { useModal, useStore } from "@/recoil/hooks";
 import React, { useEffect } from "react";
 import Carousel from "./Carousel";
 import {
@@ -15,7 +15,7 @@ type Props = {
 
 export default function DetailPageClient({ data }: Props) {
     const { onShowStore } = useStore();
-
+    const { onOpenModal } = useModal();
     useEffect(() => {
         onShowStore(data?.store);
     }, [data]);
@@ -23,29 +23,35 @@ export default function DetailPageClient({ data }: Props) {
     return (
         <div>
             <Carousel images={data?.image || []} />
-            <div className="flex items-start justify-between mt-3">
-                <div className="flex items-center">
+            <div className="flex items-start justify-between mt-2 md:mt-3">
+                <button className="flex items-center" onClick={onOpenModal}>
                     <LockIcon className="fill-none stroke-black text-[20px]" />{" "}
                     <span className="text-[11px]">
                         {data.store.accountType.title.vi}
                     </span>{" "}
-                    <InfoOutlineIcon className="fill-[#888888] text-[22px] pl-1" />
-                </div>
+                    <InfoOutlineIcon className="fill-[#888888] text-[20px] pl-2" />
+                </button>
                 <div className="flex items-center">
-                    <div className="flex flex-col justify-center items-center mr-4">
+                    <button
+                        className="flex flex-col justify-center items-center mr-4"
+                        onClick={onOpenModal}
+                    >
                         <HeartIcon className="text-[22px]" />
                         <span className="text-[11px]">{data.likedCnt}</span>
-                    </div>
-                    <div className="flex flex-col justify-center items-center">
+                    </button>
+                    <button
+                        className="flex flex-col justify-center items-center"
+                        onClick={onOpenModal}
+                    >
                         <UploadIcon className="fill-none stroke-black text-[22px]" />
                         <span className="text-[11px]">{data.sharedCnt}</span>
-                    </div>
+                    </button>
                 </div>
             </div>
             <div
-                className="my-10 "
+                className="my-5 md:my-10 text-xs md:text-sm"
                 dangerouslySetInnerHTML={{
-                    __html: data?.description.replace(/\n/g, "<br />"),
+                    __html: data?.description?.replace(/\n/g, "<br />"),
                 }}
             />
         </div>

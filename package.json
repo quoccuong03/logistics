@@ -1,41 +1,41 @@
 {
-    "name": "showniq-web",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev -p 3005",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@emotion/react": "^11.10.6",
-        "@emotion/styled": "^11.10.6",
-        "@mui/lab": "^5.0.0-alpha.128",
-        "@mui/material": "^5.12.1",
-        "@tanstack/react-query": "^4.29.5",
-        "autoprefixer": "10.4.14",
-        "axios": "^1.3.6",
-        "eslint": "8.39.0",
-        "eslint-config-next": "13.3.1",
-        "keen-slider": "^6.8.5",
-        "lodash": "^4.17.21",
-        "next": "13.3.1",
-        "postcss": "8.4.23",
-        "qrcode.react": "^3.1.0",
-        "query-string": "^8.1.0",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "recoil": "^0.7.7",
-        "tailwindcss": "3.3.1"
-    },
-    "devDependencies": {
-        "@tanstack/react-query-devtools": "^4.29.5",
-        "@types/lodash": "^4.14.194",
-        "@types/node": "18.16.0",
-        "@types/react": "18.0.38",
-        "@types/react-dom": "18.0.11",
-        "sass": "^1.62.1",
-        "typescript": "5.0.4"
-    }
+	"name": "showniq-web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev -p 3005",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@mui/lab": "^5.0.0-alpha.128",
+		"@mui/material": "^5.12.1",
+		"@tanstack/react-query": "^4.29.5",
+		"autoprefixer": "10.4.14",
+		"axios": "^1.3.6",
+		"eslint": "8.39.0",
+		"eslint-config-next": "13.3.1",
+		"keen-slider": "^6.8.5",
+		"lodash": "^4.17.21",
+		"next": "13.3.1",
+		"postcss": "8.4.23",
+		"qrcode.react": "^3.1.0",
+		"query-string": "^8.1.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"recoil": "^0.7.7",
+		"tailwindcss": "3.3.1"
+	},
+	"devDependencies": {
+		"@tanstack/react-query-devtools": "^4.29.5",
+		"@types/lodash": "^4.14.194",
+		"@types/node": "18.16.0",
+		"@types/react": "18.0.38",
+		"@types/react-dom": "18.0.11",
+		"sass": "^1.62.1",
+		"typescript": "5.0.4"
+	}
 }

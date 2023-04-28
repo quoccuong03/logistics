@@ -2,6 +2,8 @@
 import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
+import { ExclamationIcon } from "@components/icons";
+import { useModal } from "@/recoil/hooks";
 type Props = {
 	data: Array<Item>;
 };
@@ -30,7 +32,7 @@ type Images = [
 ];
 export default function Items(props: Props): JSX.Element {
 	const { data } = props;
-
+	const { onOpenModal } = useModal();
 	function renderItem(_index: number, _el: Item) {
 		return (
 			<Link
@@ -57,7 +59,15 @@ export default function Items(props: Props): JSX.Element {
 	}
 	return (
 		<>
-			<div className="font-bold mt-[25px] text-[12px]">PHONG CÁCH ĐỀ XUẤT </div>
+			<div className="font-bold mt-[25px] text-[12px] flex">
+				PHONG CÁCH ĐỀ XUẤT
+				<div
+					onClick={onOpenModal}
+					className="ml-auto font-medium text-[#999999] text-[11px] flex items-center cursor-pointer"
+				>
+					Sponsored <ExclamationIcon className="ml-[2px] w-[12px] h-[12px]" />
+				</div>
+			</div>
 			<div className="flex flex-wrap gap-y-[3px]  mb-[3px] columns-2 mt-[12px]">
 				{data?.map((el: Item, index) => renderItem(index, el))}
 			</div>

@@ -1,7 +1,4 @@
-import { getEnums } from "@/lib/get-enum";
-import { getListSimilar } from "@/lib/get-similar";
 import React from "react";
-import EnumBlock from "./EnumBlock";
 import CommentBlock from "./CommentBlock";
 type Props = {
     id: string;
@@ -14,7 +11,7 @@ const data = [
     {
         author: {
             name: "Thiên ân",
-            avatar: require("@images/c1.png"),
+            avatar: "c1.png",
         },
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
@@ -24,7 +21,7 @@ const data = [
     {
         author: {
             name: "Bảo anh",
-            avatar: require("@images/c2.png"),
+            avatar: "c2.png",
         },
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
@@ -34,7 +31,7 @@ const data = [
     {
         author: {
             name: "Lê Tùng",
-            avatar: require("@images/c3.png"),
+            avatar: "c3.png",
         },
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
@@ -44,7 +41,7 @@ const data = [
     {
         author: {
             name: "Dương nguyễn",
-            avatar: require("@images/c4.png"),
+            avatar: "c4.png",
         },
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
@@ -54,7 +51,7 @@ const data = [
     {
         author: {
             name: "Quốc bảo",
-            avatar: require("@images/c1.png"),
+            avatar: "c1.png",
         },
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",

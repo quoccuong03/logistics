@@ -1,8 +1,8 @@
 import CreateQrCode from "@/components/download/qrcode";
-import { headers } from "next/headers";
-export default function DownloadPage() {
-    const headersList = headers();
-    console.log("headersList", headersList);
+import { getInfoDonwload } from "@/hooks/useInfo";
 
-    return <CreateQrCode />;
+export default async function DownloadPage() {
+	const dataInfo = await getInfoDonwload();
+
+	return <CreateQrCode data={dataInfo} />;
 }
