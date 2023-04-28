@@ -7,7 +7,7 @@ import { IconButton, Stack } from "@mui/material";
 import { ChevronRightIcon, HeartIcon } from "../icons";
 import { getImageUrl, getImages } from "@/utils";
 import Link from "next/link";
-import { useStore } from "@/recoil/hooks";
+import { useModal, useStore } from "@/recoil/hooks";
 const items = [
     {
         title: "Geesoo",
@@ -29,6 +29,7 @@ type Props = {
 
 export default function RelatedCarousel({ items, title, storeName }: Props) {
     const { currentStore } = useStore();
+    const { onOpenModal } = useModal();
     const [sliderRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
         loop: true,
@@ -60,7 +61,9 @@ export default function RelatedCarousel({ items, title, storeName }: Props) {
                                 quality={100}
                             />
                         </Link>
-                        <HeartIcon className="fill-white absolute bottom-3 right-3 z-10" />
+                        <button onClick={onOpenModal}>
+                            <HeartIcon className="fill-white absolute bottom-3 right-3 z-10" />
+                        </button>
                     </div>
                 ))}
             </div>

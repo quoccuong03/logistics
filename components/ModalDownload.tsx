@@ -69,7 +69,7 @@ const ModalDownload = () => {
         >
             <Box
                 sx={{
-                    minHeight: { xs: 300, sm: 510 },
+                    minHeight: { xs: 330, sm: 510 },
                     position: "relative",
                     ml: { xs: 2, sm: 10 },
                 }}
@@ -158,7 +158,7 @@ const ModalDownload = () => {
                         id={data.id}
                         alt="Bottom arrow"
                         src={data.img}
-                        className="max-w-[180px] md:max-w-[275px] mr-5 mt-[-60px]"
+                        className="max-w-[180px] md:max-w-[275px] mr-5 mt-[-45px] md:mt-[-60px]"
                         // fill
                         // style={{
                         //     objectPosition: "bottom",
