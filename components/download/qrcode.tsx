@@ -1,18 +1,17 @@
 "use client";
 import React from "react";
 import { QRCodeSVG } from "qrcode.react";
-import Logo from "@public/images/logoShowniq.svg";
 import Image from "next/image";
-import Link from "next/link";
 
 type Props = {
 	data: {
+		title?: string;
 		logo: string;
-		description: string;
+		description?: string;
 		qr_link: string;
-		redirect: {
-			title: string;
-			url: string;
+		redirect?: {
+			title?: string;
+			url?: string;
 		};
 	};
 };
@@ -31,13 +30,13 @@ export default function CreateQrCode(props: Props) {
 					}}
 				/>
 			</div>
-			<div className="text-[16px] font-bold mb-[60px]">Showniq - AI Stylist Của Bạn</div>
+			<div className="text-[16px] font-bold mb-[60px]">{data?.title}</div>
 			<div className="flex flex-col p-2 border mb-[5px] rounded justify-center  text-center">
 				<QRCodeSVG value={data.qr_link} style={{ margin: "auto" }} />
 			</div>
 			<div className="text-[14px] font-light mb-[60px]">{data.description}</div>
-			<a className="text-[14px] font-light underline" href={data.redirect.url}>
-				{data.redirect.title}
+			<a className="text-[14px] font-light underline" href={data?.redirect?.url}>
+				{data?.redirect?.title}
 			</a>
 		</div>
 	);
