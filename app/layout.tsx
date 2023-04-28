@@ -7,11 +7,26 @@ import Footer from "@/components/layout/footer";
 export const metadata = {
     title: {
         template: "%s | Showniq",
-        default: "Home",
+        default: "SHOWNIQ - AI Stylist Của Bạn",
     },
-    description: "App Showniq",
+    description: "Có SHOWNIQ - Thời trang thật dễ dàng",
     icons: {
         icon: "/favicon.png",
+    },
+    openGraph: {
+        title: "SHOWNIQ - AI Stylist Của Bạn",
+        description: "Có SHOWNIQ - Thời trang thật dễ dàng",
+        url: "https://showniq.ai/",
+        siteName: "SHOWNIQ",
+        images: [
+            {
+                url: "https://showniq.ai/og-image.png",
+                width: 800,
+                height: 600,
+            },
+        ],
+        locale: "vi-VN",
+        type: "website",
     },
 };
 
