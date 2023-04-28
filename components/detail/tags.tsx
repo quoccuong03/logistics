@@ -12,7 +12,7 @@ export default function Tags({ data }: Props) {
             <div className="flex whitespace-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
                 {data.map((item: any, idx: number) => (
                     <div
-                        className="flex items-center bg-[#FAFAFA] mr-2 w-[102px] shrink-0 px-4 py-2 rounded-sm"
+                        className="flex items-center bg-[#FAFAFA] mr-2 flex1 shrink-0 px-4 py-2 rounded-sm"
                         key={idx}
                     >
                         {item?.image && (

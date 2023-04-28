@@ -60,8 +60,9 @@ export default function Section3() {
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div className="mt-[72px]">
-                {isShow && (
+
+            {isShow && (
+                <div className="mt-[72px] sticky bottom-20 lef-[26px] right-[26px]">
                     <Button
                         endIcon={<ArrowRightIcon />}
                         className="bg-[#FF8CA8] text-base font-bold text-black flex justify-end min-h-[48px]"
@@ -78,8 +79,8 @@ export default function Section3() {
                     >
                         <span className="mx-auto">Đến đề xuất ngay</span>
                     </Button>
-                )}
-            </div>
+                </div>
+            )}
         </div>
     );
 }

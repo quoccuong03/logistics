@@ -24,7 +24,7 @@ export default function Footer() {
         return <></>;
     }
     return (
-        <footer className="sticky bottom-5 px-[26px] bg-[#FDF5E7]">
+        <footer className="sticky bottom-5 px-[26px] ">
             <Button
                 endIcon={<DownloadIcon />}
                 className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px]"
