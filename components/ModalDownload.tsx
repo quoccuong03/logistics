@@ -1,11 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
 import { Box, Button, Drawer, Stack, Typography } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { HIDE_POPUP } from "@config/constants";
-import { getInfoDonwload } from "@/hooks/useInfo";
+
 import { useRouter } from "next/navigation";
 import { useModal } from "@/recoil/hooks";
 interface Props {
@@ -26,10 +25,9 @@ const data = {
 	buttonText: "Đặt trước ngay",
 };
 
-const qrLink = "https://showniq.ai/share?refType=APP";
 const ModalDownload = () => {
 	const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
-	const { open, onClose: onCloseM } = useModal();
+	const { open, onClose: onCloseM, linkQr } = useModal();
 	const router = useRouter();
 
 	const handleClosePopup = (hidden?: boolean) => {
@@ -113,7 +111,7 @@ const ModalDownload = () => {
 							alt=""
 							className="max-w-[100px] md:max-w-[230px] h-auto mt-6 md:mt-12 mb-2 md:mb-5"
 						/>
-						<a href={qrLink}>
+						<a href={linkQr}>
 							<Button
 								variant="contained"
 								// onClick={() => handleClosePopup(true)}
