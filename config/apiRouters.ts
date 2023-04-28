@@ -1,7 +1,8 @@
 export const apiRoutes = {
-    getRecomendation: "style/getRecomendation",
-    getStyleCatalog: "styleCatalog/getList",
-    getStyleDetail: "style/getDetail",
-    getStyleSimilar: "style/getSimilar",
-    getStyleEnum: "common/getEnum",
+	getRecomendation: "style/getRecomendation",
+	getStyleCatalog: "styleCatalog/getList",
+	getStyleDetail: "style/getDetail",
+	getStyleSimilar: "style/getSimilar",
+	getStyleEnum: "common/getEnum",
+	getInfo: "public/app/landingpage/faq/data.json",
 };
