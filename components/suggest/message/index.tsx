@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { TailIcon } from "@components/icons";
 import "./index.css";
+import AnimatedText from "./animationText";
 type data = {
 	minToday: string;
 	totalCount: number;
@@ -26,9 +27,10 @@ export default function Message(props: data) {
 			<div className="bg-[#FFDCDC] py-[7px] px-[20.33px] rounded-[9.64848px] relative w-[100%] mb-[3px] text-[12.0606px] message-content">
 				<TailIcon className="absolute h-[18.71px] w-[24.05px] object-fill bottom-[-3px] right-[-6px]" />
 				<div>{formatDate(minToday)}</div>
-				<div>
+
+				<AnimatedText>
 					<strong>{totalCount}</strong> kiểu được Jeesoo đề xuất cho bạn
-				</div>
+				</AnimatedText>
 			</div>
 			<div className="h-[53px] w-[53px] ml-[12px] relative">
 				<Image

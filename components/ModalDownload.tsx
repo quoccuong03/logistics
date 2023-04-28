@@ -26,11 +26,12 @@ const data = {
     buttonText: "Đặt trước ngay",
 };
 
+const qrLink = "https://showniq.ai/share?refType=APP";
 const ModalDownload = () => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
     const { open, onClose: onCloseM } = useModal();
     const router = useRouter();
-    const [qrLink, setQrLink] = useState("");
+
     const handleClosePopup = (hidden?: boolean) => {
         if (hidden) {
             setHidePopup(1);
@@ -38,17 +39,6 @@ const ModalDownload = () => {
         }
         onCloseM();
     };
-
-    useEffect(() => {
-        const genInfo = async () => {
-            const data = await getInfoDonwload();
-            if (data?.qr_link) {
-                setQrLink(data.qr_link);
-            }
-        };
-
-        genInfo();
-    }, []);
 
     return (
         <Drawer
@@ -125,24 +115,26 @@ const ModalDownload = () => {
                             alt=""
                             className="max-w-[100px] md:max-w-[230px] h-auto mt-6 md:mt-12 mb-2 md:mb-5"
                         />
-                        <Button
-                            variant="contained"
-                            onClick={() => handleClosePopup(true)}
-                            sx={{
-                                bgcolor: "#FFA1A1 !important",
-                                fontSize: 10,
-                                lineHeight: "12px",
-                                fontWeight: 600,
-                                textTransform: "uppercase",
-                                boxShadow: "none",
-                                borderRadius: "28px",
-                                my: 1.25,
-                                color: "#000",
-                            }}
-                            endIcon={<ArrowRightLongIcon />}
-                        >
-                            Tải app ngay
-                        </Button>
+                        <a href={qrLink}>
+                            <Button
+                                variant="contained"
+                                // onClick={() => handleClosePopup(true)}
+                                sx={{
+                                    bgcolor: "#FFA1A1 !important",
+                                    fontSize: 10,
+                                    lineHeight: "12px",
+                                    fontWeight: 600,
+                                    textTransform: "uppercase",
+                                    boxShadow: "none",
+                                    borderRadius: "28px",
+                                    my: 1.25,
+                                    color: "#000",
+                                }}
+                                endIcon={<ArrowRightLongIcon />}
+                            >
+                                Tải app ngay
+                            </Button>
+                        </a>
                         <Image
                             src={require("@images/txt-g2.svg")}
                             alt=""
