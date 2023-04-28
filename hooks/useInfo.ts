@@ -8,8 +8,8 @@ export const getInfo = async (query?: any): Promise<any> => {
 	});
 };
 
-export const getInfoDonwload = async (query?: any): Promise<any> => {
-	return await axiosClient.get(`${apiRoutes.getInfoDonwload}?${queryString.stringify(query)}`, {
+export const getInfoDonwload = async (): Promise<any> => {
+	return await axiosClient.get(`${apiRoutes.getInfoDonwload}`, {
 		...baseAuthUrl,
 	});
 };

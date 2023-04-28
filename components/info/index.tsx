@@ -48,9 +48,12 @@ export default function Info(props: Props): JSX.Element {
 							nodeId={`${index}-child`}
 							label={
 								<>
-									<div className=" mt-[21px]  info-item-child">
-										{item.content}
-									</div>
+									<div
+										dangerouslySetInnerHTML={{
+											__html: item.content.replace(/\n/g, "<br/>"),
+										}}
+										className=" mt-[21px]  info-item-child"
+									></div>
 									<div className="items-center  flex justify-center">
 										<div className="h-[264px] w-[197px] relative mt-[20px] mb-[20px]">
 											<Image
