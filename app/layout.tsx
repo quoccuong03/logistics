@@ -20,7 +20,7 @@ export const metadata = {
         siteName: "SHOWNIQ",
         images: [
             {
-                url: "https://showniq.ai/og-image.png",
+                url: "https://showniq.ai/images/og-image.png",
                 width: 800,
                 height: 600,
             },
