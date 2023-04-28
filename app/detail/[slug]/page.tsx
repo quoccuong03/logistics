@@ -35,10 +35,10 @@ export default async function DetailPage({
                 <RelatedStyle id={params?.slug} />
             </Suspense>
             <div className="flex items-center mb-5">
-                <button className="flex items-center justify-center py-3 px-20 bg-[#F2F2F2] rounded">
+                <button className="flex items-center justify-center py-3 px-5 md:px-20 bg-[#F2F2F2] rounded">
                     <FolderHeartIcon className="mr-1" /> <span>2.1K </span>
                 </button>
-                <button className="flex items-center justify-center py-3 px-20 bg-[#FFA1A1] rounded ml-2 flex-1 flex-shrink-0">
+                <button className="flex items-center justify-center py-3 px-5 md:px-20 bg-[#FFA1A1] rounded ml-2 flex-1 flex-shrink-0">
                     <TalkIcon className="mr-1 fill-white" />{" "}
                     <span className=" text-white">Chat với shop </span>
                 </button>
