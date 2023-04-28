@@ -31,7 +31,7 @@ export default function CreateQrCode(props: Props) {
 				/>
 			</div>
 			<div className="text-[16px] font-bold mb-[60px]">{data?.title}</div>
-			<div className="flex flex-col p-2 border mb-[5px] rounded justify-center  text-center">
+			<div className="flex flex-col p-2 border mb-[10px] rounded justify-center  text-center">
 				<QRCodeSVG value={data.qr_link} style={{ margin: "auto" }} />
 			</div>
 			<div className="text-[14px] font-light mb-[60px]">{data.description}</div>
