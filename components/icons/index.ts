@@ -16,3 +16,5 @@ export { default as LikeIcon } from "./LikeIcon";
 export { default as ArrowRightLongIcon } from "./ArrowRightLongIcon";
 export { default as CloseIcon } from "./CloseIcon";
 export { default as LoadingIcon } from "./LoadingIcon";
+export { default as ExpanIcon } from "./ExpanIcon";
+export { default as CollapseIcon } from "./CollapseIcon";
