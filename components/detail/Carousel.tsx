@@ -1,23 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
-import { IconButton, Stack } from "@mui/material";
-import { ChevronRightIcon } from "../icons";
-import { getImageUrl, getImages } from "@/utils";
-const items = [
-    {
-        title: "Geesoo",
-        img: "https://static.showniq.ai/public/app/general/ai_stylist/women/jeesoo_1_vi.gif",
-        video: "https://static.showniq.ai/public/app/general/ai_stylist/women/jeesoo_1_vi.mp4",
-    },
-    {
-        title: "Geesoo",
-        img: "https://static.showniq.ai/public/app/general/ai_stylist/men/geesoo_1_vi.gif",
-        video: "https://static.showniq.ai/public/app/general/ai_stylist/men/geesoo_1_vi.mp4",
-    },
-];
+import { getImages } from "@/utils";
 
 type Props = {
     images: any[];
@@ -38,8 +24,11 @@ export default function Carousel({ images }: Props) {
                             alt={"Image"}
                             width={item.width}
                             height={item.height}
+                            quality={100}
                             src={item.url}
                             className="mx-auto max-w-auto h-auto"
+                            blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                            placeholder="blur"
                         />
                     </div>
                 ))}
