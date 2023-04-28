@@ -24,10 +24,10 @@ export default function Footer() {
         return <></>;
     }
     return (
-        <footer className="sticky bottom-5 px-[26px] ">
+        <footer className="fixed left-0 right-0 bottom-5 px-[20px] md:px-[26px] z-50">
             <Button
                 endIcon={<DownloadIcon />}
-                className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px]"
+                className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px] md:max-w-[594px] mx-auto"
                 variant="contained"
                 fullWidth
                 href="/download"
@@ -42,11 +42,7 @@ export default function Footer() {
             >
                 <span className="mx-auto">Xem hơn 40,000 phong cách</span>
             </Button>
-            <ModalDownload
-            // isOpen={downloadApp.isOpen}
-            // data={downloadApp}
-            // onClose={handlerClose}
-            />
+            <ModalDownload />
         </footer>
     );
 }

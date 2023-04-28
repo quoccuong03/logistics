@@ -29,6 +29,7 @@ export default function EnumItem({ emoji }: Props) {
                         emoji?.optional?.image?.women?.inactive
                     )
                 }
+                className="max-w-4 max-h-4 md:max-w-5 md:max-h-5"
             />
             <span className="text-[9px] inline-flex mt-2">
                 {emoji?.title?.vi}

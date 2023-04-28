@@ -16,7 +16,7 @@ export default function Carousel({ images }: Props) {
         loop: true,
     });
     return (
-        <div className="relative min-h-[750px]">
+        <div className="relative ">
             <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
                     <div className="keen-slider__slide text-center" key={idx}>

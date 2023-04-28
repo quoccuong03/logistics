@@ -31,7 +31,7 @@ export default function Carousel() {
         },
     });
     return (
-        <div className="relative min-h-[1209px] bg-[#FAF5E6]">
+        <div className="relative min-h-[700px] md:min-h-[1209px] bg-[#FAF5E6]">
             <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
                     <div className="keen-slider__slide text-center" key={idx}>
@@ -43,7 +43,7 @@ export default function Carousel() {
                             playsInline
                             preload="none"
                             loop
-                            className="mx-auto max-w-lg mt-4"
+                            className="mx-auto max-w-xs md:max-w-lg mt-4"
                         >
                             <source src={item.video} type="video/mp4" />
                             Your browser does not support the video tag.

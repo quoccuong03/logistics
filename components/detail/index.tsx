@@ -49,7 +49,7 @@ export default function DetailPageClient({ data }: Props) {
                 </div>
             </div>
             <div
-                className="my-10 "
+                className="my-10 sm:tex-xs"
                 dangerouslySetInnerHTML={{
                     __html: data?.description.replace(/\n/g, "<br />"),
                 }}
