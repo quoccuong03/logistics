@@ -24,25 +24,28 @@ export default function DetailPageClient({ data }: Props) {
         <div>
             <Carousel images={data?.image || []} />
             <div className="flex items-start justify-between mt-3">
-                <div className="flex items-center">
+                <button className="flex items-center" onClick={onOpenModal}>
                     <LockIcon className="fill-none stroke-black text-[20px]" />{" "}
                     <span className="text-[11px]">
                         {data.store.accountType.title.vi}
                     </span>{" "}
-                    <InfoOutlineIcon className="fill-[#888888] text-[22px] pl-1" />
-                </div>
+                    <InfoOutlineIcon className="fill-[#888888] text-[20px] pl-2" />
+                </button>
                 <div className="flex items-center">
-                    <div
+                    <button
                         className="flex flex-col justify-center items-center mr-4"
                         onClick={onOpenModal}
                     >
                         <HeartIcon className="text-[22px]" />
                         <span className="text-[11px]">{data.likedCnt}</span>
-                    </div>
-                    <div className="flex flex-col justify-center items-center">
+                    </button>
+                    <button
+                        className="flex flex-col justify-center items-center"
+                        onClick={onOpenModal}
+                    >
                         <UploadIcon className="fill-none stroke-black text-[22px]" />
                         <span className="text-[11px]">{data.sharedCnt}</span>
-                    </div>
+                    </button>
                 </div>
             </div>
             <div

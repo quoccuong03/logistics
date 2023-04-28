@@ -6,6 +6,7 @@ import Image from "next/image";
 import { IconButton, Stack } from "@mui/material";
 import { ChevronRightIcon } from "../icons";
 import { getImageUrl, getImages } from "@/utils";
+import Link from "next/link";
 const items = [
     {
         title: "Geesoo",
@@ -40,13 +41,18 @@ export default function RelatedCarousel({ items, title }: Props) {
             <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
                     <div className="keen-slider__slide text-center" key={idx}>
-                        <Image
-                            alt={"Image"}
-                            width={item.image.thumb.width}
-                            height={item.image.thumb.height}
-                            src={item.image.thumb.url}
-                            className="mx-auto max-w-auto h-auto"
-                        />
+                        <Link href={`/detail/${item._id}`} className="block">
+                            <Image
+                                alt={"Image"}
+                                width={item.image.thumb.width}
+                                height={item.image.thumb.height}
+                                src={item.image.thumb.url}
+                                className="mx-auto max-w-auto h-auto"
+                                blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                                placeholder="blur"
+                                quality={100}
+                            />
+                        </Link>
                     </div>
                 ))}
             </div>

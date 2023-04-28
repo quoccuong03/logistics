@@ -35,9 +35,9 @@ export default function Navbar() {
                             width={currentStore?.avatar?.medium?.width}
                             height={currentStore?.avatar?.medium?.height}
                             alt={currentStore?.name}
-                            className="max-w-[20px] h-auto"
+                            className="max-w-[20px] h-auto rounded-full"
                         />
-                        <h3 className="text-sm font-normal uppercase">
+                        <h3 className="text-sm font-normal uppercase ml-2">
                             {currentStore?.name}
                         </h3>
                     </div>
