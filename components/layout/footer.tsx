@@ -24,13 +24,14 @@ export default function Footer() {
         return <></>;
     }
     return (
-        <footer className="fixed left-0 right-0 bottom-5 px-[20px] md:px-[26px] z-50">
+        <footer className="fixed left-0 right-0 bottom-5 px-[20px] md:px-[26px] z-[999]">
             <Button
                 endIcon={<DownloadIcon />}
                 className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px] md:max-w-[594px] mx-auto"
                 variant="contained"
                 fullWidth
-                href="/download"
+                // href="/download"
+                onClick={onOpenModal}
                 sx={{
                     textTransform: "initial !important",
                     background:

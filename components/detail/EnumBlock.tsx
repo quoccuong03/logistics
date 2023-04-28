@@ -22,13 +22,13 @@ export default function EnumBlock({ data }: Props) {
                     <span className="text-[12px] font-bold inline-flex ml-2 text-black">
                         Là bạn, bạn có muốn thử outfits này không?
                     </span>
-                    <span className="text-[12px] font-light block ml-2 text-[#999999]">
+                    <span className="text-[11px] md:text-[12px] font-light block ml-2 text-[#999999]">
                         Suy nghĩ của bạn sẽ giúp AI đề xuất phù hợp hơn đấy!
                     </span>
                 </div>
             </div>
             <div className="flex items-center mb-5">
-                <div>
+                <div className="mr-1 md:mr-2">
                     {currentStore ? (
                         <Image
                             src={require("@images/avatar.png")}

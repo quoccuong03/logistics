@@ -21,7 +21,7 @@ export default async function DetailPage({
     );
 
     return (
-        <div className="px-[20px] md:px-[26px] mb-5">
+        <div className="px-[20px] md:px-[26px] pb-12">
             <DetailPageClient data={data} />
             <Suspense>
                 {/* @ts-expect-error Server Component */}
