@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { IconButton, Stack } from "@mui/material";
-import { ChevronRightIcon } from "../icons";
+import { ChevronRightIcon, HeartIcon } from "../icons";
 import { getImageUrl, getImages } from "@/utils";
 import Link from "next/link";
 import { useStore } from "@/recoil/hooks";
@@ -44,7 +44,10 @@ export default function RelatedCarousel({ items, title, storeName }: Props) {
             }`}</h3>
             <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
-                    <div className="keen-slider__slide text-center" key={idx}>
+                    <div
+                        className="keen-slider__slide text-center relative"
+                        key={idx}
+                    >
                         <Link href={`/detail/${item._id}`} className="block">
                             <Image
                                 alt={"Image"}
@@ -57,6 +60,7 @@ export default function RelatedCarousel({ items, title, storeName }: Props) {
                                 quality={100}
                             />
                         </Link>
+                        <HeartIcon className="fill-white absolute bottom-3 right-3 z-10" />
                     </div>
                 ))}
             </div>
