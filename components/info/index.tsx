@@ -52,7 +52,7 @@ export default function Info(props: Props): JSX.Element {
 										dangerouslySetInnerHTML={{
 											__html: item.content.replace(/\n/g, "<br/>"),
 										}}
-										className=" mt-[21px]  info-item-child"
+										className=" mt-[21px]  font-medium info-item-child"
 									></div>
 									<div className="items-center  flex justify-center">
 										<div className="h-[264px] w-[197px] relative mt-[20px] mb-[20px]">

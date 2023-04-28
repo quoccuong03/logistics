@@ -17,6 +17,7 @@ type Props = {
 };
 export default function CreateQrCode(props: Props) {
 	const { data } = props;
+
 	return (
 		<div className="mx-auto mt-20 flex items-center  flex-col justify-center">
 			<div className="relative h-[96px] w-[87px] mb-[10px]">

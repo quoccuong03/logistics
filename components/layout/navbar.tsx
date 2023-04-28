@@ -19,7 +19,7 @@ export default function Navbar() {
 	const { currentStore } = useStore();
 	return (
 		<div className="flex flex-col sticky z-50 top-0 bg-white">
-			<div className="flex justify-between items-center w-full px-5">
+			<div className="flex justify-between items-center w-full px-5 py-[6px]">
 				{pathname?.startsWith("/detail") ? (
 					<>
 						<IconButton className="pl-0" onClick={() => router.back()}>
