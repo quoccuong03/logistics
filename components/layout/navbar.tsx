@@ -5,80 +5,72 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useStore } from "@/recoil/hooks";
-
+import { useModal } from "@/recoil/hooks";
 const menus = [
-    { name: "Home", to: "/" },
-    { name: "Đề xuất Outfits", to: "/suggest" },
-    { name: "Tìm hiểu thêm", to: "/info" },
+	{ name: "Home", to: "/" },
+	{ name: "Đề xuất Outfits", to: "/suggest" },
+	{ name: "Tìm hiểu thêm", to: "/info" },
 ];
 
 export default function Navbar() {
-    const pathname = usePathname();
-    const router = useRouter();
-    const { currentStore } = useStore();
-    return (
-        <div className="flex flex-col sticky z-50 top-0 bg-white">
-            <div className="flex justify-between items-center w-full px-5">
-                {pathname?.startsWith("/detail") ? (
-                    <>
-                        <IconButton
-                            className="pl-0"
-                            onClick={() => router.back()}
-                        >
-                            <ChevronRightIcon className="rotate-180 text-sm fill-black" />
-                        </IconButton>
-                        {currentStore ? (
-                            <div className="flex items-center">
-                                <Image
-                                    src={currentStore?.avatar?.medium?.url}
-                                    width={currentStore?.avatar?.medium?.width}
-                                    height={
-                                        currentStore?.avatar?.medium?.height
-                                    }
-                                    alt={currentStore?.name}
-                                    className="max-w-[20px] h-auto rounded-full"
-                                />
-                                <h3 className="text-sm font-normal uppercase ml-2">
-                                    {currentStore?.name}
-                                </h3>
-                            </div>
-                        ) : null}
-                    </>
-                ) : (
-                    <Link href={"/"}>
-                        <Image src={require("@images/logo.svg")} alt="Logo" />
-                    </Link>
-                )}
+	const pathname = usePathname();
+	const router = useRouter();
+	const { onOpenModal } = useModal();
+	const { currentStore } = useStore();
+	return (
+		<div className="flex flex-col sticky z-50 top-0 bg-white">
+			<div className="flex justify-between items-center w-full px-5">
+				{pathname?.startsWith("/detail") ? (
+					<>
+						<IconButton className="pl-0" onClick={() => router.back()}>
+							<ChevronRightIcon className="rotate-180 text-sm fill-black" />
+						</IconButton>
+						{currentStore ? (
+							<div className="flex items-center">
+								<Image
+									src={currentStore?.avatar?.medium?.url}
+									width={currentStore?.avatar?.medium?.width}
+									height={currentStore?.avatar?.medium?.height}
+									alt={currentStore?.name}
+									className="max-w-[20px] h-auto rounded-full"
+								/>
+								<h3 className="text-sm font-normal uppercase ml-2">
+									{currentStore?.name}
+								</h3>
+							</div>
+						) : null}
+					</>
+				) : (
+					<Link href={"/"}>
+						<Image src={require("@images/logo.svg")} alt="Logo" />
+					</Link>
+				)}
 
-                <IconButton>
-                    <BellIcon sx={{ fill: "#000" }} />
-                </IconButton>
-            </div>
-            <nav className="border-b-[1px] border-[#F5F5F5]">
-                <ul className="flex items-center">
-                    {menus.map((item: any, idx: number) => (
-                        <li
-                            className={`px-3 md:px-5 ${
-                                pathname === item.to
-                                    ? "border-b-[3px] border-black"
-                                    : ""
-                            }`}
-                            key={idx}
-                        >
-                            <Link
-                                className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
-                                    pathname === item.to
-                                        ? "text-[#000000]"
-                                        : "text-[#A0A0A0]"
-                                }`}
-                                href={item.to}
-                            >
-                                {item.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-        </div>
-    );
+				<IconButton onClick={onOpenModal}>
+					<BellIcon sx={{ fill: "#000" }} />
+				</IconButton>
+			</div>
+			<nav className="border-b-[1px] border-[#F5F5F5]">
+				<ul className="flex items-center">
+					{menus.map((item: any, idx: number) => (
+						<li
+							className={`px-3 md:px-5 ${
+								pathname === item.to ? "border-b-[3px] border-black" : ""
+							}`}
+							key={idx}
+						>
+							<Link
+								className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
+									pathname === item.to ? "text-[#000000]" : "text-[#A0A0A0]"
+								}`}
+								href={item.to}
+							>
+								{item.name}
+							</Link>
+						</li>
+					))}
+				</ul>
+			</nav>
+		</div>
+	);
 }
