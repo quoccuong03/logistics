@@ -1,39 +1,20 @@
-# Build BASE
-FROM node:16-alpine as BASE
+# Use Node.js 14.x LTS Alpine as base image
+FROM node:16-alpine
 
-
+# Set working directory
 WORKDIR /app
+
+# Copy package.json and yarn.lock files to container
 COPY package.json yarn.lock ./
-RUN apk add --no-cache git \
-    && yarn --frozen-lockfile \
-    && yarn cache clean
 
-# Build Image
-FROM node:16-alpine AS BUILD
+# Install dependencies
+RUN yarn install
 
-
-WORKDIR /app
-COPY --from=BASE /app/node_modules ./node_modules
+# Copy the rest of the app files to container
 COPY . .
-RUN apk add --no-cache git curl \
-    && yarn build 
-    # && cd .next/standalone \
-    # Follow https://github.com/ductnn/Dockerfile/blob/master/nodejs/node/16/alpine/Dockerfile
-    
 
-# Build production
-FROM node:16-alpine AS PRODUCTION
-
-
-WORKDIR /app
-
-COPY --from=BUILD /app/public ./public
-COPY --from=BUILD /app/next.config.js ./
-
-# Set mode "standalone" in file "next.config.js"
-# COPY --from=BUILD /app/.next/standalone ./
-COPY --from=BUILD /app/.next/static ./.next/static
-
+# Build the Next.js app
+RUN yarn build
 EXPOSE 3008
-
-CMD ["node", "server.js"]
+# Specify the command to start the app
+CMD ["yarn", "start"]
