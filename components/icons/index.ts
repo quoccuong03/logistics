@@ -19,3 +19,5 @@ export { default as LoadingIcon } from "./LoadingIcon";
 export { default as ExpanIcon } from "./ExpanIcon";
 export { default as CollapseIcon } from "./CollapseIcon";
 export { default as ExclamationIcon } from "./ExclamationIcon";
+export { default as FolderHeartIcon } from "./FolderHeartIcon";
+export { default as TalkIcon } from "./TalkIcon";
