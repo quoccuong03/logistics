@@ -8,8 +8,8 @@ import { useStore } from "@/recoil/hooks";
 
 const menus = [
     { name: "Home", to: "/" },
-    { name: "GỢI Ý OUTFITS", to: "/suggest" },
-    { name: "TÌM HIỂU THÊM", to: "/info" },
+    { name: "Đề xuất Outfits", to: "/suggest" },
+    { name: "Tìm hiểu thêm", to: "/info" },
 ];
 
 export default function Navbar() {
@@ -50,7 +50,7 @@ export default function Navbar() {
                 <ul className="flex items-center">
                     {menus.map((item: any, idx: number) => (
                         <li
-                            className={`px-5 ${
+                            className={`px-3 md:px-5 ${
                                 pathname === item.to
                                     ? "border-b-[3px] border-black"
                                     : ""
@@ -58,7 +58,7 @@ export default function Navbar() {
                             key={idx}
                         >
                             <Link
-                                className={`uppercase block pb-2 text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
+                                className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
                                     pathname === item.to
                                         ? "text-[#000000]"
                                         : "text-[#A0A0A0]"

@@ -48,7 +48,7 @@ const ModalDownload = () => {
                 ".MuiPaper-root": {
                     backgroundColor: "#FBF5E8 !important",
                     boxShadow: "none !important",
-                    maxWidth: 650,
+                    maxWidth: { xs: 1, sm: 650 },
                     mx: "auto",
                     borderRadius: "20px 20px 0 0",
                 },
@@ -57,9 +57,9 @@ const ModalDownload = () => {
         >
             <Box
                 sx={{
-                    minHeight: 510,
+                    minHeight: { xs: 400, sm: 510 },
                     position: "relative",
-                    ml: 10,
+                    ml: { xs: 2, sm: 10 },
                 }}
                 id={data.id}
             >
@@ -77,7 +77,7 @@ const ModalDownload = () => {
                 <Box
                     sx={{
                         bgcolor: "#FFA1A1",
-                        width: 160,
+                        width: { xs: 120, sm: 160 },
                         height: 82,
                         borderRadius: "0 0 11px 11px",
                         position: "relative",
@@ -89,8 +89,8 @@ const ModalDownload = () => {
                     }}
                 >
                     <Typography
-                        fontSize={23}
-                        lineHeight={"25px"}
+                        fontSize={{ xs: 17, sm: 23 }}
+                        lineHeight={{ xs: "20px", sm: "25px" }}
                         fontWeight={300}
                     >
                         <strong className="font-bold uppercase">
@@ -111,7 +111,7 @@ const ModalDownload = () => {
                         <Image
                             src={require("@images/txt-g.svg")}
                             alt=""
-                            className="max-w-[230px] h-auto mt-12 mb-5"
+                            className="max-w-[100px] md:max-w-[230px] h-auto mt-6 md:mt-12 mb-2 md:mb-5"
                         />
                         <Button
                             variant="contained"
@@ -134,7 +134,7 @@ const ModalDownload = () => {
                         <Image
                             src={require("@images/txt-g2.svg")}
                             alt=""
-                            className="max-w-[185px] h-auto"
+                            className="max-w-[145px] md:max-w-[185px] h-auto"
                         />
                         <Image
                             src={require("@images/logo-txt.svg")}
@@ -146,7 +146,7 @@ const ModalDownload = () => {
                         id={data.id}
                         alt="Bottom arrow"
                         src={data.img}
-                        className="max-w-[275px] mr-5 mt-[-60px]"
+                        className="max-w-[180px] md:max-w-[275px] mr-5 mt-[-60px]"
                         // fill
                         // style={{
                         //     objectPosition: "bottom",
