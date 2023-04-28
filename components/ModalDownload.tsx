@@ -1,11 +1,11 @@
 "use client";
-import { FC } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, Drawer, Stack, Typography } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { HIDE_POPUP } from "@config/constants";
-
+import { getInfoDonwload } from "@/hooks/useInfo";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/recoil/hooks";
 interface Props {
@@ -30,6 +30,7 @@ const ModalDownload = () => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
     const { open, onClose: onCloseM } = useModal();
     const router = useRouter();
+    const [qrLink, setQrLink] = useState("");
     const handleClosePopup = (hidden?: boolean) => {
         if (hidden) {
             setHidePopup(1);
@@ -37,6 +38,17 @@ const ModalDownload = () => {
         }
         onCloseM();
     };
+
+    useEffect(() => {
+        const genInfo = async () => {
+            const data = await getInfoDonwload();
+            if (data?.qr_link) {
+                setQrLink(data.qr_link);
+            }
+        };
+
+        genInfo();
+    }, []);
 
     return (
         <Drawer
@@ -78,7 +90,7 @@ const ModalDownload = () => {
                     sx={{
                         bgcolor: "#FFA1A1",
                         width: { xs: 120, sm: 160 },
-                        height: 82,
+                        height: { xs: 60, sm: 82 },
                         borderRadius: "0 0 11px 11px",
                         position: "relative",
                         zIndex: 9999,

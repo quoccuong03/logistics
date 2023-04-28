@@ -7,3 +7,9 @@ export const getInfo = async (query?: any): Promise<any> => {
 		...baseAuthUrl,
 	});
 };
+
+export const getInfoDonwload = async (): Promise<any> => {
+	return await axiosClient.get(`${apiRoutes.getInfoDonwload}`, {
+		...baseAuthUrl,
+	});
+};
