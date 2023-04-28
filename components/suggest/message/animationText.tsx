@@ -1,5 +1,4 @@
 "use client";
-import Typed from "react-typed";
 
 type Props = {
 	children: any;
