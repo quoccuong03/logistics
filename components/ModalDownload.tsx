@@ -69,7 +69,7 @@ const ModalDownload = () => {
         >
             <Box
                 sx={{
-                    minHeight: { xs: 400, sm: 510 },
+                    minHeight: { xs: 330, sm: 510 },
                     position: "relative",
                     ml: { xs: 2, sm: 10 },
                 }}
