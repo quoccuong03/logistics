@@ -16,7 +16,8 @@ const data = [
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
         emoji: "https://static.showniq.ai/public/app/general/emotion/emo-wm-5.png",
-        likeCnt: randomNumberInRange(100, 900),
+        likeCnt: 425,
+        // likeCnt: randomNumberInRange(100, 900),
     },
     {
         author: {
@@ -26,7 +27,8 @@ const data = [
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
         emoji: "https://static.showniq.ai/public/app/general/emotion/emo-wm-4.png",
-        likeCnt: randomNumberInRange(100, 900),
+        likeCnt: 170,
+        // likeCnt: randomNumberInRange(100, 900),
     },
     {
         author: {
@@ -36,7 +38,8 @@ const data = [
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
         emoji: "https://static.showniq.ai/public/app/general/emotion/emo-wm-3.png",
-        likeCnt: randomNumberInRange(100, 900),
+        likeCnt: 535,
+        // likeCnt: randomNumberInRange(100, 900),
     },
     {
         author: {
@@ -46,7 +49,8 @@ const data = [
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
         emoji: "https://static.showniq.ai/public/app/general/emotion/emo-wm-2.png",
-        likeCnt: randomNumberInRange(100, 900),
+        likeCnt: 352,
+        // likeCnt: randomNumberInRange(100, 900),
     },
     {
         author: {
@@ -56,7 +60,8 @@ const data = [
         date: "13.0.2022",
         desc: " Mình rất là thích phong này sẽ kiếm nó để mua^^",
         emoji: "https://static.showniq.ai/public/app/general/emotion/emo-wm-1.png",
-        likeCnt: randomNumberInRange(100, 900),
+        likeCnt: 240,
+        // likeCnt: randomNumberInRange(100, 900),
     },
 ];
 export default function Comments({ id }: Props) {
