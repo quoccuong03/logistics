@@ -23,7 +23,7 @@ export default function DetailPageClient({ data }: Props) {
     return (
         <div>
             <Carousel images={data?.image || []} />
-            <div className="flex items-start justify-between mt-3">
+            <div className="flex items-start justify-between mt-2 md:mt-3">
                 <button className="flex items-center" onClick={onOpenModal}>
                     <LockIcon className="fill-none stroke-black text-[20px]" />{" "}
                     <span className="text-[11px]">
@@ -49,9 +49,9 @@ export default function DetailPageClient({ data }: Props) {
                 </div>
             </div>
             <div
-                className="my-10 "
+                className="my-5 md:my-10 text-xs md:text-sm"
                 dangerouslySetInnerHTML={{
-                    __html: data?.description.replace(/\n/g, "<br />"),
+                    __html: data?.description?.replace(/\n/g, "<br />"),
                 }}
             />
         </div>

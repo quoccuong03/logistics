@@ -4,9 +4,10 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { IconButton, Stack } from "@mui/material";
-import { ChevronRightIcon } from "../icons";
+import { ChevronRightIcon, HeartIcon } from "../icons";
 import { getImageUrl, getImages } from "@/utils";
 import Link from "next/link";
+import { useStore } from "@/recoil/hooks";
 const items = [
     {
         title: "Geesoo",
@@ -23,10 +24,11 @@ const items = [
 type Props = {
     items: any[];
     title: string;
+    storeName?: boolean;
 };
 
-export default function RelatedCarousel({ items, title }: Props) {
-    // const items = getImages(images, "origin");
+export default function RelatedCarousel({ items, title, storeName }: Props) {
+    const { currentStore } = useStore();
     const [sliderRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
         loop: true,
@@ -37,10 +39,15 @@ export default function RelatedCarousel({ items, title }: Props) {
     });
     return (
         <div className="relative ">
-            <h3 className="text-xs font-bold mb-2">{title}</h3>
+            <h3 className="text-xs font-bold mb-2">{`${title} ${
+                storeName ? currentStore?.name : ""
+            }`}</h3>
             <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
-                    <div className="keen-slider__slide text-center" key={idx}>
+                    <div
+                        className="keen-slider__slide text-center relative"
+                        key={idx}
+                    >
                         <Link href={`/detail/${item._id}`} className="block">
                             <Image
                                 alt={"Image"}
@@ -53,6 +60,7 @@ export default function RelatedCarousel({ items, title }: Props) {
                                 quality={100}
                             />
                         </Link>
+                        <HeartIcon className="fill-white absolute bottom-3 right-3 z-10" />
                     </div>
                 ))}
             </div>

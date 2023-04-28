@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-
 import { useCallback, useState } from "react";
 type Props = {
     emoji: any;
@@ -14,7 +13,7 @@ export default function EnumItem({ emoji }: Props) {
         [emoji]
     );
     return (
-        <div className="flex items-center mx-2 flex-col hover:cursor-pointer">
+        <div className="flex items-center mx-1 md:mx-2 flex-col hover:cursor-pointer">
             <Image
                 width={20}
                 height={20}
@@ -30,7 +29,7 @@ export default function EnumItem({ emoji }: Props) {
                     )
                 }
             />
-            <span className="text-[9px] inline-flex mt-2">
+            <span className="text-[8px] md:text-[9px] inline-flex mt-2">
                 {emoji?.title?.vi}
             </span>
         </div>
