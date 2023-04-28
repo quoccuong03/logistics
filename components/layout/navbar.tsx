@@ -15,6 +15,7 @@ const menus = [
 export default function Navbar() {
 	const pathname = usePathname();
 	const router = useRouter();
+	const { onOpenModal } = useModal();
 	const { currentStore } = useStore();
 	return (
 		<div className="flex flex-col sticky z-50 top-0 bg-white">
@@ -45,7 +46,7 @@ export default function Navbar() {
 					</Link>
 				)}
 
-				<IconButton>
+				<IconButton onClick={onOpenModal}>
 					<BellIcon sx={{ fill: "#000" }} />
 				</IconButton>
 			</div>
