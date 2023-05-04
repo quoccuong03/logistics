@@ -26,11 +26,15 @@ export default function Message(props: data) {
 		<div className="flex">
 			<div className="bg-[#FFDCDC] py-[7px] px-[20.33px] rounded-[9.64848px] relative w-[100%] mb-[3px] text-[12.0606px] message-content">
 				<TailIcon className="absolute h-[18.71px] w-[24.05px] object-fill bottom-[-3px] right-[-6px]" />
-				<div>{formatDate(minToday)}</div>
 
-				<AnimatedText>
-					<strong>{totalCount}</strong> kiểu được Jeesoo đề xuất cho bạn
-				</AnimatedText>
+				<AnimatedText
+					text={formatDate(minToday)}
+					textTow={
+						<>
+							<strong>{totalCount}</strong> kiểu được Jeesoo đề xuất cho bạn
+						</>
+					}
+				></AnimatedText>
 			</div>
 			<div className="h-[53px] w-[53px] ml-[12px] relative">
 				<Image
