@@ -46,6 +46,7 @@ export default async function RootLayout({
             linQr = dataJson?.qr_link;
         }
     }
+    console.log("linQr", linQr);
 
     return (
         <html lang="en">
