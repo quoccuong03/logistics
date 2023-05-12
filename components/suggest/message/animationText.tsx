@@ -15,7 +15,6 @@ export default function AnimatedText(props: Props) {
 	function handleFirstAnimationEnd() {
 		setFirstAnimation(false);
 		setSecondAnimation(true);
-		console.log(3838328328);
 	}
 
 	function handleSecondAnimationEnd() {

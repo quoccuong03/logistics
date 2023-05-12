@@ -18,7 +18,7 @@ export default async function SuggestPage() {
 	const { data: dataFilter } = await getStyleCatalogCall();
 
 	return (
-		<div className="global-content">
+		<div className="global-content overflow-scroll" id="global-content">
 			<Message minToday={data?.minToday} totalCount={data?.totalCount} />
 			<Filter data={[...dataFilter]} lang={"VI"} gender={"WOMEN"} />
 			<Items data={data?.listData || []} />

@@ -11,16 +11,18 @@ import ModalDownload from "../ModalDownload";
 export default function Footer({ linQr }: { linQr: string }) {
 	const [showPopup] = useLocalStorage<any>(HIDE_POPUP, "");
 	const { onOpenModal, setLinkQr } = useModal();
+	const pathname = usePathname();
 	useEffect(() => {
 		setLinkQr(linQr);
-		if (!showPopup) {
+		console.log(pathname, 338393);
+		if (!showPopup && pathname === "/suggest") {
 			const timer = setTimeout(() => {
 				onOpenModal();
 			}, 7000);
 			return () => clearTimeout(timer);
 		}
-	}, []);
-	const pathname = usePathname();
+	}, [pathname]);
+
 	if (pathname === "/download") {
 		return <></>;
 	}
