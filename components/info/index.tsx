@@ -13,9 +13,11 @@ export default function Info(props: Props): JSX.Element {
 	const [selected, setSelected] = useState(Array<string>);
 
 	function handleChange(value: string) {
+		console.log('value', value);
+		
 		if (selected.indexOf(value) === -1) {
 			selected.push(value);
-			setSelected([...selected]);
+			setSelected([value]);
 		} else {
 			setSelected(selected.filter((item) => item !== value));
 		}
@@ -27,10 +29,12 @@ export default function Info(props: Props): JSX.Element {
 				onNodeSelect={(e: any, value: any) => {
 					handleChange(value);
 				}}
+				expanded={selected}
 			>
 				{data?.map((item, index) => (
 					<TreeItem
 						nodeId={`${index}`}
+				
 						key={index}
 						className="info-item px-[20px] py-[15px] mb-[18px]"
 						label={
