@@ -33,7 +33,8 @@ const ModalDownload = () => {
 	const handleClosePopup = (hidden?: boolean) => {
 		if (hidden) {
 			setHidePopup(1);
-			router.push("/download");
+			// router.push("/download");
+			window.open(linkQr);
 		}
 		onCloseM();
 	};
@@ -55,7 +56,7 @@ const ModalDownload = () => {
 			}}
 			id={data.id}
 		>
-			<Box className="toangqua"
+			<Box 
 				sx={{
 					minHeight: { xs: 330, sm: 510 },
 					position: "relative",
