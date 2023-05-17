@@ -15,6 +15,9 @@ export default async function SuggestPage() {
 		"gender[]": "63e0ae94144f0000ff004b97",
 	});
 
+	// console.log('data', data);
+	
+
 	const { data: dataFilter } = await getStyleCatalogCall();
 
 	return (

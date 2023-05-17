@@ -55,7 +55,7 @@ const ModalDownload = () => {
 			}}
 			id={data.id}
 		>
-			<Box
+			<Box className="toangqua"
 				sx={{
 					minHeight: { xs: 330, sm: 510 },
 					position: "relative",
@@ -74,6 +74,9 @@ const ModalDownload = () => {
 					}}
 					onClick={() => handleClosePopup()}
 				/>
+				<div
+					onClick={() => handleClosePopup(true)}
+					>
 				<Box
 					sx={{
 						bgcolor: "#FFA1A1",
@@ -111,7 +114,7 @@ const ModalDownload = () => {
 							alt=""
 							className="max-w-[100px] md:max-w-[230px] h-auto mt-6 md:mt-12 mb-2 md:mb-5"
 						/>
-						<a href={linkQr}>
+						<div >
 							<Button
 								variant="contained"
 								// onClick={() => handleClosePopup(true)}
@@ -130,7 +133,7 @@ const ModalDownload = () => {
 							>
 								Tải app ngay
 							</Button>
-						</a>
+						</div>
 						<Image
 							src={require("@images/txt-g2.svg")}
 							alt=""
@@ -154,6 +157,7 @@ const ModalDownload = () => {
 						// }}
 					/>
 				</Stack>
+				</div>
 				{/* </Link> */}
 
 				{/* <a

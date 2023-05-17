@@ -10,7 +10,7 @@ export default async function InfoPage() {
 	const dataInfo = await getInfo();
 
 	return (
-		<div className="global-content">
+		<div className="global-content" style={{paddingBottom: 100}}>
 			<Info data={dataInfo} />
 		</div>
 	);
