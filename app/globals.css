@@ -3,38 +3,102 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-    --pink: #ffa1a1;
-    --txt-gray: "#999999";
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+	--pink: #ffa1a1;
+	--txt-gray: "#999999";
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-    //color: rgb(var(--foreground-rgb));
 }
 
 .global-content {
-    padding: 20px 10px;
+	padding: 20px 10px;
 }
 
 @media (min-width: 768px) {
-    .global-content {
-        padding: 36px 26px;
-    }
+	.global-content {
+		padding: 36px 26px;
+	}
 }
 
 ::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 ::-webkit-scrollbar {
-    display: none;
+	display: none;
+}
+
+@-webkit-keyframes myText {
+	0% {
+		border-color: #ffa1a1;
+		color: #ffa1a1;
+	}
+	50% {
+		border-color: #000000;
+		color: #000000;
+	}
+	100% {
+		border-color: #ffa1a1;
+		color: #ffa1a1;
+	}
+}
+@-moz-keyframes myText {
+	0% {
+		border-color: #ffa1a1;
+		color: #ffa1a1;
+	}
+	50% {
+		border-color: #000000;
+		color: #000000;
+	}
+	100% {
+		color: #ffa1a1;
+		border-color: #ffa1a1;
+	}
+}
+@-o-keyframes myText {
+	0% {
+		color: #ffa1a1;
+		border-color: #ffa1a1;
+	}
+	50% {
+		border-color: #000000;
+		color: #000000;
+	}
+	100% {
+		border-color: #ffa1a1;
+		color: #ffa1a1;
+	}
+}
+@keyframes myText {
+	0% {
+		border-color: #ffa1a1;
+		color: #ffa1a1;
+	}
+	50% {
+		color: #000000;
+		border-color: #000000;
+	}
+	100% {
+		border-color: #ffa1a1;
+		color: #ffa1a1;
+	}
+}
+.myTextLight,
+.myLightBox {
+	-webkit-animation: myText 700ms infinite;
+	-moz-animation: myText 700ms infinite;
+	-o-animation: myText 700ms infinite;
+	animation: myText 700ms infinite;
+	color: #000000;
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useStore } from "@/recoil/hooks";
 import { useModal } from "@/recoil/hooks";
+import { useEffect, useState } from "react";
 const menus = [
 	{ name: "Home", to: "/" },
 	{ name: "Đề xuất Outfits", to: "/suggest" },
@@ -17,6 +18,23 @@ export default function Navbar() {
 	const router = useRouter();
 	const { onOpenModal } = useModal();
 	const { currentStore } = useStore();
+	const [hightLinght, setHightLinght] = useState(false);
+
+	const handleScroll = () => {
+		window.addEventListener("scroll", () => {
+			const scrollTop = window.pageYOffset;
+			if (scrollTop > 40 && (pathname === "/info" || pathname === "/")) {
+				setHightLinght(true);
+			} else {
+				setHightLinght(false);
+			}
+		});
+	};
+
+	useEffect(() => {
+		handleScroll();
+	}, [pathname]);
+
 	return (
 		<div className="flex flex-col sticky z-50 top-0 bg-white">
 			<div className="flex justify-between items-center w-full px-5 py-[6px]">
@@ -56,13 +74,13 @@ export default function Navbar() {
 						<li
 							className={`px-3 md:px-5 ${
 								pathname === item.to ? "border-b-[3px] border-black" : ""
-							}`}
+							} ${idx === 1 && hightLinght ? "myLightBox" : ""}`}
 							key={idx}
 						>
 							<Link
 								className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
 									pathname === item.to ? "text-[#000000]" : "text-[#A0A0A0]"
-								}`}
+								}  ${idx === 1 && hightLinght ? "myTextLight" : ""}`}
 								href={item.to}
 							>
 								{item.name}
