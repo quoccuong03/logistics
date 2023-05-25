@@ -11,6 +11,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import { usePathname } from "next/navigation";
 import Analytics from "@/app/Analytics";
+import TopFooter from "./top-footer";
 const montserrat = Montserrat({
     subsets: ["latin", "vietnamese"],
     variable: "--montserrat-font",
@@ -38,7 +39,10 @@ export default function Layout({
                             id="layout"
                         >
                             <Navbar />
-                            <main className="min-h-screen">{children}</main>
+                            <main className="min-h-screen">
+                                {children}
+                                <TopFooter />
+                            </main>
                             <Footer linQr={linQr} />
                         </div>
                     </RecoilProvider>

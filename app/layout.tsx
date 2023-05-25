@@ -3,8 +3,9 @@ import "./globals.css";
 import "./main.scss";
 import { getInfoDonwload } from "@/hooks/useInfo";
 import { headers } from "next/headers";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: {
         template: "%s | SHOWNIQ",
         default: "SHOWNIQ - AI Stylist Của Bạn",
@@ -28,6 +29,11 @@ export const metadata = {
         locale: "vi-VN",
         type: "website",
     },
+    verification: {
+        other: {
+            "facebook-domain-verification": "d06zgrvc6d7l93u2quk2bv4zbl6pc4",
+        },
+    },
 };
 
 export default async function RootLayout({
@@ -46,7 +52,6 @@ export default async function RootLayout({
             linQr = dataJson?.qr_link;
         }
     }
-    console.log("linQr", linQr);
 
     return (
         <html lang="en">

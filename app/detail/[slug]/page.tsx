@@ -8,29 +8,33 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import FooterButton from "@/components/detail/FooterButton";
 const attrs = ["style", "embroidery", "mainCategory", "subCategory"];
-export default async function DetailPage({ params }: { params: { slug: string } }) {
-	const data = await getDetail(params?.slug);
-	if (!data) {
-		return notFound();
-	}
-	const attributes = data?.attributes?.filter(
-		(item: any) => attrs.includes(item.attName) && item.status === "A",
-	);
+export default async function DetailPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    const data = await getDetail(params?.slug);
+    if (!data) {
+        return notFound();
+    }
+    const attributes = data?.attributes?.filter(
+        (item: any) => attrs.includes(item.attName) && item.status === "A"
+    );
 
-	return (
-		<div className="px-[20px] md:px-[26px] pb-20">
-			<DetailPageClient data={data} />
-			<Suspense>
-				{/* @ts-expect-error Server Component */}
-				<Reviews id={params?.slug} />
-			</Suspense>
-			{attributes?.length ? <Tags data={attributes} /> : null}
-			<Comments id={params?.slug} />
-			<Suspense>
-				{/* @ts-expect-error Server Component */}
-				<RelatedStyle id={params?.slug} />
-			</Suspense>
-			<FooterButton />
-		</div>
-	);
+    return (
+        <div className="px-[20px] md:px-[26px]">
+            <DetailPageClient data={data} />
+            <Suspense>
+                {/* @ts-expect-error Server Component */}
+                <Reviews id={params?.slug} />
+            </Suspense>
+            {attributes?.length ? <Tags data={attributes} /> : null}
+            <Comments id={params?.slug} />
+            <Suspense>
+                {/* @ts-expect-error Server Component */}
+                <RelatedStyle id={params?.slug} />
+            </Suspense>
+            <FooterButton />
+        </div>
+    );
 }

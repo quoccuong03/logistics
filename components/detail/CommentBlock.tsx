@@ -10,7 +10,19 @@ type Props = {
 export default function CommentBlock({ data }: Props) {
     const { onOpenModal } = useModal();
     return (
-        <div className="pb-3 mt-5">
+        <div className="pb-3 mt-5 relative">
+            <div className="absolute flex backdrop-filter backdrop-blur-sm h-full bg left-[-26px] right-[-26px] z-[999] top-0 justify-center items-center bg-white bg-opacity-30">
+                <button onClick={onOpenModal}>
+                    <Image
+                        src={require("@images/eye-off.svg")}
+                        alt="Eye off"
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto",
+                        }}
+                    />
+                </button>
+            </div>
             <h3 className="text-xs font-medium mb-3">
                 <span className="text-[var(--pink)]">5</span> bài đánh giá
             </h3>
