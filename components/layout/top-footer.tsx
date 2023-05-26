@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 export default function TopFooter() {
     return (
         <div className="px-[20px] md:px-[26px] pb-20 pt-5 bg-[#FCFCFC]">
@@ -26,8 +27,24 @@ export default function TopFooter() {
                 MST: 0317560730 do Sở KH & ĐT TP.HCM cấp lần đầu ngày 10/11/2022
             </Typography>
             <div className="flex space-x-2 mt-5">
-                <Image src={require("@images/instagram.svg")} alt="Instagram" />
-                <Image src={require("@images/facebook.svg")} alt="Facebook" />
+                <Link
+                    href={"https://www.instagram.com/showniq/"}
+                    target="_blank"
+                >
+                    <Image
+                        src={require("@images/instagram.svg")}
+                        alt="Instagram"
+                    />
+                </Link>
+                <Link
+                    href={"https://www.facebook.com/showniqvietnam"}
+                    target="_blank"
+                >
+                    <Image
+                        src={require("@images/facebook.svg")}
+                        alt="Facebook"
+                    />
+                </Link>
             </div>
         </div>
     );
