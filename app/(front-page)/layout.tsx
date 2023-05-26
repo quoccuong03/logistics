@@ -1,6 +1,7 @@
 import Layout from "@/components/layout";
-import "./globals.css";
-import "./main.scss";
+import "@/assets/globals.css";
+import "@/assets/main.scss";
+
 import { getInfoDonwload } from "@/hooks/useInfo";
 import { headers } from "next/headers";
 import { Metadata } from "next";

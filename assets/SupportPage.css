@@ -1,0 +1,78 @@
+.SupportPage {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.SupportPage h1,
+.SupportPage h2 {
+	font-weight: bold;
+}
+
+.SupportPage nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.SupportPage nav li {
+	margin: 0 10px;
+}
+
+.SupportPage nav a {
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+}
+
+.SupportPage nav a:hover {
+	text-decoration: underline;
+}
+
+.SupportPage main {
+	margin-top: 20px;
+}
+
+.SupportPage section {
+	margin-bottom: 40px;
+}
+
+.SupportPage section h2 {
+	margin-top: 0;
+}
+
+.SupportPage section p {
+	margin: 10px 0;
+}
+
+.SupportPage form label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.SupportPage form input,
+.SupportPage form textarea {
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.SupportPage form button[type="submit"] {
+	background-color: #333;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.SupportPage form button[type="submit"]:hover {
+	background-color: #222;
+}
