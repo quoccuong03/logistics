@@ -29,11 +29,11 @@ export default function Footer({ linQr }: { linQr: string }) {
         <footer className="fixed left-0 right-0 bottom-5 px-[20px] md:px-[26px] z-[999]">
             <Button
                 endIcon={
-                    <div className="text-sm font-normal">
+                    <div className="flex items-center text-[10px] font-medium md:text-sm md:font-normal">
                         TẢI APP <DownloadIcon />
                     </div>
                 }
-                className="text-base font-bold text-black flex justify-end mt-4 min-h-[48px] md:max-w-[594px] mx-auto"
+                className="text-xs md:text-base font-bold text-black flex justify-end mt-4 min-h-[38px] md:min-h-[48px] md:max-w-[594px] mx-auto"
                 variant="contained"
                 fullWidth
                 // href="/download"
@@ -42,9 +42,12 @@ export default function Footer({ linQr }: { linQr: string }) {
                     textTransform: "initial !important",
                     background:
                         "linear-gradient(90deg, #71EAB0 4.3%, #71EAB0 26.74%, #FFC1C1 58.52%, #FFA1A1 94.04%) !important",
-                    // "& .MuiButton-endIcon": {
-                    //     mx: "auto",
-                    // },
+                    "& .MuiButton-endIcon": {
+                        svg: {
+                            ml: "5px",
+                            fontSize: { xs: 19, sm: 22 },
+                        },
+                    },
                 }}
             >
                 <span className="mx-auto">Xem hơn 40,000 phong cách</span>
