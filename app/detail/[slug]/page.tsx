@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 siteName: "SHOWNIQ.AI",
                 url: "https://showniq.ai/",
                 type: "website",
-                title: `Phong cách ${title} | SHOWNIQ.AI` || "Phong cách",
+                title: title || "Phong cách",
                 description: data?.description || "Phong cách",
                 images: [
                     {
