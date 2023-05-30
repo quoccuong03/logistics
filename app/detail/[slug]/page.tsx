@@ -21,15 +21,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         const style = data?.attributes?.filter(
             (item: any) => item.attName === "style"
         )[0];
+        const title = style?.title?.vi?.toLowerCase() || "Phong cách";
         return {
-            title: style?.title?.vi || "Phong cách",
+            title: `Phong cách ${title}` || "Phong cách",
             description: data?.description || "Phong cách",
             openGraph: {
-                siteName: "SHOWNIQ",
+                siteName: "SHOWNIQ.AI",
                 url: "https://showniq.ai/",
-                title: style?.title?.vi || "Phong cách",
+                type: "website",
+                title: `Phong cách ${title} | SHOWNIQ.AI` || "Phong cách",
                 description: data?.description || "Phong cách",
-                images: [data?.image?.[0]?.large?.url],
+                images: [
+                    {
+                        url: data?.image?.[0]?.large?.url,
+                        alt: `Phong cách ${title} | SHOWNIQ.AI`,
+                    },
+                ],
             },
         };
     } catch (error) {

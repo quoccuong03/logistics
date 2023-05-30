@@ -7,7 +7,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | SHOWNIQ",
+        template: "%s | SHOWNIQ.AI",
         default: "SHOWNIQ - AI Stylist Của Bạn",
     },
     description: "Có SHOWNIQ - Thời trang thật dễ dàng",
@@ -15,7 +15,10 @@ export const metadata: Metadata = {
         icon: "/favicon.png",
     },
     openGraph: {
-        title: "SHOWNIQ - AI Stylist Của Bạn",
+        title: {
+            template: "Phong cách %s | SHOWNIQ.AI",
+            default: "SHOWNIQ - AI Stylist Của Bạn",
+        },
         description: "Có SHOWNIQ - Thời trang thật dễ dàng",
         url: "https://showniq.ai/",
         siteName: "SHOWNIQ",
