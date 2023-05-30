@@ -7,7 +7,39 @@ import { getDetail } from "@/lib/get-detail";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import FooterButton from "@/components/detail/FooterButton";
+import { Metadata } from "next";
 const attrs = ["style", "embroidery", "mainCategory", "subCategory"];
+type Props = {
+    params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // read route params
+    const slug = params.slug;
+    try {
+        const data = await getDetail(slug);
+        const style = data?.attributes?.filter(
+            (item: any) => item.attName === "style"
+        )[0];
+        return {
+            title: style?.title?.vi || "Phong cách",
+            description: data?.description || "Phong cách",
+            openGraph: {
+                siteName: "SHOWNIQ",
+                url: "https://showniq.ai/",
+                title: style?.title?.vi || "Phong cách",
+                description: data?.description || "Phong cách",
+                images: [data?.image?.[0]?.large?.url],
+            },
+        };
+    } catch (error) {
+        return {
+            title: "Phong cách",
+            description: "Phong cách",
+        };
+    }
+}
+
 export default async function DetailPage({
     params,
 }: {
