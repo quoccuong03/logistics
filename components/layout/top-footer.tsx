@@ -19,7 +19,7 @@ export default function TopFooter() {
                 CÔNG TY CỔ PHẦN SHOWNIQ
             </Typography>
             <Typography fontSize={12} fontWeight={500} color={"#797979"}>
-                Địa chỉ trụ sở chính: 95-86-87 Bến Văn Đồn, Phường 9, quận 4,
+                Địa chỉ trụ sở chính: 85-86-87 Bến Văn Đồn, Phường 9, quận 4,
                 TP.HCM <br />
                 Website: www.showniq.ai <br />
                 Email: contact@showniq.ai <br />
