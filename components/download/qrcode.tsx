@@ -14,9 +14,10 @@ type Props = {
 			url?: string;
 		};
 	};
+	linQr: string;
 };
 export default function CreateQrCode(props: Props) {
-	const { data } = props;
+	const { data, linQr } = props;
 
 	return (
 		<div className="mx-auto mt-20 flex items-center  flex-col justify-center">
@@ -33,7 +34,7 @@ export default function CreateQrCode(props: Props) {
 			</div>
 			<div className="text-[16px] font-bold mb-[60px]">{data?.title}</div>
 			<div className="flex flex-col p-2 border mb-[10px] rounded justify-center  text-center">
-				<QRCodeSVG value={data.qr_link} style={{ margin: "auto" }} />
+				<QRCodeSVG value={linQr} style={{ margin: "auto" }} />
 			</div>
 			<div className="text-[14px] font-light mb-[60px]">{data.description}</div>
 			<a className="text-[14px] font-light underline" href={data?.redirect?.url}>
