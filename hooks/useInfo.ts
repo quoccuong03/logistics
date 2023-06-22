@@ -9,7 +9,10 @@ export const getInfo = async (query?: any): Promise<any> => {
 };
 
 export const getInfoDonwload = async (): Promise<any> => {
-	return await fetch(`${baseAuthUrl.baseURL}${apiRoutes.getInfoDonwload}`, {
-		cache: "force-cache",
-	}).then((res) => res.json());
+	return await fetch(
+		`${baseAuthUrl.baseURL}${apiRoutes.getInfoDonwload}`,
+		// , {
+		// 	cache: "force-cache",
+		// }
+	).then((res) => res.json());
 };
