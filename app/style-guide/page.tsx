@@ -1,4 +1,4 @@
-import StyleGuide from "@/components/style-guide";
+import SectionFive from "@/components/style-guide/SectionFive";
 
 // import { Metadata } from "next";
 import SectionOne from "@components/style-guide/SectionOne";
@@ -53,6 +53,10 @@ export default async function StyleGuidePage({
 			<SectionTow bgColor="white" />
 			<SectionThree />
 			<SectionFour />
+			<div className="mt-[15px] sm:mt-[20px]">
+				<SectionOne title="" className="styleGuid__background__2" />
+			</div>
+			<SectionFive />
 		</div>
 	);
 }

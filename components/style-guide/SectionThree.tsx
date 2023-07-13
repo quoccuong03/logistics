@@ -17,7 +17,7 @@ const arrayListText = [
 	"젠틀맨 / 오피스 (클래식)",
 ];
 export default function SectionThree(props: any): JSX.Element {
-	const [indexActive, setIndexActive] = useState(-1);
+	const [indexActive, setIndexActive] = useState(0);
 	return (
 		<div className="overflow-scroll">
 			<div className="mt-[15px]  bg-black sm:py-[10px] py-[10px] px-[30px] sm:px-[15px] flex overflow-y-auto justify-between w-[1014px] sm:w-[1614px]">

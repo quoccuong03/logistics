@@ -18,6 +18,7 @@ const Data = [
 			</>
 		),
 		footerColor: "bg-green-main bottom-[-28px]",
+		footerColorDesktop: "bg-green-main bottom-[5px]",
 		parentFooter: "mb-[60px]",
 		imageLeft: (
 			<>
@@ -33,6 +34,24 @@ const Data = [
 				<Image
 					src={require("@images/guide-right-mobile.png")}
 					className=" h-[357px] w-[332px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-desktop.png")}
+					className=" h-[404px] w-[624px]  mt-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-desktop.png")}
+					className=" h-[731px] w-[631px]  z-20 mt-[-160px]"
 					alt="logo"
 				></Image>
 			</>
@@ -304,8 +323,265 @@ const Data = [
 			</>
 		),
 	},
+	{
+		title: "테크웨어",
+		type: "Techwear",
+		des: (
+			<>
+				<b>
+					면 소재 캐주얼웨어가아닌, 고어텍스나 코듀라 처럼 면 소재의 한계를 극복한
+					<br /> 소재로 만든 미래지향적스타일입니다
+				</b>
+				<br /> 디자인 포인트는 포켓, 버튼, 지퍼, 벨크로, 웨빙 테이프 입니다 더 나아가서
+				워크웨어(작업복/카고팬츠)등도 하나의 줄기를 가지고 있습니다.
+				#베트남시장에서는밀리터리 스타일을 선호하지 않아서 밀리터리 스타일도 테크웨어로분류
+				합니다
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 부자재 디테일 / 소재 / 컬러
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-35px]",
+		parentFooter: "mb-[65px] mt-[-30px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-nine-mobile.png")}
+					className=" h-[292.9px] w-[265px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-nine-mobile.png")}
+					className=" h-[374px] w-[374px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "레트로",
+		type: "Retro",
+		des: (
+			<>
+				<b>복고 패션을 현대적으로 세련되게 해석한 스타일을 말한다</b>
+				<br /> 레트로 느낌이 나는 컬러 도트무늬 / 스트라이프 / 레트로 스타일 기하학적 그래픽
+				패턴 하이웨이스트 로우 웨이스트 하의 / 부츠컷 올드스쿨 스타일 바람막이, 체크 무늬
+				셔츠, Grandma(할머니) 가디건 붉은 립스틱/ 뱅헤어 스타일 / 스카프 연출(넥 헤어밴드)
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 1레트로 컬러 or 레트로 컬러가 사용된 패턴(상,하의
+				) / 하의 핏 (부츠컷, 하이웨이스트, 로우웨이스트)
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-50px]",
+		parentFooter: "mb-[80px] mt-[-30px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-ten-mobile.png")}
+					className=" h-[307.2px] w-[257px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-ten-mobile.png")}
+					className=" h-[286px] w-[322px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "스트릿",
+		type: "Street",
+		des: (
+			<>
+				<b> 베트남시장에서는 한국의 1990~2000년대 초반처럼 힙합 스타일로 통용</b>
+				<br /> <b>됩니다</b>
+				<br /> 루즈하고 와이드한 아이템과 핏으로 구분됩니다 베이직 아이템과 혼동이 간다면
+				자수나 나염등의 아트웍의 밀도로 가늠할 수 있습니다 (프린트 아트웍은 베이직
+				아이템보다 눈에 띄게 화려하거나 볼드한 경향이 있습니다 )
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 1레트로 컬러 or 레트로 컬러가 사용된 패턴(상,하의
+				) / 하의 핏 (부츠컷, 하이웨이스트, 로우웨이스트)
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-50px]",
+		parentFooter: "mb-[80px] mt-[-30px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-elevent-mobile.png")}
+					className=" h-[278.87px] w-[339.17px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-elevent-mobile.png")}
+					className=" h-[262px] w-[250.17px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "펑크",
+		type: "PUNK",
+		des: (
+			<>
+				음악 장르에서 생겨난 스타일로 구분이 쉽습니다 아이템의 매칭과 소재, 부자재, 디테일,
+				특정 문양으로 구분이 됩니다 락밴드 티셔츠,
+				<br />
+				체크/스트라이프패턴(블랙&화이트/레드&블랙), 레더소재 , 매쉬소재, 워커부츠 or
+				하이탑스니커즈 , 금속 체인 악세서리 등
+			</>
+		),
+		footer: <>대표적 구분포인트 : 악세서리 / 패턴(체커/타탄체크) / 밴드아트웍</>,
+		footerColor: "bg-green-main bottom-[-18px]",
+		parentFooter: "mb-[30px] mt-[-70px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-twelve-mobile.png")}
+					className=" h-[364.93px] w-[289px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-twelve-mobile.png")}
+					className=" h-[294.55px] w-[351px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "젠틀맨 / 오피스 (클래식)",
+		type: "GENTLEMAN / OFFICE",
+		des: (
+			<>
+				<b>시간이 흘러도 유행을 타지 않는, 고전적이면서 세련되고 포멀한 옷차림</b>
+				<br /> 스타일 구분에서 컬러는 중요치 않습니다 아이템으 구분됩니다 매칭되는 아이템도
+				중요합니다
+			</>
+		),
+		footer: <>대표적 구분포인트 : 악세서리 / 패턴(체커/타탄체크) / 밴드아트웍</>,
+		footerColor: "bg-green-main bottom-[-60px]",
+		parentFooter: "mb-[100px] ",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-thirdteen-mobile.png")}
+					className=" h-[205.83px] w-[323px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-thirdteen-mobile.png")}
+					className=" h-[225px] w-[335.29px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
 ];
 export default function SectionFour(props: any): JSX.Element {
+	const _renderMobileUi = (item: {
+		title?: string;
+		type?: string;
+		des?: JSX.Element;
+		footer: any;
+		footerColor: any;
+		parentFooter: any;
+		imageLeft: any;
+		imageRight: any;
+	}) => {
+		return (
+			<>
+				<div
+					className={`relative flex justify-center sm:hidden flex-col items-center ${item.parentFooter}`}
+				>
+					{item.imageRight}
+					<div
+						className={`text-[10px] ${item.footerColor} absolute w-full z-10 px-[20px] py-[10px] `}
+					>
+						{item.footer}
+					</div>
+				</div>
+				<div className="relative flex justify-center sm:hidden flex-col items-center pb-[40px]">
+					{item.imageLeft}
+				</div>
+			</>
+		);
+	};
+
+	const _renderDesktopUi = (
+		item:
+			| {
+					title: string;
+					type: string;
+					des: JSX.Element;
+					footer: JSX.Element;
+					footerColor: string;
+					footerColorDesktop: string;
+					parentFooter: string;
+					imageLeft: JSX.Element;
+					imageRight: JSX.Element;
+					imageLeftDesktop: JSX.Element;
+					imageRightDesktop: JSX.Element;
+			  }
+			| {
+					title: string;
+					type: string;
+					des: JSX.Element;
+					footer: JSX.Element;
+					footerColor: string;
+					parentFooter: string;
+					imageLeft: JSX.Element;
+					imageRight: JSX.Element;
+					footerColorDesktop?: undefined;
+					imageLeftDesktop?: undefined;
+					imageRightDesktop?: undefined;
+			  },
+	) => {
+		return (
+			<div className="hidden sm:block ">
+				<div className="flex relative sm:flex  justify-around">
+					{item?.imageLeftDesktop}
+					{item?.imageRightDesktop}
+					<div
+						className={`text-[15px] ${item.footerColorDesktop} absolute w-full z-10 px-[30px] py-[20px] `}
+					>
+						{item.footer}
+					</div>
+				</div>
+				<div className="h-[68px]"></div>
+			</div>
+		);
+	};
 	return (
 		<>
 			{Data.map((item, index) => (
@@ -314,22 +590,15 @@ export default function SectionFour(props: any): JSX.Element {
 						<div className="text-[16px] sm:text-[22px] font-bold">
 							{index + 1}. {item.title}
 						</div>
-						<div className="text-[12px] sm:text-[16px] mb-[5px]">{item.type}</div>
-						<div className="text-[11px] sm:text-[15px] mb-[30px]">{item.des}</div>
-					</div>
-					<div
-						className={`relative flex justify-center sm:hidden flex-col items-center ${item.parentFooter}`}
-					>
-						{item.imageRight}
-						<div
-							className={`text-[10px] ${item.footerColor} absolute w-full z-10 px-[20px] py-[10px] `}
-						>
-							{item.footer}
+						<div className="text-[12px] sm:text-[16px] mb-[5px] uppercase">
+							{item.type}
+						</div>
+						<div>
+							<div className="text-[11px] sm:text-[15px] mb-[30px]">{item.des}</div>
 						</div>
 					</div>
-					<div className="relative flex justify-center sm:hidden flex-col items-center pb-[40px]">
-						{item.imageLeft}
-					</div>
+					{_renderDesktopUi(item)}
+					{_renderMobileUi(item)}
 				</div>
 			))}
 		</>
