@@ -18,7 +18,6 @@ const Data = [
 			</>
 		),
 		footerColor: "bg-green-main bottom-[-28px]",
-		footerColorDesktop: "bg-green-main bottom-[5px]",
 		parentFooter: "mb-[60px]",
 		imageLeft: (
 			<>
@@ -38,6 +37,7 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-green-main bottom-[5px]",
 		imageLeftDesktop: (
 			<>
 				<Image
@@ -92,6 +92,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-strawberry-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-two-desktop.png")}
+					className=" h-[397.83px] w-[528px] mb-[140px]  mt-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-two-desktop.png")}
+					className=" h-[646px] w-[777px]  z-20 mt-[-160px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "보헤미안",
@@ -128,6 +147,25 @@ const Data = [
 				<Image
 					src={require("@images/guide-right-three-mobile.png")}
 					className=" h-[302.14px] w-[340px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+		footerColorDesktop: "bg-green-main bottom-[-17px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-three-desktop.png")}
+					className=" h-[417px] w-[398px] mb-[80px]  "
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-three-desktop.png")}
+					className=" h-[417px] w-[785px]  z-20 mt-[35px]"
 					alt="logo"
 				></Image>
 			</>
@@ -170,6 +208,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-green-main bottom-[100px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-four-desktop.png")}
+					className=" h-[481px] w-[451px] mb-[0px]  mt-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-four-desktop.png")}
+					className=" h-[883px] w-[883px]  z-20 mt-[-140px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "바캉스",
@@ -204,6 +261,25 @@ const Data = [
 				<Image
 					src={require("@images/guide-right-five-mobile.png")}
 					className=" h-[165px] w-[353px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+		footerColorDesktop: "bg-green-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-five-desktop.png")}
+					className=" h-[418px] w-[482px]   mb-[100px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-five-desktop.png")}
+					className=" h-[400px] w-[823px]  z-20   mb-[100px]"
 					alt="logo"
 				></Image>
 			</>
@@ -246,6 +322,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-strawberry-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-six-desktop.png")}
+					className=" h-[160px] w-[589px]   mt-[100px]   mb-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-six-desktop.png")}
+					className=" h-[725px] w-[598px]  z-20   mb-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "섹시",
@@ -280,6 +375,25 @@ const Data = [
 				<Image
 					src={require("@images/guide-right-seven-mobile.png")}
 					className=" h-[286px] w-[216px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+		footerColorDesktop: "bg-strawberry-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-seven-desktop.png")}
+					className=" h-[170px] w-[788px]   mt-[100px]   mb-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-seven-desktop.png")}
+					className=" h-[725px] w-[560px]  z-20   mt-[-140px]"
 					alt="logo"
 				></Image>
 			</>
@@ -322,6 +436,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-green-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-eight-desktop.png")}
+					className=" h-[467px] w-[500px]   mt-[30px]   mb-[40px]"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-eight-desktop.png")}
+					className=" h-[725px] w-[738px]  z-20   mt-[-140px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "테크웨어",
@@ -334,6 +467,7 @@ const Data = [
 				</b>
 				<br /> 디자인 포인트는 포켓, 버튼, 지퍼, 벨크로, 웨빙 테이프 입니다 더 나아가서
 				워크웨어(작업복/카고팬츠)등도 하나의 줄기를 가지고 있습니다.
+				<br className="hidden sm:block" />
 				#베트남시장에서는밀리터리 스타일을 선호하지 않아서 밀리터리 스타일도 테크웨어로분류
 				합니다
 			</>
@@ -363,6 +497,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-green-main bottom-[88px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-nine-desktop.png")}
+					className=" h-[464.82px] w-[419.49px]   mt-[30px]   "
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-nine-desktop.png")}
+					className=" h-[895px] w-[895px]  z-20   mt-[-140px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "레트로",
@@ -371,8 +524,9 @@ const Data = [
 			<>
 				<b>복고 패션을 현대적으로 세련되게 해석한 스타일을 말한다</b>
 				<br /> 레트로 느낌이 나는 컬러 도트무늬 / 스트라이프 / 레트로 스타일 기하학적 그래픽
-				패턴 하이웨이스트 로우 웨이스트 하의 / 부츠컷 올드스쿨 스타일 바람막이, 체크 무늬
-				셔츠, Grandma(할머니) 가디건 붉은 립스틱/ 뱅헤어 스타일 / 스카프 연출(넥 헤어밴드)
+				패턴 하이웨이스트 로우 웨이스트 하의 / 부츠컷 올드스쿨 스타일 바람막이{" "}
+				<br className="hidden sm:block" />, 체크 무늬 셔츠 , Grandma(할머니) 가디건 붉은
+				립스틱/ 뱅헤어 스타일 / 스카프 연출(넥 헤어밴드)
 			</>
 		),
 		footer: (
@@ -401,6 +555,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-green-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-ten-desktop.png")}
+					className=" h-[443.26px] w-[370.82px]   mt-[30px]  mb-[60px]   "
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-ten-desktop.png")}
+					className=" h-[746px] w-[706px]  z-20   mt-[-140px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "스트릿",
@@ -410,8 +583,9 @@ const Data = [
 				<b> 베트남시장에서는 한국의 1990~2000년대 초반처럼 힙합 스타일로 통용</b>
 				<br /> <b>됩니다</b>
 				<br /> 루즈하고 와이드한 아이템과 핏으로 구분됩니다 베이직 아이템과 혼동이 간다면
-				자수나 나염등의 아트웍의 밀도로 가늠할 수 있습니다 (프린트 아트웍은 베이직
-				아이템보다 눈에 띄게 화려하거나 볼드한 경향이 있습니다 )
+				자수나 나염등의 아트웍의 밀도로 가늠할 수 있습니다
+				<br className="hidden sm:block" /> (프린트 아트웍은 베이직 아이템보다 눈에 띄게
+				화려하거나 볼드한 경향이 있습니다 )
 			</>
 		),
 		footer: (
@@ -436,6 +610,25 @@ const Data = [
 				<Image
 					src={require("@images/guide-right-elevent-mobile.png")}
 					className=" h-[262px] w-[250.17px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+		footerColorDesktop: "bg-green-main bottom-[36px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-elevent-desktop.png")}
+					className=" h-[453.26px] w-[549px]   mt-[30px]  mb-[60px]   "
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-elevent-desktop.png")}
+					className=" h-[800px] w-[800px]  z-20   mt-[-140px]"
 					alt="logo"
 				></Image>
 			</>
@@ -474,6 +667,25 @@ const Data = [
 				></Image>
 			</>
 		),
+		footerColorDesktop: "bg-green-main bottom-[88px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-twelve-desktop.png")}
+					className=" h-[209.26px] w-[635.13px]   mt-[60px]  mb-[60px]   "
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-twelve-desktop.png")}
+					className=" h-[741px] w-[883px]  z-20   mt-[-140px]"
+					alt="logo"
+				></Image>
+			</>
+		),
 	},
 	{
 		title: "젠틀맨 / 오피스 (클래식)",
@@ -502,6 +714,25 @@ const Data = [
 				<Image
 					src={require("@images/guide-right-thirdteen-mobile.png")}
 					className=" h-[225px] w-[335.29px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+		footerColorDesktop: "bg-green-main bottom-[0px]",
+		imageLeftDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-left-thirdteen-desktop.png")}
+					className=" h-[316.95px] w-[499.39px]   mt-[60px]  mb-[120px]   "
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRightDesktop: (
+			<>
+				<Image
+					src={require("@images/guide-right-thirdteen-desktop.png")}
+					className=" h-[470px] w-[744px]  z-20  mt-[-60px]  "
 					alt="logo"
 				></Image>
 			</>
@@ -569,9 +800,11 @@ export default function SectionFour(props: any): JSX.Element {
 	) => {
 		return (
 			<div className="hidden sm:block ">
-				<div className="flex relative sm:flex  justify-around">
-					{item?.imageLeftDesktop}
-					{item?.imageRightDesktop}
+				<div className=" relative  ">
+					<div className="flex justify-between px-[20px] sm:px-[30px]">
+						{item?.imageLeftDesktop}
+						{item?.imageRightDesktop}
+					</div>
 					<div
 						className={`text-[15px] ${item.footerColorDesktop} absolute w-full z-10 px-[30px] py-[20px] `}
 					>
