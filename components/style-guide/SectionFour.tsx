@@ -17,7 +17,7 @@ const Data = [
 				대표적 구분포인트 : <b>1순위-</b> 베이직 핏 (상의-기본핏 / 하의 -스트레이트,스키니)
 			</>
 		),
-		footerColor: "bg-green-main bottom-[-60px]",
+		footerColor: "bg-green-main bottom-[-28px]",
 		parentFooter: "mb-[60px]",
 		imageLeft: (
 			<>
@@ -53,8 +53,8 @@ const Data = [
 				대표적 구분포인트 : <b>1순위</b>- 소재 / 아이템 / 패턴 / 악세서리 / 브랜드 대표적
 			</>
 		),
-		footerColor: "bg-strawberry-amin bottom-[0px]",
-		parentFooter: "mb-[60px]",
+		footerColor: "bg-strawberry-main bottom-[-36px]",
+		parentFooter: "mb-[70px]",
 		imageLeft: (
 			<>
 				<Image
@@ -74,17 +74,247 @@ const Data = [
 			</>
 		),
 	},
+	{
+		title: "보헤미안",
+		type: "BOHEMIAN",
+		des: (
+			<>
+				<b>
+					관습에 얽매이지 않고 자유로운 생활을 하는 예술가나 히피를 지칭하는 말이기도 한
+					보헤미안의 의상에 현대적인 감각을 더한 스타일
+				</b>
+				<br />
+				내추럴한 컬러/소재 아이템과 에스닉한 문양과 소재로 구분 됩니다. 매칭 <br />
+				아이템으로는 샌들 쪼리 페도라 등이 있습니다
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위</b>- 패턴(문양) / 소재 / 악세서리
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-35px]",
+		parentFooter: "mb-[70px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-three-mobile.png")}
+					className=" h-[251px] w-[263px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-three-mobile.png")}
+					className=" h-[302.14px] w-[340px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "미니멀리스트",
+		type: "MINIMALIST",
+		des: (
+			<>
+				<b>미니멀리스트는 극도의 단순함을 추구하는 패션스타일 입니다</b>
+				<br />
+				정제된 컬러(모노톤/뉴트럴 컬러) 와 아이템 핏과 디테일의 심플함 정도로 구분됩니다.
+				디자인 포인트는 지퍼, 버튼, 포켓등의 작고 다양한 디테일이 아닌 과감한 절개나 패턴,
+				실루엣의 변형으로 표현 합니다
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 패턴(문양) / 소재 / 악세서리
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-14px]",
+		parentFooter: "mb-[35px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-four-mobile.png")}
+					className=" h-[248px] w-[264px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-four-mobile.png")}
+					className=" h-[326px] w-[346px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "바캉스",
+		type: "VACATION",
+		des: (
+			<>
+				<b>휴가철에 바캉스가거나 피서지 또는 리조트 등에서 입는 의상들입니다.</b>
+				<br />
+				주로 수영복, 비치웨어 등이며, 주로 패턴과 컬러, 매칭되는 아이템의 종류와
+				상황(장소)에 따라 구분됩니다. 매칭 아이템 : 라탄 소재 가방 모자, 메쉬 소재,
+				선글라스, 샌들
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 패턴(문양) / 소재 / 악세서리
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-70px]",
+		parentFooter: "mb-[105px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-five-mobile.png")}
+					className=" h-[280.9px] w-[324.02px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-five-mobile.png")}
+					className=" h-[165px] w-[353px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "걸리쉬",
+		type: "GIRLISH LOOK",
+		des: (
+			<>
+				<b>엘레강스의 여성스러움 보다 소녀 적인 무드가 강한 스타일 입니다 타</b>
+				<br />
+				스타일과 같은 종류의 아이템이라도꽃 문양과 컬러 / 디테일(프릴,셔링등)에 영향을
+				받습니다
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 디테일(주름,리본등) / 컬러(핑크) / 패턴 /
+				아이템(블라우스, 쉬폰드레스 등)
+			</>
+		),
+		footerColor: "bg-strawberry-main bottom-[-70px]",
+		parentFooter: "mb-[105px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-six-mobile.png")}
+					className=" h-[299.37px] w-[233px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-six-mobile.png")}
+					className=" h-[281.01px] w-[253px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "섹시",
+		type: "SEXY",
+		des: (
+			<>
+				<b>여성의 인체 곡선을 드러나게 하여 성적인 매력을 강조한 옷차림. 신체를 많이</b>
+				<br />
+				<b>노출하였거나 몸에 꼭 맞는 의상들이 여기에 속한다</b>
+				<br /> 실루엣(여성성을 드러내는 핏) 과 재단등 디자인 디테일로 구분이 됩니다 짧은
+				기장과 노출정도가 가장 큰 구분점입니다
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트 : <b>1순위-</b> 핏 /실루엣 / 소재 / 면적
+			</>
+		),
+		footerColor: "bg-strawberry-main bottom-[-35px]",
+		parentFooter: "mb-[70px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-seven-mobile.png")}
+					className=" h-[230.06px] w-[300.88px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-seven-mobile.png")}
+					className=" h-[286px] w-[216px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
+	{
+		title: "스포티",
+		type: "SPORTY",
+		des: (
+			<>
+				<b>자연스럽고 건강해보이는 캐주얼 이미지로서 입기에도 편안하고 기능성을</b>
+				<br />
+				<b>중요시하여 활동적인 스포츠웨어를 말함</b>
+				<br /> 메인아이템(의복 아이템)과 핏 디테일 (기능성) 매칭되는 악세서리, 상황과 장소로
+				구분됩니다. 대표적으로 브랜드 (로고)의 영향을 받는 스타일입니다
+			</>
+		),
+		footer: (
+			<>
+				대표적 구분포인트: <b>1순위-</b> 아이템 /소재 / 브랜드(로고)
+			</>
+		),
+		footerColor: "bg-green-main bottom-[-35px]",
+		parentFooter: "mb-[65px]",
+		imageLeft: (
+			<>
+				<Image
+					src={require("@images/guide-left-eight-mobile.png")}
+					className=" h-[286.46px] w-[310px]  sm:hidden"
+					alt="logo"
+				></Image>
+			</>
+		),
+		imageRight: (
+			<>
+				<Image
+					src={require("@images/guide-right-eight-mobile.png")}
+					className=" h-[321px] w-[339px]  sm:hidden z-20"
+					alt="logo"
+				></Image>
+			</>
+		),
+	},
 ];
 export default function SectionFour(props: any): JSX.Element {
 	return (
 		<>
 			{Data.map((item, index) => (
-				<div className="mt-[15px] sm:mt-[20px] bg-white ">
+				<div id={`style-${index}`} className="mt-[15px] sm:mt-[20px] bg-white ">
 					<div className="pt-[40px] sm:pt-[60px] px-[20px] sm:px-[30px]">
 						<div className="text-[16px] sm:text-[22px] font-bold">
 							{index + 1}. {item.title}
 						</div>
-						<div className="text-[12px] sm:text-[16px]">{item.type}</div>
+						<div className="text-[12px] sm:text-[16px] mb-[5px]">{item.type}</div>
 						<div className="text-[11px] sm:text-[15px] mb-[30px]">{item.des}</div>
 					</div>
 					<div

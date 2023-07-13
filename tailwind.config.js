@@ -15,7 +15,7 @@ module.exports = {
 			},
 			colors: {
 				"green-main": "#71EAB0",
-				"strawberry-amin": "#FFA1A1",
+				"strawberry-main": "#FFA1A1",
 			},
 			gridTemplateColumns: {
 				13: "repeat(13, minmax(0, 1fr))",

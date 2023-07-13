@@ -17,17 +17,22 @@ const arrayListText = [
 	"젠틀맨 / 오피스 (클래식)",
 ];
 export default function SectionThree(props: any): JSX.Element {
+	const [indexActive, setIndexActive] = useState(-1);
 	return (
 		<div className="overflow-scroll">
 			<div className="mt-[15px]  bg-black sm:py-[10px] py-[10px] px-[30px] sm:px-[15px] flex overflow-y-auto justify-between w-[1014px] sm:w-[1614px]">
 				{arrayListText.map((text, index) => (
-					<div
+					<a
+						onClick={() => {
+							setIndexActive(index);
+						}}
+						href={`#style-${index}`}
 						className={`text-white px-[15px] ${
-							!index ? "text-green-main" : ""
+							index === indexActive ? "text-green-main" : ""
 						} text-[9.11px] sm:text-[16px]`}
 					>
 						{index + 1}. {text}
-					</div>
+					</a>
 				))}
 			</div>
 		</div>

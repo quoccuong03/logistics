@@ -48,7 +48,7 @@ export default async function StyleGuidePage({
 	searchParams: { refType: string };
 }) {
 	return (
-		<div>
+		<div className="styleGuid">
 			<SectionOne title="Style Guide 2023" />
 			<SectionTow bgColor="white" />
 			<SectionThree />
