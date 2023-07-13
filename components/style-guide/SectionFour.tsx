@@ -818,7 +818,7 @@ export default function SectionFour(props: any): JSX.Element {
 	return (
 		<>
 			{Data.map((item, index) => (
-				<div id={`style-${index}`} className="mt-[15px] sm:mt-[20px] bg-white ">
+				<div key={index} id={`style-${index}`} className="mt-[15px] sm:mt-[20px] bg-white ">
 					<div className="pt-[40px] sm:pt-[60px] px-[20px] sm:px-[30px]">
 						<div className="text-[16px] sm:text-[22px] font-bold">
 							{index + 1}. {item.title}
