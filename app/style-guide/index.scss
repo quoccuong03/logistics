@@ -1,0 +1,14 @@
+.styleGuid {
+	&__background {
+		background-image: url("/images/bg-guide-mobile.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		width: 100%;
+	}
+	@media (min-width: 640px) {
+		&__background {
+			background-image: url("/images/bg-guide-desktop.png");
+		}
+	}
+}
