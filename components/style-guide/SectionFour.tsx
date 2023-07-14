@@ -37,7 +37,7 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[5px]",
+		footerColorDesktop: "bg-green-main bottom-[105px]",
 		imageLeftDesktop: (
 			<>
 				<Image
@@ -51,7 +51,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-desktop.png")}
-					className=" h-[731px] w-[631px]  z-20 mt-[-160px]"
+					className=" h-[909px] w-[763px]  z-20 absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -92,7 +92,7 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-strawberry-main bottom-[0px]",
+		footerColorDesktop: "bg-strawberry-main bottom-[102px]",
 		imageLeftDesktop: (
 			<>
 				<Image
@@ -106,7 +106,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-two-desktop.png")}
-					className=" h-[646px] w-[777px]  z-20 mt-[-160px]"
+					className=" h-[909px] w-[763px]  z-20 absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -151,12 +151,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[-17px]",
+		footerColorDesktop: "bg-green-main bottom-[106px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-three-desktop.png")}
-					className=" h-[417px] w-[398px] mb-[80px]  "
+					className=" h-[417px] w-[398px] "
 					alt="logo"
 				></Image>
 			</>
@@ -165,7 +165,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-three-desktop.png")}
-					className=" h-[417px] w-[785px]  z-20 mt-[35px]"
+					className=" h-[909px] w-[763px]  z-20 absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -208,12 +208,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[100px]",
+		footerColorDesktop: "bg-green-main bottom-[105px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-four-desktop.png")}
-					className=" h-[481px] w-[451px] mb-[0px]  mt-[40px]"
+					className=" h-[481px] w-[451px]   mt-[40px]"
 					alt="logo"
 				></Image>
 			</>
@@ -222,7 +222,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-four-desktop.png")}
-					className=" h-[883px] w-[883px]  z-20 mt-[-140px]"
+					className=" h-[909px] w-[763px]  z-20 absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -265,12 +265,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[0px]",
+		footerColorDesktop: "bg-green-main bottom-[105px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-five-desktop.png")}
-					className=" h-[418px] w-[482px]   mb-[100px]"
+					className=" h-[418px] w-[482px]"
 					alt="logo"
 				></Image>
 			</>
@@ -279,7 +279,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-five-desktop.png")}
-					className=" h-[400px] w-[823px]  z-20   mb-[100px]"
+					className=" h-[909px] w-[763px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -322,12 +322,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-strawberry-main bottom-[0px]",
+		footerColorDesktop: "bg-strawberry-main bottom-[105px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-six-desktop.png")}
-					className=" h-[160px] w-[589px]   mt-[100px]   mb-[40px]"
+					className=" h-[160px] w-[589px]   mt-[100px]   "
 					alt="logo"
 				></Image>
 			</>
@@ -336,7 +336,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-six-desktop.png")}
-					className=" h-[725px] w-[598px]  z-20   mb-[40px]"
+					className=" h-[909px] w-[763px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -379,12 +379,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-strawberry-main bottom-[0px]",
+		footerColorDesktop: "bg-strawberry-main bottom-[100px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-seven-desktop.png")}
-					className=" h-[170px] w-[788px]   mt-[100px]   mb-[40px]"
+					className=" h-[170px] w-[788px]   mt-[100px]   "
 					alt="logo"
 				></Image>
 			</>
@@ -393,7 +393,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-seven-desktop.png")}
-					className=" h-[725px] w-[560px]  z-20   mt-[-140px]"
+					className=" h-[909px] w-[763px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -436,12 +436,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[0px]",
+		footerColorDesktop: "bg-green-main bottom-[95px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-eight-desktop.png")}
-					className=" h-[467px] w-[500px]   mt-[30px]   mb-[40px]"
+					className=" h-[467px] w-[500px]   mt-[30px]   "
 					alt="logo"
 				></Image>
 			</>
@@ -450,7 +450,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-eight-desktop.png")}
-					className=" h-[725px] w-[738px]  z-20   mt-[-140px]"
+					className=" h-[909px] w-[763px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -497,7 +497,7 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[88px]",
+		footerColorDesktop: "bg-green-main bottom-[105px]",
 		imageLeftDesktop: (
 			<>
 				<Image
@@ -511,7 +511,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-nine-desktop.png")}
-					className=" h-[895px] w-[895px]  z-20   mt-[-140px]"
+					className=" h-[895px] w-[895px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -555,12 +555,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[0px]",
+		footerColorDesktop: "bg-green-main bottom-[101px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-ten-desktop.png")}
-					className=" h-[443.26px] w-[370.82px]   mt-[30px]  mb-[60px]   "
+					className=" h-[443.26px] w-[370.82px]   mt-[30px]    "
 					alt="logo"
 				></Image>
 			</>
@@ -569,7 +569,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-ten-desktop.png")}
-					className=" h-[746px] w-[706px]  z-20   mt-[-140px]"
+					className=" h-[909px] w-[763px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -614,12 +614,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[36px]",
+		footerColorDesktop: "bg-green-main bottom-[106px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-elevent-desktop.png")}
-					className=" h-[453.26px] w-[549px]   mt-[30px]  mb-[60px]   "
+					className=" h-[453.26px] w-[549px]   mt-[30px]  "
 					alt="logo"
 				></Image>
 			</>
@@ -628,7 +628,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-elevent-desktop.png")}
-					className=" h-[800px] w-[800px]  z-20   mt-[-140px]"
+					className=" h-[909px] w-[762px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -667,12 +667,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[88px]",
+		footerColorDesktop: "bg-green-main bottom-[107px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-twelve-desktop.png")}
-					className=" h-[209.26px] w-[635.13px]   mt-[60px]  mb-[60px]   "
+					className=" h-[209.26px] w-[635.13px]   mt-[60px]    "
 					alt="logo"
 				></Image>
 			</>
@@ -681,7 +681,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-twelve-desktop.png")}
-					className=" h-[741px] w-[883px]  z-20   mt-[-140px]"
+					className=" h-[909px] w-[762px]  z-20   absolute top-0 right-0"
 					alt="logo"
 				></Image>
 			</>
@@ -718,12 +718,12 @@ const Data = [
 				></Image>
 			</>
 		),
-		footerColorDesktop: "bg-green-main bottom-[0px]",
+		footerColorDesktop: "bg-green-main bottom-[105px]",
 		imageLeftDesktop: (
 			<>
 				<Image
 					src={require("@images/guide-left-thirdteen-desktop.png")}
-					className=" h-[316.95px] w-[499.39px]   mt-[60px]  mb-[120px]   "
+					className=" h-[316.95px] w-[499.39px]   mt-[60px]     "
 					alt="logo"
 				></Image>
 			</>
@@ -732,7 +732,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-thirdteen-desktop.png")}
-					className=" h-[470px] w-[744px]  z-20  mt-[-60px]  "
+					className=" h-[909px] w-[762px]  z-20  absolute top-0 right-0  "
 					alt="logo"
 				></Image>
 			</>
@@ -753,7 +753,7 @@ export default function SectionFour(props: any): JSX.Element {
 		return (
 			<>
 				<div
-					className={`relative flex justify-center sm:hidden flex-col items-center ${item.parentFooter}`}
+					className={` flex justify-center sm:hidden flex-col items-center ${item.parentFooter}`}
 				>
 					{item.imageRight}
 					<div
@@ -800,8 +800,8 @@ export default function SectionFour(props: any): JSX.Element {
 	) => {
 		return (
 			<div className="hidden sm:block ">
-				<div className=" relative  ">
-					<div className="flex justify-between px-[20px] sm:px-[30px]">
+				<div>
+					<div className="flex justify-between px-[20px] sm:px-[30px] ">
 						{item?.imageLeftDesktop}
 						{item?.imageRightDesktop}
 					</div>
@@ -818,7 +818,11 @@ export default function SectionFour(props: any): JSX.Element {
 	return (
 		<>
 			{Data.map((item, index) => (
-				<div key={index} id={`style-${index}`} className="mt-[15px] sm:mt-[20px] bg-white ">
+				<div
+					key={index}
+					id={`style-${index}`}
+					className="mt-[15px] sm:mt-[20px] bg-white sm:h-[909px] relative"
+				>
 					<div className="pt-[40px] sm:pt-[60px] px-[20px] sm:px-[30px]">
 						<div className="text-[16px] sm:text-[22px] font-bold">
 							{index + 1}. {item.title}

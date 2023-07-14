@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function SectionTow(props: any): JSX.Element {
 	const { bgColor } = props;
 	return (
-		<div className={`bg-${bgColor} p-[20px] sm:p-[30px]`}>
+		<div className={`bg-${bgColor} p-[20px] sm:p-[40px]`}>
 			<Image
 				src={require("@images/logo-small-guide.png")}
 				className="sm:w-[95.45px] sm:h-[21px] w-[81.82px] h-[18px] mb-[20px] sm:mb-[30px]"
