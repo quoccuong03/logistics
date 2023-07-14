@@ -818,9 +818,8 @@ export default function SectionFour(props: any): JSX.Element {
 	return (
 		<>
 			{Data.map((item, index) => (
-				<div data-aos="fade-up">
+				<div key={index} data-aos="fade-up">
 					<div
-						key={index}
 						id={`style-${index}`}
 						className="mt-[15px] sm:mt-[20px] bg-white sm:h-[909px] relative"
 					>
