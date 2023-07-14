@@ -23,7 +23,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-mobile.png")}
-					className=" h-[202.83px] w-[313.35px]  sm:hidden"
+					className=" h-[202.83px] w-[313.35px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -32,7 +32,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-mobile.png")}
-					className=" h-[357px] w-[332px]  sm:hidden z-20"
+					className=" h-[357px] w-[332px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -78,7 +78,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-two-mobile.png")}
-					className=" h-[202.83px] w-[313.35px]  sm:hidden"
+					className=" h-[202.83px] w-[313.35px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -87,7 +87,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-two-mobile.png")}
-					className=" h-[357px] w-[332px]  sm:hidden z-20"
+					className=" h-[357px] w-[332px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -137,7 +137,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-three-mobile.png")}
-					className=" h-[251px] w-[263px]  sm:hidden"
+					className=" h-[251px] w-[263px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -146,7 +146,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-three-mobile.png")}
-					className=" h-[302.14px] w-[340px]  sm:hidden z-20"
+					className=" h-[302.14px] w-[340px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -194,7 +194,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-four-mobile.png")}
-					className=" h-[248px] w-[264px]  sm:hidden"
+					className=" h-[248px] w-[264px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -203,7 +203,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-four-mobile.png")}
-					className=" h-[326px] w-[346px]  sm:hidden z-20"
+					className=" h-[326px] w-[346px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -251,7 +251,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-five-mobile.png")}
-					className=" h-[280.9px] w-[324.02px]  sm:hidden"
+					className=" h-[280.9px] w-[324.02px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -260,7 +260,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-five-mobile.png")}
-					className=" h-[165px] w-[353px]  sm:hidden z-20"
+					className=" h-[165px] w-[353px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -308,7 +308,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-six-mobile.png")}
-					className=" h-[299.37px] w-[233px]  sm:hidden"
+					className=" h-[299.37px] w-[233px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -317,7 +317,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-six-mobile.png")}
-					className=" h-[281.01px] w-[253px]  sm:hidden z-20"
+					className=" h-[281.01px] w-[253px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -365,7 +365,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-seven-mobile.png")}
-					className=" h-[230.06px] w-[300.88px]  sm:hidden"
+					className=" h-[230.06px] w-[300.88px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -374,7 +374,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-seven-mobile.png")}
-					className=" h-[286px] w-[216px]  sm:hidden z-20"
+					className=" h-[286px] w-[216px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -422,7 +422,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-eight-mobile.png")}
-					className=" h-[286.46px] w-[310px]  sm:hidden"
+					className=" h-[286.46px] w-[310px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -431,7 +431,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-eight-mobile.png")}
-					className=" h-[321px] w-[339px]  sm:hidden z-20"
+					className=" h-[321px] w-[339px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -467,7 +467,7 @@ const Data = [
 				</b>
 				<br /> 디자인 포인트는 포켓, 버튼, 지퍼, 벨크로, 웨빙 테이프 입니다 더 나아가서
 				워크웨어(작업복/카고팬츠)등도 하나의 줄기를 가지고 있습니다.
-				<br className="hidden sm:block" />
+				<br className="hidden lg:block" />
 				#베트남시장에서는밀리터리 스타일을 선호하지 않아서 밀리터리 스타일도 테크웨어로분류
 				합니다
 			</>
@@ -483,7 +483,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-nine-mobile.png")}
-					className=" h-[292.9px] w-[265px]  sm:hidden"
+					className=" h-[292.9px] w-[265px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -492,7 +492,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-nine-mobile.png")}
-					className=" h-[374px] w-[374px]  sm:hidden z-20"
+					className=" h-[374px] w-[374px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -525,7 +525,7 @@ const Data = [
 				<b>복고 패션을 현대적으로 세련되게 해석한 스타일을 말한다</b>
 				<br /> 레트로 느낌이 나는 컬러 도트무늬 / 스트라이프 / 레트로 스타일 기하학적 그래픽
 				패턴 하이웨이스트 로우 웨이스트 하의 / 부츠컷 올드스쿨 스타일 바람막이{" "}
-				<br className="hidden sm:block" />, 체크 무늬 셔츠 , Grandma(할머니) 가디건 붉은
+				<br className="hidden lg:block" />, 체크 무늬 셔츠 , Grandma(할머니) 가디건 붉은
 				립스틱/ 뱅헤어 스타일 / 스카프 연출(넥 헤어밴드)
 			</>
 		),
@@ -541,7 +541,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-ten-mobile.png")}
-					className=" h-[307.2px] w-[257px]  sm:hidden"
+					className=" h-[307.2px] w-[257px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -550,7 +550,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-ten-mobile.png")}
-					className=" h-[286px] w-[322px]  sm:hidden z-20"
+					className=" h-[286px] w-[322px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -584,7 +584,7 @@ const Data = [
 				<br /> <b>됩니다</b>
 				<br /> 루즈하고 와이드한 아이템과 핏으로 구분됩니다 베이직 아이템과 혼동이 간다면
 				자수나 나염등의 아트웍의 밀도로 가늠할 수 있습니다
-				<br className="hidden sm:block" /> (프린트 아트웍은 베이직 아이템보다 눈에 띄게
+				<br className="hidden lg:block" /> (프린트 아트웍은 베이직 아이템보다 눈에 띄게
 				화려하거나 볼드한 경향이 있습니다 )
 			</>
 		),
@@ -600,7 +600,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-elevent-mobile.png")}
-					className=" h-[278.87px] w-[339.17px]  sm:hidden"
+					className=" h-[278.87px] w-[339.17px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -609,7 +609,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-elevent-mobile.png")}
-					className=" h-[262px] w-[250.17px]  sm:hidden z-20"
+					className=" h-[262px] w-[250.17px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -653,7 +653,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-twelve-mobile.png")}
-					className=" h-[364.93px] w-[289px]  sm:hidden"
+					className=" h-[364.93px] w-[289px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -662,7 +662,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-twelve-mobile.png")}
-					className=" h-[294.55px] w-[351px]  sm:hidden z-20"
+					className=" h-[294.55px] w-[351px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -704,7 +704,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-left-thirdteen-mobile.png")}
-					className=" h-[205.83px] w-[323px]  sm:hidden"
+					className=" h-[205.83px] w-[323px]  lg:hidden"
 					alt="logo"
 				></Image>
 			</>
@@ -713,7 +713,7 @@ const Data = [
 			<>
 				<Image
 					src={require("@images/guide-right-thirdteen-mobile.png")}
-					className=" h-[225px] w-[335.29px]  sm:hidden z-20"
+					className=" h-[225px] w-[335.29px]  lg:hidden z-20"
 					alt="logo"
 				></Image>
 			</>
@@ -753,7 +753,7 @@ export default function SectionFour(props: any): JSX.Element {
 		return (
 			<>
 				<div
-					className={` flex justify-center relative sm:hidden flex-col items-center ${item.parentFooter}`}
+					className={` flex justify-center relative lg:hidden flex-col items-center ${item.parentFooter}`}
 				>
 					{item.imageRight}
 					<div
@@ -762,7 +762,7 @@ export default function SectionFour(props: any): JSX.Element {
 						{item.footer}
 					</div>
 				</div>
-				<div className="relative flex justify-center sm:hidden flex-col items-center pb-[40px]">
+				<div className="relative flex justify-center lg:hidden flex-col items-center pb-[40px]">
 					{item.imageLeft}
 				</div>
 			</>
@@ -799,9 +799,9 @@ export default function SectionFour(props: any): JSX.Element {
 			  },
 	) => {
 		return (
-			<div className="hidden sm:block ">
+			<div className="hidden lg:block ">
 				<div>
-					<div className="flex justify-between px-[20px] sm:px-[30px] ">
+					<div className="flex justify-between px-[20px] lg:px-[30px] ">
 						{item?.imageLeftDesktop}
 						{item?.imageRightDesktop}
 					</div>
@@ -821,17 +821,17 @@ export default function SectionFour(props: any): JSX.Element {
 				<div key={index} data-aos="fade-up">
 					<div
 						id={`style-${index}`}
-						className="mt-[15px] sm:mt-[20px] bg-white sm:h-[909px] relative"
+						className="mt-[15px] lg:mt-[20px] bg-white lg:h-[909px] relative"
 					>
-						<div className="pt-[40px] sm:pt-[60px] px-[20px] sm:px-[30px]">
-							<div className="text-[16px] sm:text-[22px] font-bold">
+						<div className="pt-[40px] lg:pt-[60px] px-[20px] lg:px-[30px]">
+							<div className="text-[16px] lg:text-[22px] font-bold">
 								{index + 1}. {item.title}
 							</div>
-							<div className="text-[12px] sm:text-[16px] mb-[5px] uppercase">
+							<div className="text-[12px] lg:text-[16px] mb-[5px] uppercase">
 								{item.type}
 							</div>
 							<div>
-								<div className="text-[11px] sm:text-[15px] mb-[30px]">
+								<div className="text-[11px] lg:text-[15px] mb-[30px]">
 									{item.des}
 								</div>
 							</div>

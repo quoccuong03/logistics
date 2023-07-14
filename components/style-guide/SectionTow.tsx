@@ -4,16 +4,16 @@ import Image from "next/image";
 export default function SectionTow(props: any): JSX.Element {
 	const { bgColor } = props;
 	return (
-		<div className={`bg-${bgColor} p-[20px] sm:p-[40px]`}>
+		<div className={`bg-${bgColor} p-[20px] lg:p-[40px]`}>
 			<div data-aos="zoom-in">
 				<Image
 					src={require("@images/logo-small-guide.png")}
-					className="sm:w-[95.45px] sm:h-[21px] w-[81.82px] h-[18px] mb-[20px] sm:mb-[30px]"
+					className="lg:w-[95.45px] lg:h-[21px] w-[81.82px] h-[18px] mb-[20px] lg:mb-[30px]"
 					alt="logo"
 				></Image>
 			</div>
 			<div data-aos="fade-down-left">
-				<div className="text-[10px] sm:text-[14px]">
+				<div className="text-[10px] lg:text-[14px]">
 					<div>
 						<b>
 							스타일을 구분할 때 컬러, 문양, 옷의 형태도 참고를 할수는 있지만 이는
@@ -43,14 +43,14 @@ export default function SectionTow(props: any): JSX.Element {
 						크게 또는 작게 )
 					</div>
 					<br />
-					<div className="mb-[20px] sm:mb-[30px]">
+					<div className="mb-[20px] lg:mb-[30px]">
 						<b>그럼에도불구하고컬러나 패턴으로구분 지을수 있는 스타일도일부 있습니다</b>
 					</div>
 				</div>
 			</div>
-			<div className="h-[1px] w-[82px] bg-black sm:h-[2.97px] mb-[20px] sm:mb-[30px]"></div>
-			<div className="text-[9px] sm:text-[13.15px]">Showniq Style Guide_2023</div>
-			<div className=" hidden sm:block ">
+			<div className="h-[1px] w-[82px] bg-black lg:h-[2.97px] mb-[20px] lg:mb-[30px]"></div>
+			<div className="text-[9px] lg:text-[13.15px]">Showniq Style Guide_2023</div>
+			<div className=" hidden lg:block ">
 				<div className="text-[13.15px] text-right">
 					<b>SHOWNIQ</b>
 				</div>
