@@ -1,6 +1,7 @@
 import SectionFive from "@/components/style-guide/SectionFive";
 
 // import { Metadata } from "next";
+
 import SectionOne from "@components/style-guide/SectionOne";
 import SectionTow from "@components/style-guide/SectionTow";
 import SectionThree from "@components/style-guide/SectionThree";

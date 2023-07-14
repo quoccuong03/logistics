@@ -818,24 +818,28 @@ export default function SectionFour(props: any): JSX.Element {
 	return (
 		<>
 			{Data.map((item, index) => (
-				<div
-					key={index}
-					id={`style-${index}`}
-					className="mt-[15px] sm:mt-[20px] bg-white sm:h-[909px] relative"
-				>
-					<div className="pt-[40px] sm:pt-[60px] px-[20px] sm:px-[30px]">
-						<div className="text-[16px] sm:text-[22px] font-bold">
-							{index + 1}. {item.title}
+				<div data-aos="fade-up">
+					<div
+						key={index}
+						id={`style-${index}`}
+						className="mt-[15px] sm:mt-[20px] bg-white sm:h-[909px] relative"
+					>
+						<div className="pt-[40px] sm:pt-[60px] px-[20px] sm:px-[30px]">
+							<div className="text-[16px] sm:text-[22px] font-bold">
+								{index + 1}. {item.title}
+							</div>
+							<div className="text-[12px] sm:text-[16px] mb-[5px] uppercase">
+								{item.type}
+							</div>
+							<div>
+								<div className="text-[11px] sm:text-[15px] mb-[30px]">
+									{item.des}
+								</div>
+							</div>
 						</div>
-						<div className="text-[12px] sm:text-[16px] mb-[5px] uppercase">
-							{item.type}
-						</div>
-						<div>
-							<div className="text-[11px] sm:text-[15px] mb-[30px]">{item.des}</div>
-						</div>
+						{_renderDesktopUi(item)}
+						{_renderMobileUi(item)}
 					</div>
-					{_renderDesktopUi(item)}
-					{_renderMobileUi(item)}
 				</div>
 			))}
 		</>
