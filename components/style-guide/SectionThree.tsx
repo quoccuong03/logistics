@@ -20,7 +20,7 @@ export default function SectionThree(props: any): JSX.Element {
 	const [indexActive, setIndexActive] = useState(0);
 	return (
 		<div className="overflow-scroll">
-			<div className="mt-[15px]  bg-black sm:py-[20px] py-[10px] px-[30px] sm:px-[15px] flex overflow-y-auto justify-between w-[1014px] sm:w-[1614px]">
+			<div className="mt-[15px]  bg-black lg:py-[20px] py-[10px] px-[30px] lg:px-[15px] flex overflow-y-auto justify-between w-[1014px] lg:w-[1614px]">
 				{arrayListText.map((text, index) => (
 					<a
 						key={text}
@@ -30,7 +30,7 @@ export default function SectionThree(props: any): JSX.Element {
 						href={`#style-${index}`}
 						className={`text-white px-[15px] ${
 							index === indexActive ? "text-green-main" : ""
-						} text-[9.11px] sm:text-[16px]`}
+						} text-[9.11px] lg:text-[16px]`}
 					>
 						{index + 1}. {text}
 					</a>
