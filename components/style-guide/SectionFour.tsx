@@ -753,7 +753,7 @@ export default function SectionFour(props: any): JSX.Element {
 		return (
 			<>
 				<div
-					className={` flex justify-center sm:hidden flex-col items-center ${item.parentFooter}`}
+					className={` flex justify-center relative sm:hidden flex-col items-center ${item.parentFooter}`}
 				>
 					{item.imageRight}
 					<div
