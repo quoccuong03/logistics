@@ -1,12 +1,15 @@
 "use client";
 import "@/assets/SupportPage.css";
-interface SupportPageProps {
+import { FC, FormEvent } from "react";
+interface Props {
     appName: string;
     supportEmail: string;
 }
 
-const SupportPage: React.FC<SupportPageProps> = ({ appName, supportEmail }) => {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+export default function SupportPage() {
+    const appName = "Showiq";
+    const supportEmail = "contact@showniq.ai";
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
         const name = formData.get("name") as string;
@@ -85,6 +88,4 @@ const SupportPage: React.FC<SupportPageProps> = ({ appName, supportEmail }) => {
             </footer>
         </div>
     );
-};
-
-export default SupportPage;
+}
