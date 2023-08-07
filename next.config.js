@@ -17,7 +17,7 @@ const nextConfig = {
     basePath: getBasePath(),
     i18n: {
         locales: ["en", "vi", "kr"],
-        defaultLocale: "en",
+        defaultLocale: "vi",
     },
     images: {
         remotePatterns: [
