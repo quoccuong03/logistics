@@ -1,16 +1,19 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
+
+import { Locale, i18n } from "@/config/i18n-config";
 export async function GET(request: Request) {
-    console.log("request", request);
+    const { searchParams } = new URL(request.url);
+    const lang: Locale =
+        (searchParams?.get("lang") as Locale) ?? i18n.defaultLocale;
 
-    const fileContents = await fs.readFile(
-        `${process.env.BASE_URL}/uploads/app/landingpage/config/master.json`,
-        "utf8"
+    const res = await fetch(
+        `${process.env.BASE_URL}/uploads/app/landingpage/language/${lang}.json`
     );
-    // const res = await fetch(
-    //     `${process.env.BASE_URL}/uploads/app/landingpage/config/master.json`
-    // );
-    // const langConfig = await res.json();
+    if (!res.ok) {
+        throw new Error("Không tìm thấy dữ liệu");
+    }
 
-    return NextResponse.json(fileContents);
+    const langConfig = await res.json();
+
+    return NextResponse.json(langConfig);
 }

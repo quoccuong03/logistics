@@ -2,7 +2,10 @@
 import Image from "next/image";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-export default function TopFooter() {
+interface Props {
+    lang: any;
+}
+export default function TopFooter({ lang }: Props) {
     return (
         <div className="px-[20px] md:px-[26px] pb-20 pt-5 bg-[#FCFCFC]">
             <Image
@@ -16,15 +19,15 @@ export default function TopFooter() {
                 fontWeight={700}
                 color={"#797979"}
             >
-                CÔNG TY CỔ PHẦN SHOWNIQ
+                {lang?.company?.name}
             </Typography>
             <Typography fontSize={12} fontWeight={500} color={"#797979"}>
-                Địa chỉ trụ sở chính: 85-86-87 Bến Văn Đồn, Phường 9, quận 4,
-                TP.HCM <br />
+                {lang?.footer?.address?.label}: {lang?.footer?.address?.desc}
+                <br />
                 Website: www.showniq.ai <br />
                 Email: contact@showniq.ai <br />
-                Điện thoại: 028 3535 3470 <br />
-                MST: 0317560730 do Sở KH & ĐT TP.HCM cấp lần đầu ngày 10/11/2022
+                {lang?.footer?.phone?.label}: 028 3535 3470 <br />
+                {lang?.footer?.tax?.label}: {lang?.footer?.tax?.desc}
             </Typography>
             <div className="flex space-x-2 mt-5">
                 <Link

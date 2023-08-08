@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 function getBasePath() {
     var basePath = "";
 
@@ -15,10 +14,7 @@ function getBasePath() {
 
 const nextConfig = {
     basePath: getBasePath(),
-    i18n: {
-        locales: ["en", "vi", "kr"],
-        defaultLocale: "vi",
-    },
+    // i18n,
     images: {
         remotePatterns: [
             {

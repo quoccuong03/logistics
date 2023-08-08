@@ -1,11 +1,12 @@
+import { ReactNode } from "react";
 import Layout from "@/components/layout";
 import "@/assets/globals.css";
 import "@/assets/main.scss";
-
+import "keen-slider/keen-slider.min.css";
 import { getInfoDonwload } from "@/hooks/useInfo";
 import { headers } from "next/headers";
 import { Metadata } from "next";
-import { getDictionary } from "@/lib/get-lang";
+import { getLangs } from "@/lib/get-lang";
 import { Locale } from "@/config/i18n-config";
 
 export const metadata: Metadata = {
@@ -46,7 +47,7 @@ export default async function RootLayout({
     children,
     params,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
     params: { lang: Locale };
 }) {
     const dataJson = await getInfoDonwload();
@@ -61,12 +62,13 @@ export default async function RootLayout({
         }
     }
     const { lang } = params;
-    const dictionary = await getDictionary(lang);
-    console.log("dictionary", dictionary);
+    const dictionary = await getLangs(lang);
 
     return (
         <html lang={params.lang}>
-            <Layout linQr={linQr}>{children}</Layout>
+            <Layout linQr={linQr} lang={dictionary}>
+                {children}
+            </Layout>
         </html>
     );
 }

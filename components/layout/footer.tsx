@@ -8,7 +8,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useModal } from "@/recoil/hooks";
 import ModalDownload from "../ModalDownload";
 
-export default function Footer({ linQr }: { linQr: string }) {
+export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
     const [showPopup] = useLocalStorage<any>(HIDE_POPUP, "");
     const { onOpenModal, setLinkQr } = useModal();
     const pathname = usePathname();
@@ -30,7 +30,7 @@ export default function Footer({ linQr }: { linQr: string }) {
             <Button
                 endIcon={
                     <div className="flex items-center text-[10px] font-medium md:text-sm md:font-normal">
-                        TẢI APP <DownloadIcon />
+                        {lang?.common?.download} <DownloadIcon />
                     </div>
                 }
                 className="text-xs md:text-base font-bold text-black flex justify-end mt-4 min-h-[38px] md:min-h-[48px] md:max-w-[594px] mx-auto"
@@ -50,7 +50,9 @@ export default function Footer({ linQr }: { linQr: string }) {
                     },
                 }}
             >
-                <span className="mx-auto">Xem hơn 40,000 phong cách</span>
+                <span className="mx-auto">
+                    {lang?.common?.moreStyle?.replace("{number}", "40,000")}
+                </span>
             </Button>
             <ModalDownload />
         </footer>

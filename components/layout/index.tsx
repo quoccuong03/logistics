@@ -15,29 +15,39 @@ import Analytics from "@/app/Analytics";
 import { useSelectedLayoutSegment } from "next/navigation";
 const listSkipRootLayout = ["style-guide"];
 const montserrat = Montserrat({
-	subsets: ["latin", "vietnamese"],
-	variable: "--montserrat-font",
+    subsets: ["latin", "vietnamese"],
+    variable: "--montserrat-font",
 });
 
-export default function Layout({ children, linQr }: { children: ReactNode; linQr: string }) {
-	const segment = useSelectedLayoutSegment();
+export default function Layout({
+    children,
+    linQr,
+    lang,
+}: {
+    children: ReactNode;
+    linQr: string;
+    lang: any;
+}) {
+    const segment = useSelectedLayoutSegment();
 
-	return (
-		<ThemeProvider theme={lightTheme}>
-			<CssBaseline />
-			<body id="__next" className={montserrat.className}>
-				<Analytics />
-				<QueryClientProvider client={queryClient}>
-					<RecoilProvider>
-						{listSkipRootLayout.indexOf(segment || "") !== -1 ? (
-							children
-						) : (
-							<DefaultLayout linQr={linQr}>{children}</DefaultLayout>
-						)}
-					</RecoilProvider>
-					<ReactQueryDevtools initialIsOpen={false} />
-				</QueryClientProvider>
-			</body>
-		</ThemeProvider>
-	);
+    return (
+        <ThemeProvider theme={lightTheme}>
+            <CssBaseline />
+            <body id="__next" className={montserrat.className}>
+                <Analytics />
+                <QueryClientProvider client={queryClient}>
+                    <RecoilProvider>
+                        {listSkipRootLayout.indexOf(segment || "") !== -1 ? (
+                            children
+                        ) : (
+                            <DefaultLayout linQr={linQr} lang={lang}>
+                                {children}
+                            </DefaultLayout>
+                        )}
+                    </RecoilProvider>
+                    <ReactQueryDevtools initialIsOpen={false} />
+                </QueryClientProvider>
+            </body>
+        </ThemeProvider>
+    );
 }
