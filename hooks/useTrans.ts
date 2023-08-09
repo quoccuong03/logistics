@@ -1,10 +1,28 @@
-// import { useRouter } from "next/router";
+"use client";
+import { i18n } from "@/config/i18n-config";
+import axiosClient from "@/lib/axiosClient";
+import { useQuery } from "@tanstack/react-query";
+import { usePathname } from "next/navigation";
 
-const useTrans = () => {
-    //  //  const { lang } = useRouter();
-    //  console.log("lang",lang);
-    //  const trans = locale === 'vi' ? vi : en
-    //  return trans
+export const fetchLangs = async (query?: any): Promise<any> => {
+    return await axiosClient.get(
+        `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata`,
+        {
+            params: query,
+        }
+    );
 };
 
-export default useTrans;
+export const useTrans = () => {
+    const pathName = usePathname();
+    const segments = pathName?.split("/");
+    const lang = segments?.[1] ?? i18n.defaultLocale;
+    const { data } = useQuery(
+        ["getLocale", lang],
+        async () => {
+            return await fetchLangs({ lang });
+        },
+        { keepPreviousData: true, enabled: !!lang }
+    );
+    return data;
+};

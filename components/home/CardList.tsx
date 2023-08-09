@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
-import { Box, IconButton, Stack } from "@mui/material";
-import { ChevronRightIcon } from "@/components/icons";
+import { Box, Stack } from "@mui/material";
 import CardItem from "./CardItem";
+import { useModal } from "@/recoil/hooks";
 
 interface Props {
     items: any[];
@@ -11,7 +11,9 @@ interface Props {
 
 export default function CardList({ items }: Props) {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const { onOpenModal } = useModal();
     const [loaded, setLoaded] = useState(false);
+    const [selected, setSelected] = useState<any>([]);
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
         // loop: true,
@@ -28,15 +30,25 @@ export default function CardList({ items }: Props) {
         },
     });
 
+    const handleClick = (key: number) => {
+        if (key <= 2) {
+            setSelected((current: any) => [...current, key]);
+        } else {
+            onOpenModal();
+        }
+    };
+
     return (
-        <div
-            className="relative min-h-[500px] md:min-h-[685px] 
-        bg-gradient-to-t from-[#FFA1A1] from-0% via-[#F1F4E2] via-81.25% to-[#FCF5E6] to-99.44%
-        pt-[30px] md:pt-[80px]"
-        >
-            <div ref={sliderRef} className="keen-slider pl-[20px] md:pl-[50px]">
+        <>
+            <div ref={sliderRef} className="keen-slider">
                 {items.map((item: any, idx: number) => (
-                    <CardItem item={item} key={idx} idx={idx} />
+                    <CardItem
+                        item={item}
+                        key={idx}
+                        idx={idx}
+                        onShow={handleClick}
+                        itemsSelected={selected}
+                    />
                 ))}
             </div>
             {loaded && instanceRef.current && (
@@ -44,15 +56,44 @@ export default function CardList({ items }: Props) {
                     className="dots"
                     direction={"row"}
                     justifyContent={"space-between"}
+                    spacing={2.5}
                     sx={{
+                        pt: { xs: 2.5, sm: 4.375 },
+                        pr: { xs: 2.5, sm: 6.25 },
+                        "& .item": {
+                            "&-left": {
+                                width: 0.8,
+                            },
+                            "&-right": {
+                                width: 0.2,
+                                span: {
+                                    fontSize: { xs: 15, sm: 20 },
+                                    fontWeight: 700,
+                                    display: "inline-flex",
+
+                                    "&.white": {
+                                        color: "#fff",
+                                    },
+                                    "&.black": {
+                                        color: "#333",
+                                    },
+                                    "&.dot": {
+                                        width: 15,
+                                    },
+                                },
+                            },
+                        },
                         "& .dot": {
                             width: 0.1,
                             height: 3,
                             bgcolor: "#fff",
+                            "&.active": {
+                                bgcolor: "#000",
+                            },
                         },
                     }}
                 >
-                    <Box>
+                    <Box className="item item-left">
                         {[
                             // @ts-ignore
                             ...Array(
@@ -67,21 +108,30 @@ export default function CardList({ items }: Props) {
                                     }}
                                     className={
                                         "dot" +
-                                        (currentSlide === idx ? " active" : "")
+                                        (currentSlide >= idx ? " active" : "")
                                     }
                                 />
                             );
                         })}
                     </Box>
-
-                    <div>
-                        <span>{currentSlide + 1}</span>
-                        <span>
+                    <Stack
+                        className="item item-right"
+                        direction={"row"}
+                        justifyContent={"space-between"}
+                        alignItems={"center"}
+                    >
+                        <span className="black">
+                            {currentSlide < 9
+                                ? `0${currentSlide + 1}`
+                                : currentSlide + 1}
+                        </span>
+                        <span className="dot" />
+                        <span className="white">
                             {instanceRef.current.track.details.slides.length}
                         </span>
-                    </div>
+                    </Stack>
                 </Stack>
             )}
-        </div>
+        </>
     );
 }

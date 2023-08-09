@@ -1,8 +1,8 @@
-import { getInfo } from "@/hooks/useInfo";
-import Info from "@components/info";
 import { Metadata } from "next";
 import { getLangs } from "@/lib/get-lang";
 import { Locale } from "@/config/i18n-config";
+import { SectionOne, Section2, Section3 } from "@/components/about";
+
 // export const metadata = {
 // 	title: "Tìm hiểu thêm",
 // };
@@ -21,12 +21,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function AboutPage() {
-    const dataInfo = await getInfo();
-
+export default async function AboutPage({ params }: Props) {
+    const { lang } = params;
+    const data = await getLangs(lang);
+    const pageData = data?.pages?.about?.content;
     return (
-        <div className="global-content" style={{ paddingBottom: 100 }}>
-            <Info data={dataInfo} />
+        <div className="relative">
+            <SectionOne title={pageData?.title} desc={pageData?.desc} />
+            <Section2 title={"Tại sao GenZ lại sử dụng SHOWNIQ?"} />
+            <Section3 items={pageData?.reason} />
         </div>
     );
 }
