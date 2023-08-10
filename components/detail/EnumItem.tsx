@@ -1,10 +1,12 @@
 "use client";
+import { useLocale } from "@/hooks/useLocale";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 type Props = {
     emoji: any;
 };
 export default function EnumItem({ emoji }: Props) {
+    const locale = useLocale();
     const [currentImg, setCurrentImg] = useState<string>("");
     const handlerChangeImage = useCallback(
         (e: any, img: string) => {
@@ -18,7 +20,7 @@ export default function EnumItem({ emoji }: Props) {
                 width={20}
                 height={20}
                 src={currentImg || emoji?.optional?.image?.women?.inactive}
-                alt={emoji?.title?.vi || ""}
+                alt={emoji?.title?.[locale] || ""}
                 onMouseEnter={(e) =>
                     handlerChangeImage(e, emoji?.optional?.image?.women?.active)
                 }
@@ -30,7 +32,7 @@ export default function EnumItem({ emoji }: Props) {
                 }
             />
             <span className="text-[8px] md:text-[9px] inline-flex mt-2">
-                {emoji?.title?.vi}
+                {emoji?.title?.[locale]}
             </span>
         </div>
     );

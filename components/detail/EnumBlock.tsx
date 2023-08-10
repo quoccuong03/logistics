@@ -19,10 +19,10 @@ export default function EnumBlock({ data, lang }: Props) {
                 </div>
                 <div>
                     <span className="text-[12px] font-bold inline-flex ml-2 text-black">
-                        Là bạn, bạn có muốn thử outfits này không?
+                        {lang?.comment?.title}
                     </span>
                     <span className="text-[11px] md:text-[12px] font-light block ml-2 text-[#999999]">
-                        Suy nghĩ của bạn sẽ giúp AI đề xuất phù hợp hơn đấy!
+                        {lang?.comment?.desc}
                     </span>
                 </div>
             </div>
@@ -65,7 +65,7 @@ export default function EnumBlock({ data, lang }: Props) {
                         className="rounded bg-[#FFA1A1] w-12 h-12 flex items-center justify-center"
                         onClick={onOpenModal}
                     >
-                        Gửi
+                        {lang?.btnSend}
                     </button>
                 </div>
             </div>

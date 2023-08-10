@@ -2,6 +2,7 @@ import React from "react";
 import CommentBlock from "./CommentBlock";
 type Props = {
     id: string;
+    lang: any;
 };
 function randomNumberInRange(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -64,7 +65,7 @@ const data = [
         // likeCnt: randomNumberInRange(100, 900),
     },
 ];
-export default function Comments({ id }: Props) {
+export default function Comments({ id, lang }: Props) {
     // const params = ["review_main-emo_type"];
     // const listEnums = await getEnums(params);
     // const query = { gender: "63e0ae94144f0000ff004b97" };
@@ -72,7 +73,7 @@ export default function Comments({ id }: Props) {
 
     return (
         <div>
-            <CommentBlock data={data} />
+            <CommentBlock data={data} lang={lang} />
         </div>
     );
 }

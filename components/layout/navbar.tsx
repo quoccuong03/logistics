@@ -4,10 +4,11 @@ import { ChevronRightIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useStore } from "@/recoil/hooks";
-import { useModal } from "@/recoil/hooks";
+import { useStore, useModal } from "@/recoil/hooks";
 import { useEffect, useState } from "react";
 import LocaleSwitcher from "./locale-switcher";
+import { i18n } from "@/config/i18n-config";
+import { useLocale } from "@/hooks/useLocale";
 const menus = [
     { key: "home", to: "" },
     { key: "info", to: "info" },
@@ -19,6 +20,7 @@ interface Props {
 export default function Navbar({ lang }: Props) {
     const pathname = usePathname();
     const router = useRouter();
+    const locale = useLocale();
     const { onOpenModal } = useModal();
     const { currentStore } = useStore();
     const [hightLinght, setHightLinght] = useState(false);
@@ -36,15 +38,6 @@ export default function Navbar({ lang }: Props) {
 
     useEffect(() => {
         handleScroll();
-        // menus.map((menu) => {
-        //     // console.log("menu.to", menu.to);
-        //     console.log("pathname", pathname);
-
-        //     console.log(
-        //         "pathname.includes",
-        //         pathname.includes(menu.to) || !menu.to
-        //     );
-        // });
     }, [pathname]);
 
     return (
@@ -94,7 +87,7 @@ export default function Navbar({ lang }: Props) {
                         <li
                             className={`px-3 md:px-5 ${
                                 (pathname.includes(item.to) && !!item.to) ||
-                                (pathname === "/" && !item.to)
+                                (pathname === `/${locale}` && !item.to)
                                     ? "border-b-[3px] border-black"
                                     : ""
                             } ${idx === 1 && hightLinght ? "myLightBox" : ""}`}
@@ -102,7 +95,8 @@ export default function Navbar({ lang }: Props) {
                         >
                             <Link
                                 className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
-                                    pathname.includes(item.to)
+                                    (pathname.includes(item.to) && !!item.to) ||
+                                    (pathname === `/${locale}` && !item.to)
                                         ? "text-[#000000]"
                                         : "text-[#A0A0A0]"
                                 }  ${

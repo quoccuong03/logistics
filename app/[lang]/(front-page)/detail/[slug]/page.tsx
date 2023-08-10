@@ -91,23 +91,23 @@ export default async function DetailPage({
     const attributes = data?.attributes?.filter(
         (item: any) => attrs.includes(item.attName) && item.status === "A"
     );
-
+    const langContent = langData?.pages?.detail;
     return (
         <div className="px-[20px] md:px-[26px]">
             <DetailPageClient data={data} lang={lang || i18n.defaultLocale} />
             <Suspense>
                 {/* @ts-expect-error Server Component */}
-                <Reviews id={params?.slug} />
+                <Reviews id={params?.slug} lang={langContent} />
             </Suspense>
-            {attributes?.length && langData?.pages?.detail ? (
-                <Tags data={attributes} lang={langData?.pages?.detail} />
+            {attributes?.length && langContent ? (
+                <Tags data={attributes} lang={langContent} />
             ) : null}
-            <Comments id={params?.slug} />
+            <Comments id={params?.slug} lang={langContent} />
             <Suspense>
                 {/* @ts-expect-error Server Component */}
-                <RelatedStyle id={params?.slug} />
+                <RelatedStyle id={params?.slug} lang={langContent} />
             </Suspense>
-            <FooterButton />
+            <FooterButton lang={langContent} />
         </div>
     );
 }

@@ -6,8 +6,9 @@ import Slider from "./Slider";
 import { useModal } from "@/recoil/hooks";
 type Props = {
     data: any[];
+    lang: any;
 };
-export default function CommentBlock({ data }: Props) {
+export default function CommentBlock({ data, lang }: Props) {
     const { onOpenModal } = useModal();
     return (
         <div className="pb-3 mt-5 relative">
@@ -24,7 +25,7 @@ export default function CommentBlock({ data }: Props) {
                 </button>
             </div>
             <h3 className="text-xs font-medium mb-3">
-                <span className="text-[var(--pink)]">5</span> bài đánh giá
+                <span className="text-[var(--pink)]">5</span> {lang?.post}
             </h3>
             <div className="flex justify-between bg-[#FAFAFA] py-3 rounded">
                 <div className="w-[50%] md:w-52 flex items-center flex-col border-r-2 border-gray-300 min-h-[100px] justify-center">

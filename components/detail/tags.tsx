@@ -1,9 +1,12 @@
+"use client";
+import { useLocale } from "@/hooks/useLocale";
 import Image from "next/image";
 type Props = {
     data: any[];
     lang: any;
 };
 export default function Tags({ data, lang }: Props) {
+    const locale = useLocale();
     return (
         <div className="mb-3 mt-11">
             <h3 className="text-[12px] font-medium text-black mb-3">
@@ -18,14 +21,14 @@ export default function Tags({ data, lang }: Props) {
                         {item?.image && (
                             <Image
                                 src={item?.image}
-                                alt={item.title.vi}
+                                alt={item.title[locale]}
                                 className="w-4 rounded-full mr-2"
                                 width={16}
                                 height={16}
                             />
                         )}
                         <span className="inline-flex text-[#999999] text-xs">
-                            {item.title.vi}
+                            {item.title[locale]}
                         </span>
                     </div>
                 ))}
