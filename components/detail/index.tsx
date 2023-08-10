@@ -11,9 +11,10 @@ import {
 
 type Props = {
     data: any;
+    lang: string;
 };
 
-export default function DetailPageClient({ data }: Props) {
+export default function DetailPageClient({ data, lang }: Props) {
     const { onShowStore } = useStore();
     const { onOpenModal } = useModal();
     useEffect(() => {
@@ -27,7 +28,7 @@ export default function DetailPageClient({ data }: Props) {
                 <button className="flex items-center" onClick={onOpenModal}>
                     <LockIcon className="fill-none stroke-black text-[20px]" />{" "}
                     <span className="text-[11px]">
-                        {data.store.accountType.title.vi}
+                        {data.store.accountType.title[lang]}
                     </span>{" "}
                     <InfoOutlineIcon className="fill-[#888888] text-[20px] pl-2" />
                 </button>

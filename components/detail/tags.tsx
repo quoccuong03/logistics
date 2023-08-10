@@ -1,13 +1,13 @@
 import Image from "next/image";
-import React from "react";
 type Props = {
     data: any[];
+    lang: any;
 };
-export default function Tags({ data }: Props) {
+export default function Tags({ data, lang }: Props) {
     return (
         <div className="mb-3 mt-11">
             <h3 className="text-[12px] font-medium text-black mb-3">
-                Thẻ liên quan
+                {lang.tag}
             </h3>
             <div className="flex whitespace-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
                 {data.map((item: any, idx: number) => (
@@ -31,7 +31,7 @@ export default function Tags({ data }: Props) {
                 ))}
             </div>
             <h5 className="text-[9px] font-medium text-[#999999] mb-3 mt-7">
-                Ấn vào thẻ liên quan để xem thêm các outfits tương tự
+                {lang.hideTag}
             </h5>
         </div>
     );

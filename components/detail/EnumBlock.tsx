@@ -5,8 +5,9 @@ import { useModal, useStore } from "@/recoil/hooks";
 import EnumItem from "./EnumItem";
 type Props = {
     data: any;
+    lang: any;
 };
-export default function EnumBlock({ data }: Props) {
+export default function EnumBlock({ data, lang }: Props) {
     const listEmoji = data?.["review_main-emo_type"];
     const { currentStore } = useStore();
     const { onOpenModal } = useModal();

@@ -23,12 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function InfoPage() {
-    const dataInfo = await getInfo();
+export default async function InfoPage({ params }: Props) {
+    const lang = params.lang;
+    const res = await getLangs(lang);
 
     return (
         <div className="global-content" style={{ paddingBottom: 100 }}>
-            <Info data={dataInfo} />
+            <Info data={res?.pages?.info?.faq} />
         </div>
     );
 }

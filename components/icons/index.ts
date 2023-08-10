@@ -23,4 +23,6 @@ export { default as FolderHeartIcon } from "./FolderHeartIcon";
 export { default as TalkIcon } from "./TalkIcon";
 export { default as ChevronDownIcon } from "./ChevronDownIcon";
 export { default as AwardIcon } from "./AwardIcon";
+export { default as UserIcon } from "./UserIcon";
 export { default as UsersIcon } from "./UsersIcon";
+export { default as StoreIcon } from "./StoreIcon";

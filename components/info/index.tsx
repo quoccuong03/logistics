@@ -13,8 +13,6 @@ export default function Info(props: Props): JSX.Element {
     const [selected, setSelected] = useState(Array<string>);
 
     function handleChange(value: string) {
-        console.log("value", value);
-
         if (selected.indexOf(value) === -1) {
             selected.push(value);
             setSelected([value]);

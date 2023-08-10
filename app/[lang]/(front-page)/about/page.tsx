@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getLangs } from "@/lib/get-lang";
 import { Locale } from "@/config/i18n-config";
-import { SectionOne, Section2, Section3 } from "@/components/about";
+import { SectionOne, Section2, Section3, Section4 } from "@/components/about";
 
 // export const metadata = {
 // 	title: "Tìm hiểu thêm",
@@ -27,9 +27,17 @@ export default async function AboutPage({ params }: Props) {
     const pageData = data?.pages?.about?.content;
     return (
         <div className="relative">
-            <SectionOne title={pageData?.title} desc={pageData?.desc} />
-            <Section2 title={"Tại sao GenZ lại sử dụng SHOWNIQ?"} />
+            {pageData?.info ? (
+                <SectionOne
+                    title={pageData?.title}
+                    desc={pageData?.desc}
+                    data={pageData?.info}
+                />
+            ) : null}
+
+            <Section2 title={pageData?.why} />
             <Section3 items={pageData?.reason} />
+            {pageData?.chart ? <Section4 item={pageData?.chart} /> : null}
         </div>
     );
 }

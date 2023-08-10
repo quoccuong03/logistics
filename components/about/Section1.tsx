@@ -8,29 +8,31 @@ import { DownloadIcon, AwardIcon, UsersIcon } from "@/components/icons";
 interface Props {
     title: string;
     desc: string;
+    data: any;
 }
-const items = [
-    {
-        key: "download",
-        icon: <DownloadIcon />,
-        title: "Trong 3 tháng ra mắt",
-        desc: "100,000 lượt tải",
-    },
-    {
-        key: "award",
-        icon: <AwardIcon />,
-        title: "Xếp hạng ứng dụng mua sắm",
-        desc: "Hạng 7 (Tháng 8)",
-    },
-    {
-        key: "users",
-        icon: <UsersIcon />,
-        title: "Xếp hạng ứng dụng mua sắm",
-        desc: "78%",
-    },
-];
 
-export default function SectionOne({ title, desc }: Props) {
+export default function SectionOne({ title, desc, data }: Props) {
+    const { download, user, award, labels } = data;
+    const items = [
+        {
+            key: "download",
+            icon: <DownloadIcon />,
+            title: download?.title,
+            desc: `100,000 ${download?.desc}`,
+        },
+        {
+            key: "award",
+            icon: <AwardIcon />,
+            title: award?.title,
+            desc: award?.desc,
+        },
+        {
+            key: "users",
+            icon: <UsersIcon />,
+            title: user?.title,
+            desc: "78%",
+        },
+    ];
     return (
         <Box
             sx={{
@@ -81,7 +83,7 @@ export default function SectionOne({ title, desc }: Props) {
                             borderRadius: "16px",
                             textAlign: "center",
                             py: 2.75,
-                            px: 3,
+                            px: 2.25,
                             flex: 1,
                         },
                         "& .MuiSvgIcon-root": {
@@ -92,9 +94,11 @@ export default function SectionOne({ title, desc }: Props) {
                         "&__title": {
                             fontSize: 12,
                             fontWeight: 300,
+                            lineHeight: "normal",
+                            my: 0.625,
                         },
                         "&__desc": {
-                            fontSize: 15,
+                            fontSize: 14,
                             fontWeight: 600,
                             color: "#FFA1A1",
                         },
@@ -114,9 +118,9 @@ export default function SectionOne({ title, desc }: Props) {
                         objectPosition: "bottom center",
                     }}
                 />
-                <Button className="box-item__btn">Phong cách</Button>
-                <Button className="box-item__btn">Sản phẩm</Button>
-                <Button className="box-item__btn">Cửa hàng</Button>
+                <Button className="box-item__btn">{labels.style}</Button>
+                <Button className="box-item__btn">{labels.item}</Button>
+                <Button className="box-item__btn">{labels.store}</Button>
             </Stack>
             <Stack
                 direction={"row"}
