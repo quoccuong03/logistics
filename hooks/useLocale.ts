@@ -6,5 +6,7 @@ export const useLocale = () => {
     const pathname = usePathname();
     if (!pathname) return i18n.defaultLocale;
     const segments = pathname.split("/");
-    return segments?.[1] || i18n.defaultLocale;
+    let currentLang = segments?.[1];
+    if (process.env.NEXT_PUBLIC_BASE_PATH) currentLang = segments?.[2];
+    return currentLang || i18n.defaultLocale;
 };

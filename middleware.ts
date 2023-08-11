@@ -28,23 +28,22 @@ import { i18n } from "@/config/i18n-config";
 
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname;
+    const newUrl = pathname.replace(process.env.BASE_PATH || "", "");
     // Check if there is any supported locale in the pathname
     const pathnameIsMissingLocale = i18n.locales.every(
-        (locale) =>
-            !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+        (locale) => !newUrl.startsWith(`/${locale}/`) && newUrl !== `/${locale}`
     );
     // Redirect if there is no locale
     if (pathnameIsMissingLocale) {
         // const locale = getLocale(request);
         // console.log("locale", locale);
-
         // e.g. incoming request is /products
         // The new URL is now /en-US/products
         return NextResponse.redirect(
             new URL(
                 `${process.env.BASE_PATH}/${i18n.defaultLocale}${
-                    pathname.startsWith("/") ? "" : "/"
-                }${pathname}`,
+                    newUrl.startsWith("/") ? "" : "/"
+                }${newUrl}`,
                 request.url
             )
         );

@@ -1,10 +1,10 @@
 "use client";
-import { Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { ChevronRightIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useStore, useModal } from "@/recoil/hooks";
+import { useStore } from "@/recoil/hooks";
 import { useEffect, useState } from "react";
 import LocaleSwitcher from "./locale-switcher";
 import { useLocale } from "@/hooks/useLocale";
@@ -17,17 +17,20 @@ interface Props {
     lang: any;
 }
 export default function Navbar({ lang }: Props) {
-    const pathname = usePathname();
     const router = useRouter();
+    const pathname = usePathname();
     const locale = useLocale();
-    const { onOpenModal } = useModal();
+    const pathnameLang = `${process.env.NEXT_PUBLIC_BASE_PATH}/${locale}`;
     const { currentStore } = useStore();
     const [hightLinght, setHightLinght] = useState(false);
 
     const handleScroll = () => {
         window.addEventListener("scroll", () => {
             const scrollTop = window.pageYOffset;
-            if (scrollTop > 40 && (pathname === "/info" || pathname === "/")) {
+            if (
+                scrollTop > 40 &&
+                (pathname.endsWith("info") || pathname.endsWith(locale))
+            ) {
                 setHightLinght(true);
             } else {
                 setHightLinght(false);
@@ -97,33 +100,42 @@ export default function Navbar({ lang }: Props) {
             </div>
             <nav className="border-b-[1px] border-[#F5F5F5]">
                 <ul className="flex items-center">
-                    {menus.map((item: any, idx: number) => (
-                        <li
-                            className={`px-3 md:px-5 ${
-                                (pathname.includes(item.to) && !!item.to) ||
-                                (pathname === `/${locale}` && !item.to)
-                                    ? "border-b-[3px] border-black"
-                                    : ""
-                            } ${idx === 1 && hightLinght ? "myLightBox" : ""}`}
-                            key={idx}
-                        >
-                            <Link
-                                className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
-                                    (pathname.includes(item.to) && !!item.to) ||
-                                    (pathname === `/${locale}` && !item.to)
-                                        ? "text-[#000000]"
-                                        : "text-[#A0A0A0]"
-                                }  ${
-                                    idx === 1 && hightLinght
-                                        ? "myTextLight"
-                                        : ""
-                                }`}
-                                href={`/${lang?.locale || ""}/${item.to}`}
-                            >
-                                {lang?.menu?.[item.key]}
-                            </Link>
-                        </li>
-                    ))}
+                    {locale
+                        ? menus.map((item: any, idx: number) => (
+                              <li
+                                  className={`px-3 md:px-5 ${
+                                      (pathname.includes(item.to) &&
+                                          idx !== 0) ||
+                                      (pathname.endsWith(locale) && idx === 0)
+                                          ? "border-b-[3px] border-black"
+                                          : ""
+                                  } ${
+                                      idx === 1 && hightLinght
+                                          ? "myLightBox"
+                                          : ""
+                                  }`}
+                                  key={idx}
+                              >
+                                  <Link
+                                      className={`block pb-1 md:pb-2 text-xs md:text-sm font-bold  active:text-[#000000] hover:text-[#000000] ${
+                                          (pathname.includes(item.to) &&
+                                              idx !== 0) ||
+                                          (pathname.endsWith(locale) &&
+                                              idx === 0)
+                                              ? "text-[#000000]"
+                                              : "text-[#A0A0A0]"
+                                      }  ${
+                                          idx === 1 && hightLinght
+                                              ? "myTextLight"
+                                              : ""
+                                      }`}
+                                      href={`/${lang?.locale || ""}/${item.to}`}
+                                  >
+                                      {lang?.menu?.[item.key]}
+                                  </Link>
+                              </li>
+                          ))
+                        : null}
                 </ul>
             </nav>
         </header>

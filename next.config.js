@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 function getBasePath() {
-    var basePath = "";
-
+    let basePath = "";
     if (process.env.BASE_PATH) {
         if (process.env.BASE_PATH.startsWith("/")) {
             basePath = process.env.BASE_PATH;
