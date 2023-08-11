@@ -1,30 +1,27 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { i18n } from "@config/i18n-config";
-import {
-    Box,
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
-    Stack,
-    SelectChangeEvent,
-} from "@mui/material";
+import { Select, MenuItem, Stack, SelectChangeEvent } from "@mui/material";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ChevronDownIcon } from "../icons";
+import { ChevronDownIcon } from "@/components/icons";
 interface Props {
     locales: any[];
 }
+
 export default function LocaleSwitcher({ locales }: Props) {
     const pathName = usePathname();
-
     useEffect(() => {
         if (pathName) {
             const segments = pathName.split("/");
-            setValue(segments[1]);
+            let lang: string = i18n.defaultLocale;
+            if (process.env.NEXT_PUBLIC_BASE_PATH) {
+                lang = segments[2];
+            } else {
+                lang = segments[1];
+            }
+            setValue(lang);
         }
     }, [pathName]);
 
@@ -32,8 +29,14 @@ export default function LocaleSwitcher({ locales }: Props) {
     const redirectedPathName = (locale: string) => {
         if (!pathName) return "/";
         const segments = pathName.split("/");
-        segments[1] = locale;
-        return segments.join("/");
+        if (process.env.NEXT_PUBLIC_BASE_PATH) {
+            segments[2] = locale;
+        } else {
+            segments[1] = locale;
+        }
+        return segments
+            .join("/")
+            .replace(process.env.NEXT_PUBLIC_BASE_PATH || "", "");
     };
     const handleChange = (e: SelectChangeEvent) => {
         setValue(e.target.value as string);

@@ -5,8 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 
 export const fetchLangs = async (query?: any): Promise<any> => {
-    console.log("query", query);
-
     return await axiosClient.get(
         `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata`,
         {
