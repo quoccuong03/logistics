@@ -50,6 +50,7 @@ export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
                 }
                 className="text-xs md:text-base font-bold text-black flex justify-end mt-4 min-h-[38px] md:min-h-[48px] md:max-w-[594px] mx-auto"
                 variant="contained"
+                disableRipple
                 fullWidth
                 // href="/download"
                 onClick={() => handleClick()}

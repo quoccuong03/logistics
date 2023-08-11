@@ -1,9 +1,5 @@
 "use client";
-
 import CardList from "@/components/home/CardList";
-import Carousel from "@/components/home/Carousel";
-import Section2 from "@/components/home/Section2";
-import Section3 from "@/components/home/Section3";
 import VideoInfo from "@/components/home/VideoInfo";
 import { InfoIcon } from "@/components/icons";
 import { useFetchStyleList } from "@/hooks/useSuggestion";
@@ -13,9 +9,9 @@ import Image from "next/image";
 import iconRound from "@images/icon-round.svg";
 import { useTrans } from "@/hooks/useTrans";
 import { useEffect, useState } from "react";
-import Items from "@/components/suggest/items";
 import { StyleList } from "@/components/style-list";
 import FilterStyle from "@/components/filter-style";
+import TopFooter from "@/components/layout/top-footer";
 export default function HomePage() {
     const [idx, setIdx] = useState<number>(0);
     const query = {
@@ -159,6 +155,7 @@ export default function HomePage() {
                 items={styleList || []}
                 title={trans?.style?.block?.title}
             />
+            <TopFooter lang={trans} />
         </Box>
     );
 }

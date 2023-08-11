@@ -26,9 +26,9 @@ export default function DefaultLayout({
             <Navbar lang={lang} />
             <main className="min-h-screen">
                 {children}
-                {!pathname?.endsWith("about") ? (
+                {/* {!pathname?.endsWith("about") ? (
                     <TopFooter lang={lang} />
-                ) : null}
+                ) : null} */}
             </main>
             {/* <Backdrop open={true} sx={{ position: "absolute " }}>
                 DEMO Backdrop
