@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { StyleList } from "@/components/style-list";
 import FilterStyle from "@/components/filter-style";
 import TopFooter from "@/components/layout/top-footer";
+import { TypographyHTML } from "@/components";
 export default function HomePage() {
     const [idx, setIdx] = useState<number>(0);
     const query = {
@@ -123,11 +124,9 @@ export default function HomePage() {
                                     },
                                 }}
                             >
-                                <Typography
+                                <TypographyHTML
                                     fontSize={12}
-                                    dangerouslySetInnerHTML={{
-                                        __html: trans?.common?.says?.[idx],
-                                    }}
+                                    content={trans?.common?.says?.[idx]}
                                 />
                             </Box>
                             <Image
@@ -143,7 +142,9 @@ export default function HomePage() {
                     ) : null}
                 </Box>
 
-                {odtList ? <CardList items={odtList} /> : null}
+                {odtList ? (
+                    <CardList items={odtList} lang={trans?.common} />
+                ) : null}
             </Box>
             {trans ? (
                 <FilterStyle

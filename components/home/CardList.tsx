@@ -7,9 +7,10 @@ import { useModal } from "@/recoil/hooks";
 
 interface Props {
     items: any[];
+    lang: any;
 }
 
-export default function CardList({ items }: Props) {
+export default function CardList({ items, lang }: Props) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const { onOpenModal } = useModal();
     const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,7 @@ export default function CardList({ items }: Props) {
                         idx={idx}
                         onShow={handleClick}
                         itemsSelected={selected}
+                        lang={lang}
                     />
                 ))}
             </div>

@@ -1,5 +1,5 @@
 "use client";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { ChevronRightIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useStore, useModal } from "@/recoil/hooks";
 import { useEffect, useState } from "react";
 import LocaleSwitcher from "./locale-switcher";
-import { i18n } from "@/config/i18n-config";
 import { useLocale } from "@/hooks/useLocale";
 const menus = [
     { key: "home", to: "" },
@@ -77,9 +76,24 @@ export default function Navbar({ lang }: Props) {
                 {/* <IconButton onClick={onOpenModal}>
                     <BellIcon sx={{ fill: "#000" }} />
                 </IconButton> */}
-                {lang?.locales?.length ? (
+                {!pathname.includes("detail") ? (
                     <LocaleSwitcher locales={lang?.locales} />
-                ) : null}
+                ) : (
+                    <Link
+                        href={`/${locale}/seller`}
+                        className="flex items-center flex-col text-[13px] text-black font-semibold"
+                    >
+                        <Image
+                            src={require("@images/store.svg")}
+                            alt="strore"
+                            style={{
+                                maxWidth: 23,
+                                height: "auto",
+                            }}
+                        />
+                        {lang?.menu?.seller}
+                    </Link>
+                )}
             </div>
             <nav className="border-b-[1px] border-[#F5F5F5]">
                 <ul className="flex items-center">

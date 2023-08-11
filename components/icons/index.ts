@@ -27,3 +27,4 @@ export { default as UserIcon } from "./UserIcon";
 export { default as UsersIcon } from "./UsersIcon";
 export { default as StoreIcon } from "./StoreIcon";
 export { default as RadioIcon } from "./RadioIcon";
+export { default as RadioCheckedIcon } from "./RadioCheckedIcon";

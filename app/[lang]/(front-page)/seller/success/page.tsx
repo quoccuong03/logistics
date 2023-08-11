@@ -1,4 +1,4 @@
-import { Section1 } from "@/components/seller";
+import { Section1 } from "@/components/success";
 import { Locale } from "@/config/i18n-config";
 import { getLangs } from "@/lib/get-lang";
 import { Metadata } from "next/types";
@@ -27,7 +27,7 @@ export default async function SuccessPage({ params }: { params: Props }) {
     return (
         <div className="bg-[#FCF5E6] pt-[25px] min-h-screen">
             {langData?.pages?.seller ? (
-                <Section1 data={langData?.pages?.seller} />
+                <Section1 data={langData?.pages?.success} />
             ) : null}
         </div>
     );

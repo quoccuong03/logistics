@@ -15,17 +15,11 @@ export const getStyleCatalogCall = async (query?: any): Promise<any> => {
     );
 };
 
-export const getStyleCatalog = (queryKey: any, query?: any, options?: any) =>
-    useQuery(
-        queryKey,
-        async () => {
-            const { data } = await getStyleCatalogCall(query);
-            return data;
-        },
-        options
-    );
-
-export const getRecomendation = (queryKey: any, query?: any, options?: any) =>
+export const useFetchRecomendation = (
+    queryKey: any,
+    query?: any,
+    options?: any
+) =>
     useQuery(
         queryKey,
         async () => {

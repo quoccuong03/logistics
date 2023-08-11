@@ -8,4 +8,5 @@ export const apiRoutes = {
     getStyleList: "style/getList",
     getInfo: "/app/landingpage/config/faq.json",
     getInfoDonwload: "/app/landingpage/config/download.json",
+    postRegisterSeller: "/seller/register",
 };

@@ -8,9 +8,10 @@ interface Props {
     idx: number;
     onShow: (k: number) => void;
     itemsSelected: any[];
+    lang: any;
 }
 
-const CardItem = ({ item, idx, onShow, itemsSelected }: Props) => {
+const CardItem = ({ item, idx, onShow, itemsSelected, lang }: Props) => {
     const imgUrl = getImageUrl(item.image, "large");
     return (
         <Box
@@ -91,7 +92,7 @@ const CardItem = ({ item, idx, onShow, itemsSelected }: Props) => {
                             />
                         }
                     >
-                        Xem ngay
+                        {lang?.show}
                     </Button>
                 </Stack>
             ) : null}

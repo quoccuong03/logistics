@@ -1,6 +1,5 @@
 "use client";
-
-import { Box, Button, List, ListItem, ListItemText } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { TypographyHTML } from "@/components";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -30,6 +29,7 @@ export default function Section1({ data }: Props) {
                 "& .desc": {
                     fontSize: { xs: 15, sm: 18 },
                     fontWeight: 500,
+                    lineHeight: 1.7,
                 },
             }}
         >
@@ -44,53 +44,20 @@ export default function Section1({ data }: Props) {
                 }}
             />
             <TypographyHTML content={data?.content?.desc} className="desc" />
-            <List
-                sx={{
-                    mt: { xs: 2.5, sm: 5 },
-                    mb: { xs: 2.5, sm: 3.125 },
-                    "& .MuiListItem-root": {
-                        px: 0,
-                        "& .MuiListItemText-root": {
-                            mt: 0,
-                            pt: 0,
-                            "& .MuiTypography-root": {
-                                lineHeight: "normal",
-                                fontSize: { xs: 15, sm: 18 },
-                            },
-                        },
-                    },
-                }}
-            >
-                {data?.content?.items?.map((item: any, idx: number) => (
-                    <ListItem key={idx} alignItems="flex-start">
-                        <Image
-                            src={require("@images/check.svg")}
-                            alt=""
-                            style={{
-                                maxWidth: "100%",
-                                height: "auto",
-                                marginTop: 6,
-                                marginRight: 10,
-                            }}
-                        />
-                        <ListItemText primary={item} />
-                    </ListItem>
-                ))}
-            </List>
+
             <TypographyHTML
-                content={`*${data?.content?.short_desc}`}
-                color={"#1EB96F"}
+                content={data?.content?.dear}
                 fontSize={16}
                 fontWeight={300}
-                sx={{
-                    b: {
-                        fontWeight: 700,
-                    },
-                }}
+                textAlign={"right"}
+                mt={1.25}
             />
+            <Typography fontSize={16} fontWeight={300} textAlign={"right"}>
+                SHOWNIQ
+            </Typography>
             <Button
                 variant="contained"
-                onClick={() => router.push("/seller/register")}
+                onClick={() => router.push("/")}
                 sx={{
                     width: { xs: 150, sm: 290 },
                     fontSize: { xs: 16, sm: 21 },
@@ -104,7 +71,7 @@ export default function Section1({ data }: Props) {
                     color: "#000",
                 }}
             >
-                {data?.btn}
+                {data?.content?.btn_back}
             </Button>
         </Box>
     );

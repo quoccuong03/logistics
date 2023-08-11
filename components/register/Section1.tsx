@@ -1,6 +1,7 @@
 "use client";
 
 import {
+    Alert,
     Box,
     Button,
     Checkbox,
@@ -12,39 +13,99 @@ import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RadioIcon } from "@/components/icons";
-const SignUpSchema = z.object({
-    name: z.string({ required_error: "Tên không được trống" }),
-    phone: z.string(),
-    email: z.string().email(),
-    address: z.string(),
-    instagram: z.string(),
-    desc: z.string().min(5).max(1000),
-});
-const MAX_LIMIT = 1000;
-type SignUpSchemaType = z.infer<typeof SignUpSchema>;
+import { RadioCheckedIcon, RadioIcon } from "@/components/icons";
+import { ChangeEvent, useState } from "react";
+import { registerSeller } from "@/hooks/useSeller";
+import { STATUS_FAILURE, catchError } from "@/lib/error";
+import { useLocale } from "@/hooks/useLocale";
 
 interface Props {
     data: any;
 }
+const phoneRegex = new RegExp(
+    /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
+const domainRegex = new RegExp(
+    /^[\w.-]+(?:\.[\w\.-]+)+[\w\-\._%~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
+);
 
 export default function Section1({ data }: Props) {
     const router = useRouter();
+    const [checked, setChecked] = useState<boolean>(false);
+    const [error, setError] = useState<any>();
+    const locale = useLocale();
+    const SignUpSchema = z
+        .object({
+            sellerName: z.string().min(1, data?.name?.require),
+            phone: z
+                .string()
+                .min(1, data?.phone?.require)
+                .regex(phoneRegex, data?.phone?.phoneNumber),
+            email: z
+                .string()
+                .min(1, data?.email?.require)
+                .email(data?.email?.email),
+            storeName: z.string().min(1, data?.email?.require),
+            address: z.string().optional(),
+            instagramLink: z
+                .string()
+                .min(1, data?.instagram?.require)
+                .regex(domainRegex, data?.phone?.phoneNumber),
+            description: z.string().min(5).max(1000),
+        })
+        .refine((schema) => (!checked ? !!schema.address : true), {
+            message: "name is required when you send color on request",
+        });
+    // .refine((input) => {
+    //     console.log("input", input);
+    //     console.log("input.address", input.address === "" && !checked);
+
+    //     if (input.address === "" && !checked) return false;
+
+    //     return true;
+    // });
+    type SignUpSchemaType = z.infer<typeof SignUpSchema>;
+    const MAX_LIMIT = 1000;
+
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isValid },
         watch,
-    } = useForm<SignUpSchemaType>({ resolver: zodResolver(SignUpSchema) });
-    const descTxt = watch("desc");
-    const onSubmit: SubmitHandler<SignUpSchemaType> = (data) =>
-        console.log(data);
+    } = useForm<SignUpSchemaType>({
+        resolver: zodResolver(SignUpSchema),
+        mode: "onChange",
+    });
+    const descTxt = watch("description");
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setChecked((event.target as HTMLInputElement).checked);
+    };
+
+    const onSubmit: SubmitHandler<SignUpSchemaType> = async (payload) => {
+        try {
+            const res: any = await registerSeller({
+                ...payload,
+                source: "web",
+                status: "W",
+            });
+
+            if (res?.status === STATUS_FAILURE) {
+                const messages: any = catchError(res, { lang: locale });
+                setError(messages?.split(".,")?.join("<br />"));
+                return;
+            }
+            router.push("/seller/success");
+        } catch (error) {
+            console.log("error", error);
+        }
+    };
     return (
         <Box
             sx={{
                 mx: { xs: 2.5, sm: 3.125 },
                 bgcolor: "#fff",
-                pt: { xs: 4, sm: 9.375 },
+                pt: { xs: 2.5, sm: 5.25 },
                 pl: { xs: 4, sm: 7.5 },
                 pr: { xs: 2.5, sm: 5.75 },
                 pb: { xs: 4, sm: 7 },
@@ -70,6 +131,7 @@ export default function Section1({ data }: Props) {
                             fontWeight: 500,
                             color: "#000",
                             display: "block",
+                            mb: 1.25,
                             "& .MuiTypography-root": {
                                 fontSize: 14,
                                 fontWeight: 500,
@@ -96,6 +158,9 @@ export default function Section1({ data }: Props) {
                             color: "#AFAFAF",
                             fontSize: 12,
                         },
+                        "& .MuiCheckbox-root": {
+                            px: 1.25,
+                        },
                     },
                 },
             }}
@@ -103,18 +168,18 @@ export default function Section1({ data }: Props) {
             <TypographyHTML content={data?.content?.title} className="title" />
             <form onSubmit={handleSubmit(onSubmit)} className="form">
                 <Box className="form_row">
-                    <label>* {data?.name}</label>
+                    <label>* {data?.name?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
-                        {...register("email")}
-                        error={!!errors?.email}
-                        helperText={`${errors?.email?.message || ""}`}
+                        {...register("sellerName")}
+                        error={!!errors?.sellerName}
+                        helperText={`${errors?.sellerName?.message || ""}`}
                         fullWidth
                     />
                 </Box>
                 <Box className="form_row">
-                    <label>* {data?.phone}</label>
+                    <label>* {data?.phone?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -125,7 +190,7 @@ export default function Section1({ data }: Props) {
                     />
                 </Box>
                 <Box className="form_row">
-                    <label>* {data?.email}</label>
+                    <label>* {data?.email?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -136,33 +201,41 @@ export default function Section1({ data }: Props) {
                     />
                 </Box>
                 <Box className="form_row">
-                    <label>* {data?.address}</label>
+                    <label>* {data?.shop_name?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
-                        {...register("address")}
-                        error={!!errors?.address}
-                        helperText={`${errors?.address?.message || ""}`}
+                        {...register("storeName")}
+                        error={!!errors?.storeName}
+                        helperText={`${errors?.storeName?.message || ""}`}
                         fullWidth
                     />
                 </Box>
                 <Box className="form_row">
-                    <label>* {data?.address}</label>
+                    <label>* {data?.address?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
-                        {...register("address")}
+                        {...register("address", { required: !checked })}
                         error={!!errors?.address}
                         helperText={`${errors?.address?.message || ""}`}
                         fullWidth
                     />
                 </Box>
+
                 <Box className="form_row">
                     <FormControlLabel
                         control={
-                            <Checkbox defaultChecked icon={<RadioIcon />} />
+                            <Checkbox
+                                icon={<RadioIcon sx={{ fontSize: 18 }} />}
+                                checkedIcon={
+                                    <RadioCheckedIcon sx={{ fontSize: 18 }} />
+                                }
+                                checked={checked}
+                                onChange={handleChange}
+                            />
                         }
-                        label={data?.instagram?.desc}
+                        label={data?.noAddress}
                     />
                 </Box>
                 <Box className="form_row">
@@ -170,20 +243,20 @@ export default function Section1({ data }: Props) {
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
-                        {...register("instagram")}
-                        error={!!errors?.instagram}
-                        helperText={`${errors?.instagram?.message || ""}`}
+                        {...register("instagramLink")}
+                        error={!!errors?.instagramLink}
+                        helperText={`${errors?.instagramLink?.message || ""}`}
                         fullWidth
                     />
                 </Box>
                 <Box className="form_row">
-                    <label>{data?.desc}</label>
+                    <label>{data?.desc?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"
-                        {...register("desc")}
-                        error={!!errors?.desc}
-                        helperText={`${errors?.desc?.message || ""}`}
+                        {...register("description")}
+                        error={!!errors?.description}
+                        helperText={`${errors?.description?.message || ""}`}
                         multiline
                         rows={3}
                         fullWidth
@@ -193,15 +266,20 @@ export default function Section1({ data }: Props) {
                         descTxt?.length || 0
                     }/${MAX_LIMIT} ${data?.char}`}</span>
                 </Box>
+                {error ? <Alert severity="error">{error}</Alert> : null}
                 <Button
                     variant="contained"
                     type="submit"
+                    disabled={!isValid}
                     sx={{
                         width: { xs: 150, sm: 290 },
                         fontSize: { xs: 16, sm: 21 },
                         fontWeight: 500,
                         bgcolor: "#71EAB0 !important",
                         display: "flex",
+                        "&.Mui-disabled": {
+                            bgcolor: "rgba(0, 0, 0, 0.12) !important",
+                        },
                         mx: "auto",
                         borderRadius: 0,
                         boxShadow: "none",
