@@ -4,11 +4,28 @@ import { Box, Button, List, ListItem, ListItemText } from "@mui/material";
 import { TypographyHTML } from "@/components";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { z } from "zod";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+const SignUpSchema = z.object({
+    email: z.string().email(),
+    password: z.string().min(3).max(20),
+});
+
+type SignUpSchemaType = z.infer<typeof SignUpSchema>;
+
 interface Props {
     data: any;
 }
 export default function Section1({ data }: Props) {
     const router = useRouter();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<SignUpSchemaType>({ resolver: zodResolver(SignUpSchema) });
+    const onSubmit: SubmitHandler<SignUpSchemaType> = (data) =>
+        console.log(data);
     return (
         <Box
             sx={{
@@ -34,6 +51,24 @@ export default function Section1({ data }: Props) {
             }}
         >
             <TypographyHTML content={data?.content?.title} className="title" />
+            <form onSubmit={handleSubmit(onSubmit)} className="form">
+                <input
+                    className="input"
+                    placeholder="email"
+                    {...register("email")}
+                />
+                {errors.email && <span>{errors.email.message}</span>}
+
+                <input
+                    className="input"
+                    placeholder="password"
+                    {...register("password")}
+                />
+
+                {errors.password && <span>{errors.password.message}</span>}
+
+                <button type="submit">submit!</button>
+            </form>
             <Image
                 src={require("@images/search.svg")}
                 alt=""
