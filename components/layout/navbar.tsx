@@ -70,7 +70,7 @@ export default function Navbar({ lang }: Props) {
                         ) : null}
                     </>
                 ) : (
-                    <Link href={"/"}>
+                    <Link href={`/${locale}`}>
                         <Image src={require("@images/logo.svg")} alt="Logo" />
                     </Link>
                 )}

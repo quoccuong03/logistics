@@ -16,16 +16,6 @@ export default function DefaultLayout({
     lang: any;
 }) {
     const pathname = usePathname();
-    console.log("NEXT_PUBLIC_BASE_PATH", process.env.NEXT_PUBLIC_BASE_PATH);
-    console.log("NEXT_PUBLIC_BASE_URL", process.env.NEXT_PUBLIC_BASE_URL);
-    console.log(
-        "NEXT_PUBLIC_BASE_API_SERVER",
-        process.env.NEXT_PUBLIC_BASE_API_SERVER
-    );
-    console.log(
-        "NEXT_PUBLIC_STATIC_API_SERVER",
-        process.env.NEXT_PUBLIC_STATIC_API_SERVER
-    );
 
     return (
         <div
