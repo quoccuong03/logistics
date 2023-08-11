@@ -27,23 +27,45 @@ import { i18n } from "@/config/i18n-config";
 // }
 
 export function middleware(request: NextRequest) {
-    const pathname = request.nextUrl.pathname;
-    const newUrl = pathname.replace(process.env.BASE_PATH || "", "");
+    // const pathname = request.nextUrl.pathname;
+    const baseUrl = process.env.BASE_PATH ?? "/";
+    const { headers, nextUrl, geo } = request;
+    const { pathname, searchParams } = nextUrl;
+    // console.log("***Middleware", pathname);
+
+    //**
+    // Redirect to correct locale
+    // if (pathname === '/') {
+    //     const locale =
+    //         headers?.get("accept-language")?.split(",")?.[0] ||
+    //         i18n.defaultLocale;
+    //     const language = locale?.split("-")?.[0] || "en";
+    //     const country =
+    //         geo?.country?.toLowerCase() || locale?.split("-")?.[1] || "us";
+    //     const params = headers?.get("referer")?.split("?")?.[1];
+    //     console.log("**locale", locale, language, country);
+    //     return NextResponse.redirect(new URL(`/${language}`, request.url));
+    // }
+    // return NextResponse.next();
+
     // Check if there is any supported locale in the pathname
-    const pathnameIsMissingLocale = i18n.locales.every(
-        (locale) => !newUrl.startsWith(`/${locale}/`) && newUrl !== `/${locale}`
-    );
+    const pathnameIsMissingLocale = i18n.locales.every((locale) => {
+        return !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`;
+    });
+    console.log("pathnameIsMissingLocale", pathnameIsMissingLocale);
+
     // Redirect if there is no locale
-    if (pathnameIsMissingLocale) {
+    // if (pathnameIsMissingLocale) {
+    if (pathname === "/") {
         // const locale = getLocale(request);
         // console.log("locale", locale);
         // e.g. incoming request is /products
         // The new URL is now /en-US/products
         return NextResponse.redirect(
             new URL(
-                `${process.env.BASE_PATH}/${i18n.defaultLocale}${
-                    newUrl.startsWith("/") ? "" : "/"
-                }${newUrl}`,
+                `/${i18n.defaultLocale}${
+                    pathname.startsWith("/") ? "" : "/"
+                }${pathname}`,
                 request.url
             )
         );

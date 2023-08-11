@@ -20,7 +20,6 @@ export default function Navbar({ lang }: Props) {
     const router = useRouter();
     const pathname = usePathname();
     const locale = useLocale();
-    const pathnameLang = `${process.env.NEXT_PUBLIC_BASE_PATH}/${locale}`;
     const { currentStore } = useStore();
     const [hightLinght, setHightLinght] = useState(false);
 
