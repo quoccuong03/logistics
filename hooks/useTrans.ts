@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 
 export const fetchLangs = async (query?: any): Promise<any> => {
+    console.log("query", query);
+
     return await axiosClient.get(
         `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata`,
         {
@@ -16,7 +18,10 @@ export const fetchLangs = async (query?: any): Promise<any> => {
 export const useTrans = () => {
     const pathName = usePathname();
     const segments = pathName?.split("/");
-    const lang = segments?.[1] ?? i18n.defaultLocale;
+    const lang = process.env.NEXT_PUBLIC_BASE_PATH
+        ? segments?.[2] ?? i18n.defaultLocale
+        : segments?.[1] ?? i18n.defaultLocale;
+
     const { data } = useQuery(
         ["getLocale", lang],
         async () => {

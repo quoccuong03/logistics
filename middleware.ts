@@ -43,7 +43,7 @@ export function middleware(request: NextRequest) {
         // The new URL is now /en-US/products
         return NextResponse.redirect(
             new URL(
-                `/${i18n.defaultLocale}${
+                `${process.env.BASE_PATH}/${i18n.defaultLocale}${
                     pathname.startsWith("/") ? "" : "/"
                 }${pathname}`,
                 request.url
