@@ -32,7 +32,17 @@ export function middleware(request: NextRequest) {
     const { headers, nextUrl, geo } = request;
     const { pathname, searchParams } = nextUrl;
     // console.log("***Middleware", pathname);
-
+    console.log("BASE_API_URL", process.env.BASE_API_URL);
+    console.log("NEXT_PUBLIC_BASE_PATH", process.env.NEXT_PUBLIC_BASE_PATH);
+    console.log("NEXT_PUBLIC_BASE_URL", process.env.NEXT_PUBLIC_BASE_URL);
+    console.log(
+        "NEXT_PUBLIC_BASE_API_SERVER",
+        process.env.NEXT_PUBLIC_BASE_API_SERVER
+    );
+    console.log(
+        "NEXT_PUBLIC_STATIC_API_SERVER",
+        process.env.NEXT_PUBLIC_STATIC_API_SERVER
+    );
     //**
     // Redirect to correct locale
     // if (pathname === '/') {
