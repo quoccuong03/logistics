@@ -3,7 +3,7 @@ import type { Locale } from "@config/i18n-config";
 
 export const getLangs = async (locale: Locale) => {
     const res = await fetch(
-        `http://localhost:3005/api/staticdata?lang=${locale}`,
+        `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata?lang=${locale}`,
         {
             cache: "no-cache",
         }
