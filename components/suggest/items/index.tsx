@@ -43,8 +43,8 @@ export default function Items(props: Props): JSX.Element {
                 } `}
             >
                 <Image
-                    // @ts-ignore
                     src={
+                        // @ts-ignore
                         _el?.image[1]?.medium?.url || _el?.image[0]?.large?.url
                     }
                     className={`
