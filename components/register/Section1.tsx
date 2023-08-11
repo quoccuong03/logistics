@@ -1,29 +1,42 @@
 "use client";
 
-import { Box, Button, List, ListItem, ListItemText } from "@mui/material";
+import {
+    Box,
+    Button,
+    Checkbox,
+    FormControlLabel,
+    TextField,
+} from "@mui/material";
 import { TypographyHTML } from "@/components";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { RadioIcon } from "@/components/icons";
 const SignUpSchema = z.object({
+    name: z.string({ required_error: "Tên không được trống" }),
+    phone: z.string(),
     email: z.string().email(),
-    password: z.string().min(3).max(20),
+    address: z.string(),
+    instagram: z.string(),
+    desc: z.string().min(5).max(1000),
 });
-
+const MAX_LIMIT = 1000;
 type SignUpSchemaType = z.infer<typeof SignUpSchema>;
 
 interface Props {
     data: any;
 }
+
 export default function Section1({ data }: Props) {
     const router = useRouter();
     const {
         register,
         handleSubmit,
         formState: { errors },
+        watch,
     } = useForm<SignUpSchemaType>({ resolver: zodResolver(SignUpSchema) });
+    const descTxt = watch("desc");
     const onSubmit: SubmitHandler<SignUpSchemaType> = (data) =>
         console.log(data);
     return (
@@ -34,7 +47,7 @@ export default function Section1({ data }: Props) {
                 pt: { xs: 4, sm: 9.375 },
                 pl: { xs: 4, sm: 7.5 },
                 pr: { xs: 2.5, sm: 5.75 },
-                pb: { xs: 10, sm: 18.125 },
+                pb: { xs: 4, sm: 7 },
                 "& .title": {
                     fontSize: { xs: 15, sm: 22 },
                     fontWeight: 700,
@@ -48,98 +61,158 @@ export default function Section1({ data }: Props) {
                     fontSize: { xs: 15, sm: 18 },
                     fontWeight: 500,
                 },
+                "& .form": {
+                    "&_row": {
+                        mb: 2,
+                        position: "relative",
+                        label: {
+                            fontSize: 14,
+                            fontWeight: 500,
+                            color: "#000",
+                            display: "block",
+                            "& .MuiTypography-root": {
+                                fontSize: 14,
+                                fontWeight: 500,
+                            },
+                        },
+                        "& .MuiFormControl-root": {
+                            borderColor: "#E1E1E1",
+                            "& .MuiInputBase": {
+                                "&-root": {
+                                    borderRadius: 0,
+                                },
+                                "&-input": {
+                                    py: 1.5,
+                                },
+                            },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                                borderColor: "#E1E1E1",
+                            },
+                        },
+                        "& .help-text": {
+                            position: "absolute",
+                            right: 5,
+                            bottom: 5,
+                            color: "#AFAFAF",
+                            fontSize: 12,
+                        },
+                    },
+                },
             }}
         >
             <TypographyHTML content={data?.content?.title} className="title" />
             <form onSubmit={handleSubmit(onSubmit)} className="form">
-                <input
-                    className="input"
-                    placeholder="email"
-                    {...register("email")}
-                />
-                {errors.email && <span>{errors.email.message}</span>}
-
-                <input
-                    className="input"
-                    placeholder="password"
-                    {...register("password")}
-                />
-
-                {errors.password && <span>{errors.password.message}</span>}
-
-                <button type="submit">submit!</button>
+                <Box className="form_row">
+                    <label>* {data?.name}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("email")}
+                        error={!!errors?.email}
+                        helperText={`${errors?.email?.message || ""}`}
+                        fullWidth
+                    />
+                </Box>
+                <Box className="form_row">
+                    <label>* {data?.phone}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("phone")}
+                        error={!!errors?.phone}
+                        helperText={`${errors?.phone?.message || ""}`}
+                        fullWidth
+                    />
+                </Box>
+                <Box className="form_row">
+                    <label>* {data?.email}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("email")}
+                        error={!!errors?.email}
+                        helperText={`${errors?.email?.message || ""}`}
+                        fullWidth
+                    />
+                </Box>
+                <Box className="form_row">
+                    <label>* {data?.address}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("address")}
+                        error={!!errors?.address}
+                        helperText={`${errors?.address?.message || ""}`}
+                        fullWidth
+                    />
+                </Box>
+                <Box className="form_row">
+                    <label>* {data?.address}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("address")}
+                        error={!!errors?.address}
+                        helperText={`${errors?.address?.message || ""}`}
+                        fullWidth
+                    />
+                </Box>
+                <Box className="form_row">
+                    <FormControlLabel
+                        control={
+                            <Checkbox defaultChecked icon={<RadioIcon />} />
+                        }
+                        label={data?.instagram?.desc}
+                    />
+                </Box>
+                <Box className="form_row">
+                    <label>* {data?.instagram?.label}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("instagram")}
+                        error={!!errors?.instagram}
+                        helperText={`${errors?.instagram?.message || ""}`}
+                        fullWidth
+                    />
+                </Box>
+                <Box className="form_row">
+                    <label>{data?.desc}</label>
+                    <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        {...register("desc")}
+                        error={!!errors?.desc}
+                        helperText={`${errors?.desc?.message || ""}`}
+                        multiline
+                        rows={3}
+                        fullWidth
+                        inputProps={{ maxLength: MAX_LIMIT }}
+                    />
+                    <span className="help-text">{`${
+                        descTxt?.length || 0
+                    }/${MAX_LIMIT} ${data?.char}`}</span>
+                </Box>
+                <Button
+                    variant="contained"
+                    type="submit"
+                    sx={{
+                        width: { xs: 150, sm: 290 },
+                        fontSize: { xs: 16, sm: 21 },
+                        fontWeight: 500,
+                        bgcolor: "#71EAB0 !important",
+                        display: "flex",
+                        mx: "auto",
+                        borderRadius: 0,
+                        boxShadow: "none",
+                        mt: { xs: 2.5, sm: 5.625 },
+                        color: "#000",
+                        textTransform: "none",
+                    }}
+                >
+                    {data?.btn}
+                </Button>
             </form>
-            <Image
-                src={require("@images/search.svg")}
-                alt=""
-                style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    margin: "25px auto 52px auto",
-                }}
-            />
-            <TypographyHTML content={data?.content?.desc} className="desc" />
-            <List
-                sx={{
-                    mt: { xs: 2.5, sm: 5 },
-                    mb: { xs: 2.5, sm: 3.125 },
-                    "& .MuiListItem-root": {
-                        px: 0,
-                        "& .MuiListItemText-root": {
-                            mt: 0,
-                            pt: 0,
-                            "& .MuiTypography-root": {
-                                lineHeight: "normal",
-                                fontSize: { xs: 15, sm: 18 },
-                            },
-                        },
-                    },
-                }}
-            >
-                {data?.content?.items?.map((item: any, idx: number) => (
-                    <ListItem key={idx} alignItems="flex-start">
-                        <Image
-                            src={require("@images/check.svg")}
-                            alt=""
-                            style={{
-                                maxWidth: "100%",
-                                height: "auto",
-                                marginTop: 6,
-                                marginRight: 10,
-                            }}
-                        />
-                        <ListItemText primary={item} />
-                    </ListItem>
-                ))}
-            </List>
-            <TypographyHTML
-                content={`*${data?.content?.short_desc}`}
-                color={"#1EB96F"}
-                fontSize={16}
-                fontWeight={300}
-                sx={{
-                    b: {
-                        fontWeight: 700,
-                    },
-                }}
-            />
-            <Button
-                variant="contained"
-                onClick={() => router.push("/register")}
-                sx={{
-                    width: { xs: 150, sm: 290 },
-                    fontSize: { xs: 16, sm: 21 },
-                    fontWeight: 500,
-                    bgcolor: "#71EAB0 !important",
-                    display: "flex",
-                    mx: "auto",
-                    borderRadius: 0,
-                    boxShadow: "none",
-                    mt: { xs: 2.5, sm: 5.625 },
-                }}
-            >
-                {data?.btn}
-            </Button>
         </Box>
     );
 }

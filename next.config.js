@@ -23,6 +23,10 @@ const nextConfig = {
                 port: "",
                 pathname: "/public/app/**",
             },
+            {
+                protocol: "https",
+                hostname: "showniq.ocmg.vn",
+            },
         ],
     },
 };

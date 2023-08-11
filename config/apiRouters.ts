@@ -6,6 +6,6 @@ export const apiRoutes = {
     getStyleSimilar: "style/getSimilar",
     getStyleEnum: "common/getEnum",
     getStyleList: "style/getList",
-    getInfo: "public/app/landingpage/config/faq.json",
-    getInfoDonwload: "public/app/landingpage/config/download.json",
+    getInfo: "/app/landingpage/config/faq.json",
+    getInfoDonwload: "/app/landingpage/config/download.json",
 };
