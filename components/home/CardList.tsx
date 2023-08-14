@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { Box, Stack } from "@mui/material";
 import CardItem from "./CardItem";
-import { useModal } from "@/recoil/hooks";
+import { useModal } from "@/hooks";
 
 interface Props {
     items: any[];
@@ -12,15 +12,18 @@ interface Props {
 
 export default function CardList({ items, lang }: Props) {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const { onOpenModal } = useModal();
+    const { onShow } = useModal();
     const [loaded, setLoaded] = useState(false);
     const [selected, setSelected] = useState<any>([]);
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-        initial: 0,
-        // loop: true,
+        breakpoints: {
+            "(max-width: 768px)": {
+                slides: { perView: 1.95, spacing: 10 },
+            },
+        },
         slides: {
-            // origin: "center",
-            perView: 1.8,
+            origin: "auto",
+            perView: 1.855,
             spacing: 30,
         },
         slideChanged(slider) {
@@ -35,7 +38,7 @@ export default function CardList({ items, lang }: Props) {
         if (key <= 2) {
             setSelected((current: any) => [...current, key]);
         } else {
-            onOpenModal();
+            onShow();
         }
     };
 

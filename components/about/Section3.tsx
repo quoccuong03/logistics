@@ -46,9 +46,9 @@ export default function Section3({ items }: Props) {
                         borderRadius: "7px",
                         position: "relative",
                         flex: 1,
-                        minHeight: 80,
+                        // minHeight: 80,
                         "& .MuiTypography-root": {
-                            fontSize: { xs: 15, sm: 18 },
+                            fontSize: { xs: 12, sm: 18 },
                             textAlign: "left",
                         },
                         "&::after": {

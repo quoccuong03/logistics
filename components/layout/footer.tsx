@@ -5,21 +5,22 @@ import { DownloadIcon } from "@/components/icons";
 import { usePathname, useRouter } from "next/navigation";
 import { HIDE_POPUP } from "@/config/constants";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { useModal } from "@/recoil/hooks";
+import { useModal, useQRCode } from "@/hooks";
 import ModalDownload from "../ModalDownload";
 import { useLocale } from "@/hooks/useLocale";
 
 export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
     const [showPopup] = useLocalStorage<any>(HIDE_POPUP, "");
-    const { onOpenModal, setLinkQr } = useModal();
+    const { onShow } = useModal();
+    const { setLinkQR } = useQRCode();
     const router = useRouter();
     const locale = useLocale();
     const pathname = usePathname();
     useEffect(() => {
-        setLinkQr(linQr);
+        setLinkQR(linQr);
         if (!showPopup && pathname === "/suggest") {
             const timer = setTimeout(() => {
-                onOpenModal();
+                onShow();
             }, 7000);
             return () => clearTimeout(timer);
         }
@@ -32,7 +33,7 @@ export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
             router.push(`/${locale}/seller`);
             return;
         } else {
-            onOpenModal();
+            onShow();
         }
     };
     const commonContent = lang?.common;
@@ -78,7 +79,7 @@ export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
                           )}
                 </span>
             </Button>
-            <ModalDownload lang={popupData} />
+            {/* <ModalDownload lang={popupData} /> */}
         </footer>
     );
 }

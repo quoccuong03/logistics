@@ -1,0 +1,23 @@
+.styleGuid {
+	&__background {
+		background-image: url("/images/bg-guide-mobile.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		width: 100%;
+		&__2 {
+			background-image: url("/images/bg-guide-mobile2.png");
+		}
+	}
+	@media (min-width: 640px) {
+		&__background {
+			background-image: url("/images/bg-guide-desktop.png");
+			&__2 {
+				background-image: url("/images/bg-guide-desktop2.png");
+			}
+		}
+	}
+	.text-green-main {
+		color: #71eab0 !important;
+	}
+}

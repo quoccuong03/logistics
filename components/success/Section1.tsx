@@ -3,11 +3,14 @@ import { Box, Button, Typography } from "@mui/material";
 import { TypographyHTML } from "@/components";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useLocale } from "@/hooks/useLocale";
+import { BASE_PATH } from "@/config/constants";
 interface Props {
     data: any;
 }
 export default function Section1({ data }: Props) {
     const router = useRouter();
+    const locale = useLocale();
     return (
         <Box
             sx={{
@@ -24,6 +27,7 @@ export default function Section1({ data }: Props) {
                     textTransform: "uppercase",
                     span: {
                         color: "#71EAB0",
+                        display: "block",
                     },
                 },
                 "& .desc": {
@@ -57,7 +61,7 @@ export default function Section1({ data }: Props) {
             </Typography>
             <Button
                 variant="contained"
-                onClick={() => router.push("/")}
+                onClick={() => router.push(`${BASE_PATH}/${locale}`)}
                 sx={{
                     width: { xs: 150, sm: 290 },
                     fontSize: { xs: 16, sm: 21 },

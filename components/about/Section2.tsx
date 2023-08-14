@@ -12,7 +12,6 @@ export default function Section2({ title }: Props) {
             sx={{
                 bgcolor: "#71EAB0",
                 textAlign: "center",
-                height: 290,
                 pt: { xs: 5, sm: 7.75 },
                 pb: { xs: 1.25, sm: 2.5 },
             }}

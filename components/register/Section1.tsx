@@ -73,7 +73,6 @@ export default function Section1({ data }: Props) {
         register,
         handleSubmit,
         formState: { errors, isValid },
-        setValue,
         watch,
     } = useForm<SignUpSchemaType>({
         resolver: zodResolver(SignUpSchema),
@@ -110,7 +109,7 @@ export default function Section1({ data }: Props) {
                 mx: { xs: 2.5, sm: 3.125 },
                 bgcolor: "#fff",
                 pt: { xs: 2.5, sm: 5.25 },
-                pl: { xs: 4, sm: 7.5 },
+                pl: { xs: 2.5, sm: 7.5 },
                 pr: { xs: 2.5, sm: 5.75 },
                 pb: { xs: 4, sm: 7 },
                 "& .title": {
@@ -254,7 +253,7 @@ export default function Section1({ data }: Props) {
                     />
                 </Box>
                 <Box className="form_row">
-                    <label>{data?.desc?.label}</label>
+                    <label>* {data?.desc?.label}</label>
                     <TextField
                         id="outlined-basic"
                         variant="outlined"

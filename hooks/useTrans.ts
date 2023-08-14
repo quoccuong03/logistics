@@ -1,4 +1,5 @@
 "use client";
+import { BASE_PATH } from "@/config/constants";
 import { i18n } from "@/config/i18n-config";
 import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
@@ -16,7 +17,7 @@ export const fetchLangs = async (query?: any): Promise<any> => {
 export const useTrans = () => {
     const pathName = usePathname();
     const segments = pathName?.split("/");
-    const lang = process.env.NEXT_PUBLIC_BASE_PATH
+    const lang = BASE_PATH
         ? segments?.[2] ?? i18n.defaultLocale
         : segments?.[1] ?? i18n.defaultLocale;
 

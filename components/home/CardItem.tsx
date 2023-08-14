@@ -76,7 +76,7 @@ const CardItem = ({ item, idx, onShow, itemsSelected, lang }: Props) => {
                         fontWeight={500}
                         my={2.5}
                     >
-                        OODT {idx + 1}
+                        STYLE {idx + 1}
                     </Typography>
                     <Button
                         variant="contained"

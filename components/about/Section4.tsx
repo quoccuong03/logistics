@@ -27,19 +27,19 @@ export default function Section4({ item }: Props) {
                 },
                 "& .box-chart": {
                     mt: { xs: 2.5, sm: 6.25 },
-                    mb: { xs: 5, sm: 10.625 },
+                    mb: { xs: 10, sm: 10.625 },
                     "&__item": {
                         textAlign: "center",
                         "&--title": {
-                            fontSize: 10,
+                            fontSize: 8,
                             fontWeight: 500,
                         },
                         "&--num": {
-                            fontSize: { xs: 25, sm: 30 },
+                            fontSize: { xs: 20, sm: 30 },
                             fontWeight: 600,
                         },
                         "&--desc": {
-                            fontSize: 10,
+                            fontSize: 8,
                             fontWeight: 500,
                             minHeight: 25,
                         },
@@ -51,18 +51,14 @@ export default function Section4({ item }: Props) {
             <Image
                 src={require(`@images/${item.img}`)}
                 alt=""
-                style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    margin: "55px auto 0 auto",
-                }}
+                className="mx-auto mt-8 md:mt-14 max-w-full h-auto"
             />
             <Stack
                 className="box-chart"
                 direction={"row"}
                 alignItems={"center"}
                 justifyContent={"center"}
-                spacing={{ xs: 1.25, sm: 2.5 }}
+                spacing={{ xs: 0.625, sm: 2.5 }}
                 divider={
                     <Divider
                         orientation="vertical"

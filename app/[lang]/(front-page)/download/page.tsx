@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const res = await getLangs(lang);
 
     return {
-        title: res?.pages?.info?.title || "Info",
+        title: res?.pages?.download?.title || "Download",
         //
     };
 }
@@ -24,5 +24,7 @@ export default async function DownloadPage({ params }: Props) {
     const res = await getLangs(lang);
     const dataInfo = await getInfoDonwload();
 
-    return <CreateQrCode data={dataInfo} lang={res?.pages?.download} />;
+    return (
+        <CreateQrCode data={dataInfo} lang={res?.pages?.download?.content} />
+    );
 }

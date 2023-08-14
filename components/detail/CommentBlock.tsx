@@ -3,17 +3,17 @@ import Image from "next/image";
 import { LikeIcon } from "@/components/icons";
 import { Pagination } from "@mui/material";
 import Slider from "./Slider";
-import { useModal } from "@/recoil/hooks";
+import { useModal } from "@/hooks";
 type Props = {
     data: any[];
     lang: any;
 };
 export default function CommentBlock({ data, lang }: Props) {
-    const { onOpenModal } = useModal();
+    const { onShow } = useModal();
     return (
         <div className="pb-3 mt-5 relative">
-            <div className="absolute flex backdrop-filter backdrop-blur-sm h-full bg left-[-26px] right-[-26px] z-[999] top-0 justify-center items-center bg-white bg-opacity-30">
-                <button onClick={onOpenModal}>
+            <div className="absolute flex backdrop-filter backdrop-blur-sm h-full bg left-[-26px] right-[-26px] z-[990] top-0 justify-center items-center bg-white bg-opacity-30">
+                <button onClick={onShow}>
                     <Image
                         src={require("@images/eye-off.svg")}
                         alt="Eye off"
@@ -85,7 +85,7 @@ export default function CommentBlock({ data, lang }: Props) {
                         </div>
 
                         <div className="flex flex-col items-center justify-between">
-                            <button onClick={onOpenModal}>
+                            <button onClick={onShow}>
                                 <Image
                                     src={item.emoji}
                                     alt={item.author.name}
@@ -96,7 +96,7 @@ export default function CommentBlock({ data, lang }: Props) {
 
                             <button
                                 className="flex items-center"
-                                onClick={onOpenModal}
+                                onClick={onShow}
                             >
                                 <LikeIcon className="text-sm text-[#999999]" />
                                 <span className="inline-flex ml-1 text-sm text-[#999999]">
@@ -113,7 +113,7 @@ export default function CommentBlock({ data, lang }: Props) {
                     count={5}
                     variant="outlined"
                     shape="rounded"
-                    onChange={onOpenModal}
+                    onChange={onShow}
                 />
             </div>
         </div>

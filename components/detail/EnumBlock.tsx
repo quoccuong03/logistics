@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { CommentIcon, RotateIcon } from "@/components/icons";
-import { useModal, useStore } from "@/recoil/hooks";
+import { useModal, useCurrentStore } from "@/hooks";
 import EnumItem from "./EnumItem";
 type Props = {
     data: any;
@@ -9,8 +9,8 @@ type Props = {
 };
 export default function EnumBlock({ data, lang }: Props) {
     const listEmoji = data?.["review_main-emo_type"];
-    const { currentStore } = useStore();
-    const { onOpenModal } = useModal();
+    const { currentStore } = useCurrentStore();
+    const { onShow } = useModal();
     return (
         <div>
             <div className="mb-3 flex items-center">
@@ -49,21 +49,21 @@ export default function EnumBlock({ data, lang }: Props) {
                 <textarea
                     className="w-full border-2 border-[#F2F2F2] outline-none rounded-md h-[100px] pl-2 pt-2"
                     readOnly
-                    onClick={onOpenModal}
+                    onClick={onShow}
                 />
                 <div
                     className="flex flex-col absolute right-4 items-center"
-                    onClick={onOpenModal}
+                    onClick={onShow}
                 >
                     <button
                         className="rounded border border-[#999999] w-5 h-5 flex items-center justify-center mb-2"
-                        onClick={onOpenModal}
+                        onClick={onShow}
                     >
                         <RotateIcon className="text-[14px] text-[#999999]" />
                     </button>
                     <button
                         className="rounded bg-[#FFA1A1] w-12 h-12 flex items-center justify-center"
-                        onClick={onOpenModal}
+                        onClick={onShow}
                     >
                         {lang?.btnSend}
                     </button>

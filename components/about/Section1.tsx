@@ -38,39 +38,40 @@ export default function SectionOne({ title, desc, data }: Props) {
             sx={{
                 position: "relative",
                 background: `#F6F7F9 url("${bgImg.src}") no-repeat bottom center`,
-                backgroundSize: "650px 537px",
-                minHeight: 695,
-                pt: { xs: 5, sm: 9.375 },
+                backgroundSize: { xs: "contain", sm: "650px 537px" },
+                minHeight: { xs: 400, sm: 695 },
+                pt: { xs: 2.5, sm: 9.375 },
                 "& .title": {
-                    fontSize: { xs: 15, sm: 20 },
+                    fontSize: { xs: 10, sm: 20 },
                 },
                 "& .desc": {
-                    fontSize: { xs: 15, sm: 20 },
+                    fontSize: { xs: 10, sm: 20 },
                     fontWeight: 600,
                     textAlign: "center",
                 },
                 "& .box": {
                     "&-item": {
-                        height: 205,
+                        height: { xs: 130, sm: 205 },
                         position: "relative",
-                        mt: { xs: 5, sm: 13.75 },
+                        mt: { xs: 10, sm: 13.75 },
                         pl: { xs: 2.5, sm: 3.375 },
                         "&__btn": {
-                            fontSize: { xs: 14, sm: 15 },
+                            fontSize: { xs: 12, sm: 15 },
                             fontWeight: 500,
                             bgcolor: "#FCF5E6",
                             py: 0.625,
                             px: 1.875,
                             filter: "drop-shadow(0px 5.155755996704102px 9.02257251739502px rgba(0, 0, 0, 0.25))",
                             minHeight: "auto",
+                            lineHeight: "normal",
                             "&:nth-of-type(2)": {
                                 position: "absolute",
-                                bottom: 10,
-                                left: 175,
+                                bottom: { xs: 20, sm: 10 },
+                                left: { xs: 45, sm: 175 },
                             },
                             "&:nth-of-type(3)": {
                                 position: "absolute",
-                                right: 100,
+                                right: { xs: 10, sm: 100 },
                                 bottom: 30,
                             },
                         },
@@ -80,10 +81,10 @@ export default function SectionOne({ title, desc, data }: Props) {
                         mt: { xs: 2.5, sm: 6.25 },
                         "&__item": {
                             bgcolor: "#fff",
-                            borderRadius: "16px",
+                            borderRadius: { xs: "6px", sm: "16px" },
                             textAlign: "center",
-                            py: 2.75,
-                            px: 2.25,
+                            py: { xs: 0.625, sm: 2.75 },
+                            px: { xs: 0.625, sm: 2.25 },
                             flex: 1,
                         },
                         "& .MuiSvgIcon-root": {
@@ -92,13 +93,13 @@ export default function SectionOne({ title, desc, data }: Props) {
                             strokeWidth: 1,
                         },
                         "&__title": {
-                            fontSize: 12,
+                            fontSize: { xs: 10, sm: 12 },
                             fontWeight: 300,
                             lineHeight: "normal",
                             my: 0.625,
                         },
                         "&__desc": {
-                            fontSize: 14,
+                            fontSize: { xs: 10, sm: 14 },
                             fontWeight: 600,
                             color: "#FFA1A1",
                         },
@@ -126,7 +127,7 @@ export default function SectionOne({ title, desc, data }: Props) {
                 direction={"row"}
                 justifyContent={"space-between"}
                 className="box-bottom"
-                spacing={{ xs: 2.5, sm: 4 }}
+                spacing={{ xs: 1.25, sm: 4 }}
             >
                 {items.map((item: any, idx: number) => (
                     <Box key={idx} className="box-bottom__item">

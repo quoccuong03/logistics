@@ -72,22 +72,22 @@ export default function HomePage() {
                 <Box
                     className="relative"
                     sx={{
-                        height: 130,
+                        height: { xs: 100, sm: 130 },
                     }}
                 >
                     <Stack
                         direction={"row"}
                         alignItems={"center"}
-                        spacing={1.25}
+                        spacing={{ xs: 0.625, sm: 1.25 }}
                     >
-                        <Typography fontSize={14}>
+                        <Typography fontSize={{ xs: 12, sm: 14 }}>
                             {format(new Date(), "dd/MM/yyyy")}
                         </Typography>
                         <InfoIcon
                             sx={{
                                 fill: "none",
                                 stroke: "#000",
-                                fontSize: 18,
+                                fontSize: { xs: 14, sm: 18 },
                             }}
                         />
                     </Stack>
@@ -98,7 +98,7 @@ export default function HomePage() {
                             alignItems={"center"}
                             sx={{
                                 position: "absolute",
-                                top: 0,
+                                top: { xs: 10, sm: 0 },
                                 left: 0,
                                 width: 1,
                                 pr: 2.5,
@@ -112,7 +112,7 @@ export default function HomePage() {
                                     borderRadius: "7px",
                                     position: "relative",
                                     flex: 1,
-                                    height: 57,
+                                    height: { xs: 65, sm: 57 },
                                     "&::after": {
                                         content: '""',
                                         position: "absolute",
@@ -125,16 +125,17 @@ export default function HomePage() {
                                 }}
                             >
                                 <TypographyHTML
-                                    fontSize={12}
+                                    fontSize={{ xs: 10, sm: 12 }}
                                     content={trans?.common?.says?.[idx]}
                                 />
                             </Box>
                             <Image
                                 src={require("@images/jesso2.gif")}
                                 alt="Jesso"
+                                className="max-w-[80px] md:max-w-[115px] h-auto"
                                 style={{
-                                    maxWidth: 115,
-                                    height: "auto",
+                                    // maxWidth: 115,
+                                    // height: "auto",
                                     flexGrow: 0,
                                 }}
                             />

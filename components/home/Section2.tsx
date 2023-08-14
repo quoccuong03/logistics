@@ -20,7 +20,6 @@ export default function Section2() {
                 style={{
                     objectFit: "contain",
                     objectPosition: "bottom",
-                    // maxWidth: 650,
                 }}
             />
             <div className="text-center mx-7 md:mx-20 pt-[70px] md:pt-[111px] relative z-10">

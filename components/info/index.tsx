@@ -63,7 +63,7 @@ export default function Info(props: Props): JSX.Element {
                                     <div className="items-center  flex justify-center">
                                         <div className="h-[264px] w-[197px] relative mt-[20px] mb-[20px]">
                                             <Image
-                                                src={item.image}
+                                                src={`${process.env.NEXT_PUBLIC_STATIC_LANDING_PAGE}/faq/${item.image}`}
                                                 alt="img"
                                                 loading={"lazy"}
                                                 fill
