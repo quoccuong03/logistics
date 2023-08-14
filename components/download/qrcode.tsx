@@ -4,41 +4,45 @@ import { QRCodeSVG } from "qrcode.react";
 import Image from "next/image";
 
 type Props = {
-	data: {
-		title?: string;
-		logo: string;
-		description?: string;
-		qr_link: string;
-		redirect?: {
-			title?: string;
-			url?: string;
-		};
-	};
+    lang: any;
+    data: {
+        title?: string;
+        logo: string;
+        description?: string;
+        qr_link: string;
+        redirect?: {
+            title?: string;
+            url?: string;
+        };
+    };
 };
 export default function CreateQrCode(props: Props) {
-	const { data } = props;
+    const { data, lang } = props;
 
-	return (
-		<div className="mx-auto mt-20 flex items-center  flex-col justify-center">
-			<div className="relative h-[96px] w-[87px] mb-[10px]">
-				<Image
-					src={data.logo}
-					alt="img"
-					loading={"lazy"}
-					fill
-					style={{
-						objectFit: "cover",
-					}}
-				/>
-			</div>
-			<div className="text-[16px] font-bold mb-[60px]">{data?.title}</div>
-			<div className="flex flex-col p-2 border mb-[10px] rounded justify-center  text-center">
-				<QRCodeSVG value={data.qr_link} style={{ margin: "auto" }} />
-			</div>
-			<div className="text-[14px] font-light mb-[60px]">{data.description}</div>
-			<a className="text-[14px] font-light underline" href={data?.redirect?.url}>
-				{data?.redirect?.title}
-			</a>
-		</div>
-	);
+    return (
+        <div className="mx-auto mt-20 flex items-center  flex-col justify-center">
+            <div className="relative h-[96px] w-[87px] mb-[10px]">
+                <Image
+                    src={data.logo}
+                    alt="img"
+                    loading={"lazy"}
+                    fill
+                    style={{
+                        objectFit: "cover",
+                    }}
+                />
+            </div>
+            <div className="text-[16px] font-bold mb-[60px]">{lang?.title}</div>
+            <div className="flex flex-col p-2 border mb-[10px] rounded justify-center  text-center">
+                <QRCodeSVG value={data.qr_link} style={{ margin: "auto" }} />
+            </div>
+            <div className="text-[14px] font-light mb-[60px]">{lang?.desc}</div>
+            <a
+                className="text-[14px] font-light underline"
+                href={data?.redirect?.url}
+            >
+                {lang?.back}
+            </a>
+        </div>
+    );
 }
