@@ -26,7 +26,7 @@ const phoneRegex = new RegExp(
     /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 );
 const domainRegex = new RegExp(
-    /^[\w.-]+(?:\.[\w\.-]+)+[\w\-\._%~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
+    /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
 );
 
 export default function Section1({ data }: Props) {
@@ -45,16 +45,19 @@ export default function Section1({ data }: Props) {
             .min(1, data?.email?.require)
             .email(data?.email?.email),
         storeName: z.string().min(1, data?.email?.require),
-        address: z.string().optional(),
+        address: z.string().refine((val) => {
+            if (val === "" && !checked) return false;
+            return true;
+        }, data?.address?.require),
         instagramLink: z
             .string()
             .min(1, data?.instagram?.require)
             .regex(domainRegex, data?.instagram?.domain),
-        description: z.string().min(5).max(1000),
+        description: z
+            .string()
+            .min(1, data?.desc?.require)
+            .max(1000, data?.desc?.max),
     });
-    // .refine((schema) => (!checked ? !!schema.address : true), {
-    //     message: "name is required when you send color on request",
-    // });
     // .refine((input) => {
     //     console.log("input", input);
     //     console.log("input.address", input.address === "" && !checked);
@@ -70,11 +73,13 @@ export default function Section1({ data }: Props) {
         register,
         handleSubmit,
         formState: { errors, isValid },
+        setValue,
         watch,
     } = useForm<SignUpSchemaType>({
         resolver: zodResolver(SignUpSchema),
         mode: "onChange",
     });
+
     const descTxt = watch("description");
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -265,7 +270,11 @@ export default function Section1({ data }: Props) {
                         descTxt?.length || 0
                     }/${MAX_LIMIT} ${data?.char}`}</span>
                 </Box>
-                {error ? <Alert severity="error">{error}</Alert> : null}
+                {error ? (
+                    <Alert severity="error">
+                        <TypographyHTML content={error} />
+                    </Alert>
+                ) : null}
                 <Button
                     variant="contained"
                     type="submit"
