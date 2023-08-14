@@ -36,6 +36,7 @@ export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
         }
     };
     const commonContent = lang?.common;
+    const popupData = lang?.popup;
     if (isDownload) {
         return <></>;
     }
@@ -77,7 +78,7 @@ export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
                           )}
                 </span>
             </Button>
-            <ModalDownload />
+            <ModalDownload lang={popupData} />
         </footer>
     );
 }

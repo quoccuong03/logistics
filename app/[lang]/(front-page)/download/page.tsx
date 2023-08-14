@@ -1,8 +1,28 @@
 import CreateQrCode from "@/components/download/qrcode";
+import { Locale } from "@/config/i18n-config";
 import { getInfoDonwload } from "@/hooks/useInfo";
+import { getLangs } from "@/lib/get-lang";
+import { Metadata } from "next";
 
-export default async function DownloadPage() {
-	const dataInfo = await getInfoDonwload();
+type Props = {
+    params: { lang: Locale };
+};
 
-	return <CreateQrCode data={dataInfo} />;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // read route params
+    const lang = params.lang;
+    const res = await getLangs(lang);
+
+    return {
+        title: res?.pages?.info?.title || "Info",
+        //
+    };
+}
+
+export default async function DownloadPage({ params }: Props) {
+    const lang = params.lang;
+    const res = await getLangs(lang);
+    const dataInfo = await getInfoDonwload();
+
+    return <CreateQrCode data={dataInfo} lang={res?.pages?.download} />;
 }
