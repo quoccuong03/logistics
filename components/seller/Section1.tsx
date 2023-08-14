@@ -4,11 +4,13 @@ import { Box, Button, List, ListItem, ListItemText } from "@mui/material";
 import { TypographyHTML } from "@/components";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useLocale } from "@/hooks/useLocale";
 interface Props {
     data: any;
 }
 export default function Section1({ data }: Props) {
     const router = useRouter();
+    const locale = useLocale();
     return (
         <Box
             sx={{
@@ -90,7 +92,7 @@ export default function Section1({ data }: Props) {
             />
             <Button
                 variant="contained"
-                onClick={() => router.push("/seller/register")}
+                onClick={() => router.push(`/${locale}/seller/register`)}
                 sx={{
                     width: { xs: 150, sm: 290 },
                     fontSize: { xs: 16, sm: 21 },
