@@ -8,7 +8,7 @@ interface Props {
 export default function FooterButton({ lang }: Props) {
     const { onShow } = useModal();
     return (
-        <div className="flex items-center mb-5">
+        <div className="flex items-center mb-24">
             <button
                 onClick={onShow}
                 className="flex items-center justify-center py-3 px-5 md:px-20 bg-[#F2F2F2] rounded"

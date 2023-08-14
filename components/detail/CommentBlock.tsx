@@ -12,7 +12,7 @@ export default function CommentBlock({ data, lang }: Props) {
     const { onShow } = useModal();
     return (
         <div className="pb-3 mt-5 relative">
-            <div className="absolute flex backdrop-filter backdrop-blur-sm h-full bg left-[-26px] right-[-26px] z-[999] top-0 justify-center items-center bg-white bg-opacity-30">
+            <div className="absolute flex backdrop-filter backdrop-blur-sm h-full bg left-[-26px] right-[-26px] z-[990] top-0 justify-center items-center bg-white bg-opacity-30">
                 <button onClick={onShow}>
                     <Image
                         src={require("@images/eye-off.svg")}

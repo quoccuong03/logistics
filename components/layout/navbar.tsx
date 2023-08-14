@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import LocaleSwitcher from "./locale-switcher";
 import { useLocale } from "@/hooks/useLocale";
 import { useCurrentStore } from "@/hooks/useCurrentStore";
+import { BASE_PATH } from "@/config/constants";
 const menus = [
     { key: "home", to: "" },
     { key: "info", to: "info" },
@@ -24,12 +25,18 @@ export default function Navbar({ lang }: Props) {
     const { currentStore } = useCurrentStore();
     const [hightLinght, setHightLinght] = useState(false);
 
+    const pages = [
+        `${BASE_PATH}/${locale}/info`,
+        `${BASE_PATH}/${locale}/about`,
+        `${BASE_PATH}/${locale}/seller`,
+    ];
+
     const handleScroll = () => {
         window.addEventListener("scroll", () => {
             const scrollTop = window.pageYOffset;
             if (
                 scrollTop > 40 &&
-                (pathname.endsWith("info") || pathname.endsWith(locale))
+                (pages.includes(pathname) || pathname.endsWith(locale))
             ) {
                 setHightLinght(true);
             } else {
@@ -43,8 +50,8 @@ export default function Navbar({ lang }: Props) {
     }, [pathname]);
 
     return (
-        <header className="flex flex-col sticky z-50 top-0 bg-white">
-            <div className="flex justify-between items-center w-full px-5 pb-[6px] pt-[25px]">
+        <header className="flex flex-col sticky z-[999] top-0 bg-white">
+            <div className="flex justify-between items-center w-full px-5 h-16 pt-5">
                 {pathname?.startsWith("/detail") ? (
                     <>
                         <IconButton
@@ -83,14 +90,20 @@ export default function Navbar({ lang }: Props) {
                     <LocaleSwitcher locales={lang?.locales} />
                 ) : (
                     <Link
-                        href={`/${locale}/seller`}
-                        className="flex items-center flex-col text-[13px] text-black font-semibold"
+                        href={`/${locale}/about`}
+                        className={`flex items-center flex-col text-[12px] ${
+                            pathname.includes("seller")
+                                ? "text-[#000000]"
+                                : "text-[#A0A0A0]"
+                        } font-semibold leading-3 ${
+                            pathname.includes("detail") ? "myTextLight" : ""
+                        }`}
                     >
                         <Image
                             src={require("@images/store.svg")}
                             alt="strore"
                             style={{
-                                maxWidth: 23,
+                                maxWidth: 20,
                                 height: "auto",
                             }}
                         />
@@ -110,7 +123,7 @@ export default function Navbar({ lang }: Props) {
                                           ? "border-b-[3px] border-black"
                                           : ""
                                   } ${
-                                      idx === 1 && hightLinght
+                                      idx !== 0 && hightLinght
                                           ? "myLightBox"
                                           : ""
                                   }`}
@@ -125,7 +138,7 @@ export default function Navbar({ lang }: Props) {
                                               ? "text-[#000000]"
                                               : "text-[#A0A0A0]"
                                       }  ${
-                                          idx === 1 && hightLinght
+                                          idx !== 0 && hightLinght
                                               ? "myTextLight"
                                               : ""
                                       }`}

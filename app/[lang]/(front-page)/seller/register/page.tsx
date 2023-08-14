@@ -21,7 +21,7 @@ export default async function RegisterPage({ params }: Props) {
     const { lang } = params;
     const langData = await getLangs(lang);
     return (
-        <div className="bg-[#FCF5E6] pt-[25px] min-h-screen">
+        <div className="bg-[#FCF5E6] pt-[25px] min-h-screen pb-10 md:pb-20">
             <Section1 data={langData?.pages?.register} />
         </div>
     );

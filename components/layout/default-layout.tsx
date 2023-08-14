@@ -19,7 +19,7 @@ export default function DefaultLayout({
     const popupData = lang?.popup;
     return (
         <div
-            className={`max-w-[650px] mx-auto border-2 relative ${
+            className={`max-w-[650px] mx-auto border relative ${
                 pathname === "/" ? "bg-[#FDF5E7]" : ""
             }`}
             id="layout"
