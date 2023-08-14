@@ -34,28 +34,27 @@ export default function Section1({ data }: Props) {
     const [checked, setChecked] = useState<boolean>(false);
     const [error, setError] = useState<any>();
     const locale = useLocale();
-    const SignUpSchema = z
-        .object({
-            sellerName: z.string().min(1, data?.name?.require),
-            phone: z
-                .string()
-                .min(1, data?.phone?.require)
-                .regex(phoneRegex, data?.phone?.phoneNumber),
-            email: z
-                .string()
-                .min(1, data?.email?.require)
-                .email(data?.email?.email),
-            storeName: z.string().min(1, data?.email?.require),
-            address: z.string().optional(),
-            instagramLink: z
-                .string()
-                .min(1, data?.instagram?.require)
-                .regex(domainRegex, data?.phone?.phoneNumber),
-            description: z.string().min(5).max(1000),
-        })
-        .refine((schema) => (!checked ? !!schema.address : true), {
-            message: "name is required when you send color on request",
-        });
+    const SignUpSchema = z.object({
+        sellerName: z.string().min(1, data?.name?.require),
+        phone: z
+            .string()
+            .min(1, data?.phone?.require)
+            .regex(phoneRegex, data?.phone?.phoneNumber),
+        email: z
+            .string()
+            .min(1, data?.email?.require)
+            .email(data?.email?.email),
+        storeName: z.string().min(1, data?.email?.require),
+        address: z.string().optional(),
+        instagramLink: z
+            .string()
+            .min(1, data?.instagram?.require)
+            .regex(domainRegex, data?.instagram?.domain),
+        description: z.string().min(5).max(1000),
+    });
+    // .refine((schema) => (!checked ? !!schema.address : true), {
+    //     message: "name is required when you send color on request",
+    // });
     // .refine((input) => {
     //     console.log("input", input);
     //     console.log("input.address", input.address === "" && !checked);
@@ -95,7 +94,7 @@ export default function Section1({ data }: Props) {
                 setError(messages?.split(".,")?.join("<br />"));
                 return;
             }
-            router.push("/seller/success");
+            router.push(`/${locale}/seller/success`);
         } catch (error) {
             console.log("error", error);
         }

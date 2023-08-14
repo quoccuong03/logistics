@@ -7,11 +7,13 @@ import { HIDE_POPUP } from "@/config/constants";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useModal } from "@/recoil/hooks";
 import ModalDownload from "../ModalDownload";
+import { useLocale } from "@/hooks/useLocale";
 
 export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
     const [showPopup] = useLocalStorage<any>(HIDE_POPUP, "");
     const { onOpenModal, setLinkQr } = useModal();
     const router = useRouter();
+    const locale = useLocale();
     const pathname = usePathname();
     useEffect(() => {
         setLinkQr(linQr);
@@ -27,7 +29,7 @@ export default function Footer({ linQr, lang }: { linQr: string; lang: any }) {
 
     const handleClick = () => {
         if (isAbout) {
-            router.push("/seller");
+            router.push(`/${locale}/seller`);
             return;
         } else {
             onOpenModal();
