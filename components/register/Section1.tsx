@@ -232,6 +232,7 @@ export default function Section1({ data }: Props) {
                             "& .MuiTypography-root": {
                                 display: "inline-flex",
                                 alignItems: "center",
+                                columnGap: 1,
                             },
                         }}
                         control={
