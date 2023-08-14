@@ -228,6 +228,11 @@ export default function Section1({ data }: Props) {
 
                 <Box className="form_row">
                     <FormControlLabel
+                        sx={{
+                            "& .MuiTypography-root": {
+                                display: "inline-flex",
+                            },
+                        }}
                         control={
                             <Checkbox
                                 icon={<RadioIcon sx={{ fontSize: 18 }} />}
@@ -238,7 +243,7 @@ export default function Section1({ data }: Props) {
                                 onChange={handleChange}
                             />
                         }
-                        label={data?.noAddress}
+                        label={<TypographyHTML content={data?.noAddress} />}
                     />
                 </Box>
                 <Box className="form_row">
