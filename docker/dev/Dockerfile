@@ -6,15 +6,15 @@ WORKDIR /app
 
 # Copy package.json and yarn.lock files to container
 COPY package.json yarn.lock ./
-RUN rm -rf ./.env.production
-COPY ./.env.dev ./.env.production
-COPY ./.env.dev ./.env
+
 # Install dependencies
 RUN yarn install
 
 # Copy the rest of the app files to container
 COPY . .
-
+RUN rm -rf ./.env.production
+COPY ./.env.dev ./.env.production
+COPY ./.env.dev ./.env
 # Build the Next.js app
 RUN yarn build
 ENV PORT=5008
