@@ -13,8 +13,10 @@ import { StyleList } from "@/components/style-list";
 import FilterStyle from "@/components/filter-style";
 import TopFooter from "@/components/layout/top-footer";
 import { TypographyHTML } from "@/components";
+import ModalTips from "@/components/ModalTips";
 export default function HomePage() {
     const [idx, setIdx] = useState<number>(0);
+    const [open, setOpen] = useState<boolean>(false);
     const query = {
         status: "A",
         sortedBy: "desc",
@@ -41,6 +43,17 @@ export default function HomePage() {
         }, 4000);
         return () => clearTimeout(timer);
     }, [trans, idx]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setOpen(true);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Box
@@ -158,6 +171,7 @@ export default function HomePage() {
                 title={trans?.style?.block?.title}
             />
             <TopFooter lang={trans} />
+            <ModalTips open={open} onClose={handleClose} lang={trans} />
         </Box>
     );
 }
