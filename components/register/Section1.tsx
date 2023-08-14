@@ -231,6 +231,7 @@ export default function Section1({ data }: Props) {
                         sx={{
                             "& .MuiTypography-root": {
                                 display: "inline-flex",
+                                alignItems: "center",
                             },
                         }}
                         control={
