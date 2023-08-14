@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy package.json and yarn.lock files to container
 COPY package.json yarn.lock ./
+RUN rm -rf ./.env.production
 COPY ./.env.dev ./.env.production
 COPY ./.env.dev ./.env
 # Install dependencies
