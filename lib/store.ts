@@ -2,19 +2,19 @@ import { createContext, useContext } from "react";
 import { createStore, useStore as useZustandStore } from "zustand";
 
 interface StoreInterface {
-    lastUpdate: number;
-    light: boolean;
-    count: number;
-    tick: (lastUpdate: number, light: boolean) => void;
-    increment: () => void;
-    decrement: () => void;
-    reset: () => void;
+    currentStore: any;
+    open: boolean;
+    linkQR: string;
+    setLinkQR: (link: string) => void;
+    onShow: () => void;
+    onClose: () => void;
+    setCurrentStore: (store: any) => void;
 }
 
 const getDefaultInitialState = () => ({
-    lastUpdate: Date.now(),
-    light: false,
-    count: 0,
+    open: false,
+    currentStore: undefined,
+    linkQR: "",
 });
 
 export type StoreType = ReturnType<typeof initializeStore>;
@@ -37,25 +37,24 @@ export const initializeStore = (
     return createStore<StoreInterface>((set, get) => ({
         ...getDefaultInitialState(),
         ...preloadedState,
-        tick: (lastUpdate, light) => {
+        onShow: () => {
             set({
-                lastUpdate,
-                light: !!light,
+                open: true,
             });
         },
-        increment: () => {
+        onClose: () => {
             set({
-                count: get().count + 1,
+                open: false,
             });
         },
-        decrement: () => {
+        setCurrentStore: (store) => {
             set({
-                count: get().count - 1,
+                currentStore: store,
             });
         },
-        reset: () => {
+        setLinkQR: (link) => {
             set({
-                count: getDefaultInitialState().count,
+                linkQR: link,
             });
         },
     }));

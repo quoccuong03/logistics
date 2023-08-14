@@ -1,12 +1,12 @@
 "use client";
-import { Box, Button, Drawer, Stack, Typography } from "@mui/material";
+import { Box, Button, Drawer, Stack, Backdrop } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { HIDE_POPUP } from "@config/constants";
 
 import { useRouter } from "next/navigation";
-import { useModal } from "@/recoil/hooks";
+import { useModal, useQRCode } from "@/hooks";
 import { FC } from "react";
 import TypographyHTML from "./TypographyHTML";
 import { useLocale } from "@/hooks/useLocale";
@@ -31,14 +31,15 @@ const data = {
 
 const ModalDownload: FC<Props> = ({ lang }) => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
-    const { open, onClose: onCloseM, linkQr } = useModal();
+    const { open, onClose: onCloseM } = useModal();
+    const { linkQR } = useQRCode();
     const locale = useLocale();
     const router = useRouter();
     const handleClosePopup = (hidden?: boolean) => {
         if (hidden) {
             setHidePopup(1);
             // router.push("/download");
-            window.open(`/${locale}${linkQr}`);
+            window.open(`/${locale}${linkQR}`);
         }
         onCloseM();
     };

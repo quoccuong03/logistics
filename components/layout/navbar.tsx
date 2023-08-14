@@ -4,10 +4,11 @@ import { ChevronRightIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useStore } from "@/recoil/hooks";
+// import { useStore } from "@/recoil/hooks";
 import { useEffect, useState } from "react";
 import LocaleSwitcher from "./locale-switcher";
 import { useLocale } from "@/hooks/useLocale";
+import { useCurrentStore } from "@/hooks/useCurrentStore";
 const menus = [
     { key: "home", to: "" },
     { key: "info", to: "info" },
@@ -20,7 +21,7 @@ export default function Navbar({ lang }: Props) {
     const router = useRouter();
     const pathname = usePathname();
     const locale = useLocale();
-    const { currentStore } = useStore();
+    const { currentStore } = useCurrentStore();
     const [hightLinght, setHightLinght] = useState(false);
 
     const handleScroll = () => {

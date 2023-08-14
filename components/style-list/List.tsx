@@ -1,7 +1,5 @@
 "use client";
 import "./index.css";
-import { ExclamationIcon } from "@components/icons";
-import { useModal } from "@/recoil/hooks";
 import Item from "./Item";
 import { Box } from "@mui/material";
 type Props = {
@@ -10,7 +8,6 @@ type Props = {
 };
 
 export default function List({ items, title }: Props) {
-    const { onOpenModal } = useModal();
     return (
         <Box className="style-list">
             <div className="font-bold mt-[25px] text-[12px] flex style-list__title">

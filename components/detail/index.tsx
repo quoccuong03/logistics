@@ -1,5 +1,5 @@
 "use client";
-import { useModal, useStore } from "@/recoil/hooks";
+import { useModal, useCurrentStore } from "@/hooks";
 import React, { useEffect } from "react";
 import Carousel from "./Carousel";
 import {
@@ -15,17 +15,17 @@ type Props = {
 };
 
 export default function DetailPageClient({ data, lang }: Props) {
-    const { onShowStore } = useStore();
-    const { onOpenModal } = useModal();
+    const { setCurrentStore } = useCurrentStore();
+    const { onShow } = useModal();
     useEffect(() => {
-        onShowStore(data?.store);
+        setCurrentStore(data?.store);
     }, [data]);
 
     return (
         <div>
             <Carousel images={data?.image || []} />
             <div className="flex items-start justify-between mt-2 md:mt-3">
-                <button className="flex items-center" onClick={onOpenModal}>
+                <button className="flex items-center" onClick={onShow}>
                     <LockIcon className="fill-none stroke-black text-[20px]" />{" "}
                     <span className="text-[11px]">
                         {data.store.accountType.title[lang]}
@@ -35,14 +35,14 @@ export default function DetailPageClient({ data, lang }: Props) {
                 <div className="flex items-center">
                     <button
                         className="flex flex-col justify-center items-center mr-4"
-                        onClick={onOpenModal}
+                        onClick={onShow}
                     >
                         <HeartIcon className="text-[22px]" />
                         <span className="text-[11px]">{data.likedCnt}</span>
                     </button>
                     <button
                         className="flex flex-col justify-center items-center"
-                        onClick={onOpenModal}
+                        onClick={onShow}
                     >
                         <UploadIcon className="fill-none stroke-black text-[22px]" />
                         <span className="text-[11px]">{data.sharedCnt}</span>

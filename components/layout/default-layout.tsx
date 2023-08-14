@@ -1,11 +1,11 @@
 "use client";
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { Backdrop } from "@mui/material";
 
 import Navbar from "./navbar";
 import Footer from "./footer";
 import TopFooter from "./top-footer";
+import ModalDownload from "../ModalDownload";
 export default function DefaultLayout({
     children,
     linQr,
@@ -16,7 +16,7 @@ export default function DefaultLayout({
     lang: any;
 }) {
     const pathname = usePathname();
-
+    const popupData = lang?.popup;
     return (
         <div
             className={`max-w-[650px] mx-auto border-2 relative ${
@@ -35,6 +35,7 @@ export default function DefaultLayout({
                 DEMO Backdrop
             </Backdrop> */}
             <Footer linQr={linQr} lang={lang} />
+            <ModalDownload lang={popupData} />
         </div>
     );
 }

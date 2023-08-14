@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import Analytics from "@/app/Analytics";
 
 import { useSelectedLayoutSegment } from "next/navigation";
+import StoreProvider from "@/app/providers/StoreProvider";
 const listSkipRootLayout = ["style-guide"];
 const montserrat = Montserrat({
     subsets: ["latin", "vietnamese"],
@@ -36,7 +37,12 @@ export default function Layout({
             <body id="__next" className={montserrat.className}>
                 <Analytics />
                 <QueryClientProvider client={queryClient}>
-                    <RecoilProvider>
+                    <StoreProvider>
+                        <DefaultLayout linQr={linQr} lang={lang}>
+                            {children}
+                        </DefaultLayout>
+                    </StoreProvider>
+                    {/* <RecoilProvider>
                         {listSkipRootLayout.indexOf(segment || "") !== -1 ? (
                             children
                         ) : (
@@ -44,7 +50,7 @@ export default function Layout({
                                 {children}
                             </DefaultLayout>
                         )}
-                    </RecoilProvider>
+                    </RecoilProvider> */}
                     <ReactQueryDevtools initialIsOpen={false} />
                 </QueryClientProvider>
             </body>
