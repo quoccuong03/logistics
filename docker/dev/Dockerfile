@@ -8,7 +8,6 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN rm -rf ./.env.production
 COPY ./.env.dev ./.env.production
-COPY ./.env.dev ./.env
 # Install dependencies
 RUN yarn install
 
