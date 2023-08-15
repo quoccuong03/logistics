@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { i18n } from "@/config/i18n-config";
+import { BASE_PATH } from "./config/constants";
 // import { match as matchLocale } from "@formatjs/intl-localematcher";
 // import Negotiator from "negotiator";
 
@@ -55,7 +56,7 @@ export function middleware(request: NextRequest) {
 
     // Redirect if there is no locale
     // if (pathnameIsMissingLocale) {
-    if (pathname === "/") {
+    if (pathnameIsMissingLocale && !BASE_PATH) {
         // const locale = getLocale(request);
         // console.log("locale", locale);
         // e.g. incoming request is /products

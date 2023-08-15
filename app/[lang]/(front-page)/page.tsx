@@ -82,7 +82,7 @@ export default function HomePage() {
             <Box
                 className="relative"
                 sx={{
-                    minHeight: { xs: 500, sm: 685 },
+                    minHeight: { xs: 435, sm: 685 },
                     background:
                         "linear-gradient(360deg, #FFA1A1 0%, #F1F4E2 81.25%, #FCF5E6 99.44%)",
                     pt: { xs: 4, sm: 10 },

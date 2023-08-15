@@ -82,11 +82,11 @@ export const getDataDetail = (
     return {
         urlImage,
         title: title + " | SHOWNIQ.AI",
-        description: data.description,
+        description: data?.description,
         url: myUrl,
         openGraph: {
             title: title + " | SHOWNIQ.AI",
-            description: data.description,
+            description: data?.description,
             url: myUrl,
             site_name: "AI Fashion Matching Platform",
             type: "website",

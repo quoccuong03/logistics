@@ -25,9 +25,7 @@ export default function SharePageSection({ platform }: Props) {
             }
             return;
         } else {
-            console.log("redirectUrl", redirectUrl);
-
-            // window.location.href = redirectUrl;
+            window.location.href = redirectUrl;
         }
     }, []);
     return <></>;
