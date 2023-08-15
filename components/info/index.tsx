@@ -34,12 +34,12 @@ export default function Info(props: Props): JSX.Element {
                     <TreeItem
                         nodeId={`${index}`}
                         key={index}
-                        className="info-item px-[20px] py-[15px] mb-[18px]"
+                        className="info-item pl-[25px] pr-[20px] pt-[15px] pb-[20px] mb-[18px]"
                         label={
                             <div className="flex  items-center ">
-                                <div className="w-[100%] font-bold text-[14px]">
+                                <h3 className="w-[100%] font-[600] text-[14px]">
                                     {item.title}
-                                </div>
+                                </h3>
                                 {selected.indexOf(`${index}`) === -1 ? (
                                     <CollapseIcon className="info-icon w-[14px]" />
                                 ) : (

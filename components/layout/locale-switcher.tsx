@@ -49,7 +49,7 @@ export default function LocaleSwitcher({ locales }: Props) {
                     fontSize: 10,
                     color: "#000",
                     borderRadius: 0,
-                    lineHeight: "12px",
+                    lineHeight: "15px",
                     minWidth: 50,
                     "& .MuiSelect-outlined": {
                         py: 0,
@@ -58,7 +58,7 @@ export default function LocaleSwitcher({ locales }: Props) {
                     },
                     fieldset: { display: "none" },
                     "& .MuiSvgIcon-root": {
-                        fontSize: 14,
+                        fontSize: 10,
                         fill: "none",
                         stroke: "#000",
                         strokeWidth: 1,
