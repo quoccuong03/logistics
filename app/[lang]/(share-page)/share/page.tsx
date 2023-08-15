@@ -49,13 +49,14 @@ export async function generateMetadata({
 }
 
 export default async function SharePage({ searchParams, params }: any) {
-    const headersList = headers();
     const locale = params?.lang || i18n.defaultLocale;
+    const headersList = headers();
+    const hostLang = `${BASE_HOST}/${locale}`;
     const userAgent = headersList.get("user-agent") || "";
     let { screen, _id, refType, lang } = searchParams;
     let platform = "pc";
     let urlApp = "";
-    let urlDownload = configs.downloadQr;
+    let urlDownload = `${hostLang}/download`;
     if (/iPad|iPhone|iPod/.test(userAgent)) {
         urlApp = configs.ios;
         urlDownload = configs.appStore;
@@ -77,12 +78,10 @@ export default async function SharePage({ searchParams, params }: any) {
     }
     const query = queryString.stringify({ screen, _id, refType });
     if (refType === REF_TYPE_STYLE || (refType === REF_TYPE_PRODUCT && !!_id)) {
-        urlDownload = `${BASE_HOST}/${locale}/detail/${_id}?${queryString.stringify(
-            {
-                screen,
-                refType,
-            }
-        )}`;
+        urlDownload = `${hostLang}/detail/${_id}?${queryString.stringify({
+            screen,
+            refType,
+        })}`;
     }
 
     urlApp = `${urlApp}?${query}`;
