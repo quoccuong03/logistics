@@ -79,7 +79,7 @@ export default function Section1({ data }: Props) {
                     </ListItem>
                 ))}
             </List>
-            <TypographyHTML
+            {/* <TypographyHTML
                 content={`*${data?.content?.short_desc}`}
                 color={"#1EB96F"}
                 fontSize={16}
@@ -89,7 +89,7 @@ export default function Section1({ data }: Props) {
                         fontWeight: 700,
                     },
                 }}
-            />
+            /> */}
             <Button
                 variant="contained"
                 onClick={() => router.push(`/${locale}/seller/register`)}
