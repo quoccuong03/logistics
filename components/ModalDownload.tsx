@@ -107,7 +107,7 @@ const ModalDownload: FC<Props> = ({ lang }) => {
                     >
                         <Box>
                             <TypographyHTML
-                                fontSize={{ xs: 17, sm: 20 }}
+                                fontSize={{ xs: 11, sm: 20 }}
                                 lineHeight={{ xs: "20px", sm: "35px" }}
                                 fontWeight={500}
                                 content={lang?.desc}
@@ -139,8 +139,8 @@ const ModalDownload: FC<Props> = ({ lang }) => {
                                 {lang?.btn}
                             </Button>
                             <TypographyHTML
-                                fontSize={13}
-                                lineHeight={"15px"}
+                                fontSize={{ xs: 10, sm: 13 }}
+                                lineHeight={{ xs: "12px", sm: "15px" }}
                                 content={lang?.txt}
                                 color={"#000"}
                                 fontWeight={500}

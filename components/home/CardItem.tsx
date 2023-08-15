@@ -25,8 +25,8 @@ const CardItem = ({ item, idx, onShow, itemsSelected, lang }: Props) => {
         <Box
             className="relative keen-slider__slide"
             sx={{
-                maxWidth: { xs: 222, sm: 315 },
-                height: { xs: 250, sm: 395 },
+                // maxWidth: { xs: 222, sm: 315 },
+                height: { xs: 220, sm: 395 },
                 overflow: "hidden",
                 borderRadius: "5px",
                 "& .item-img": {
@@ -57,12 +57,16 @@ const CardItem = ({ item, idx, onShow, itemsSelected, lang }: Props) => {
             <Image
                 src={imgUrl[0]}
                 alt={item.refType}
-                width={315}
-                height={395}
+                // width={315}
+                // height={395}
+                fill
                 className="item-img"
                 style={{
-                    maxWidth: "100%",
-                    height: "auto",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    borderRadius: "5px",
+                    // maxWidth: "100%",
+                    // height: "auto",
                 }}
             />
             {!itemsSelected.includes(idx) ? (
