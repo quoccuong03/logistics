@@ -3,6 +3,8 @@ export const ACCESS_TOKEN =
 export const HIDE_POPUP = "is_show_download";
 export const HIDE_POPUP_TIP = "hideTip";
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+export const BASE_PATH_STATIC_LANDING_PAGE =
+    process.env.NEXT_PUBLIC_STATIC_LANDING_PAGE || "";
 export const configs: any = {
     android: "com.showniq://screen",
     ios: "com.showniq://screen",

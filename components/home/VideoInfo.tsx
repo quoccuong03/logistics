@@ -1,5 +1,6 @@
 "use client";
 
+import { BASE_PATH_STATIC_LANDING_PAGE } from "@/config/constants";
 import { useLocale } from "@/hooks/useLocale";
 import { useEffect, useState } from "react";
 
@@ -11,7 +12,7 @@ export default function VideoInfo() {
     const [videoUrl, setVideoUrl] = useState<string>();
     useEffect(() => {
         setVideoUrl(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/uploads/app/landingpage/home/home-rec-${locale}.mp4`
+            `${BASE_PATH_STATIC_LANDING_PAGE}/home/home-rec-${locale}.mp4`
         );
     }, [locale]);
     // const videoHome = `${process.env.NEXT_PUBLIC_BASE_URL}/uploads/app/landingpage/home/home-rec-${locale}.mp4`;
