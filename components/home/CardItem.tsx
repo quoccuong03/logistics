@@ -1,8 +1,16 @@
 "use client";
 import { getImageUrl } from "@/utils";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import {
+    Avatar,
+    Box,
+    Button,
+    IconButton,
+    Stack,
+    Typography,
+} from "@mui/material";
 import Image from "next/image";
 import { memo } from "react";
+import { DisLikeIcon, LikeIcon } from "@/components/icons";
 interface Props {
     item: any;
     idx: number;
@@ -95,7 +103,49 @@ const CardItem = ({ item, idx, onShow, itemsSelected, lang }: Props) => {
                         {lang?.show}
                     </Button>
                 </Stack>
-            ) : null}
+            ) : (
+                <Stack
+                    direction={"row"}
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                    sx={{
+                        position: "absolute",
+                        bottom: 16,
+                        left: 20,
+                        right: 30,
+                        zIndex: 1,
+                    }}
+                >
+                    {item?.store ? (
+                        <Avatar
+                            src={item?.store?.avatar?.thumb?.url}
+                            alt={item?.store?.name}
+                            sx={{
+                                width: 26,
+                                height: 26,
+                            }}
+                        />
+                    ) : null}
+                    <Box
+                        sx={{
+                            ml: "auto",
+                            "& .MuiButtonBase-root": {
+                                "& .MuiSvgIcon-root": {
+                                    fontSize: { xs: 20, sm: 24 },
+                                    fill: "#fff",
+                                },
+                            },
+                        }}
+                    >
+                        <IconButton disableRipple onClick={() => onShow(11)}>
+                            <LikeIcon />
+                        </IconButton>
+                        <IconButton disableRipple onClick={() => onShow(11)}>
+                            <DisLikeIcon />
+                        </IconButton>
+                    </Box>
+                </Stack>
+            )}
         </Box>
     );
 };

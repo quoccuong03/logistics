@@ -13,6 +13,7 @@ export { default as UploadIcon } from "./UploadIcon";
 export { default as InfoOutlineIcon } from "./InfoOutlineIcon";
 export { default as CommentIcon } from "./CommentIcon";
 export { default as LikeIcon } from "./LikeIcon";
+export { default as DisLikeIcon } from "./DisLikeIcon";
 export { default as ArrowRightLongIcon } from "./ArrowRightLongIcon";
 export { default as CloseIcon } from "./CloseIcon";
 export { default as LoadingIcon } from "./LoadingIcon";

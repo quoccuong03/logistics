@@ -29,6 +29,7 @@ export default function HomePage() {
         limit: 30,
         "gender[]": "63e0ae94144f0000ff004b97",
         cache: "1_h",
+        getStoreDetail: true,
     };
     const queryKey = ["listStyle", query];
     const { data } = useFetchStyleList(queryKey, queryKey[1]);
