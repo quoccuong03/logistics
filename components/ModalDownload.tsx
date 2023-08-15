@@ -3,7 +3,7 @@ import { Box, Button, Drawer, Stack, Backdrop } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
-import { HIDE_POPUP } from "@config/constants";
+import { BASE_PATH, HIDE_POPUP } from "@config/constants";
 
 import { useRouter } from "next/navigation";
 import { useModal, useQRCode } from "@/hooks";
@@ -39,7 +39,7 @@ const ModalDownload: FC<Props> = ({ lang }) => {
         if (hidden) {
             setHidePopup(1);
             // router.push("/download");
-            window.open(`/${locale}${linkQR}`);
+            window.open(`${BASE_PATH}/${locale}${linkQR}`);
         }
         onCloseM();
     };
@@ -120,7 +120,7 @@ const ModalDownload: FC<Props> = ({ lang }) => {
                     >
                         <Box>
                             <TypographyHTML
-                                fontSize={{ xs: 17, sm: 25 }}
+                                fontSize={{ xs: 17, sm: 20 }}
                                 lineHeight={{ xs: "20px", sm: "35px" }}
                                 fontWeight={500}
                                 content={lang?.desc}

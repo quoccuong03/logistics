@@ -1,4 +1,5 @@
 "use client";
+import { getCookie, setCookie } from "cookies-next";
 import CardList from "@/components/home/CardList";
 import VideoInfo from "@/components/home/VideoInfo";
 import { InfoIcon } from "@/components/icons";
@@ -14,9 +15,12 @@ import FilterStyle from "@/components/filter-style";
 import TopFooter from "@/components/layout/top-footer";
 import { TypographyHTML } from "@/components";
 import ModalTips from "@/components/ModalTips";
+import { HIDE_POPUP_TIP } from "@/config/constants";
+
 export default function HomePage() {
     const [idx, setIdx] = useState<number>(0);
     const [open, setOpen] = useState<boolean>(false);
+    const hiddenTipPopup = getCookie(HIDE_POPUP_TIP);
     const query = {
         status: "A",
         sortedBy: "desc",
@@ -45,13 +49,16 @@ export default function HomePage() {
     }, [trans, idx]);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setOpen(true);
-        }, 5000);
-        return () => clearTimeout(timer);
+        if (!hiddenTipPopup) {
+            const timer = setTimeout(() => {
+                setOpen(true);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     const handleClose = () => {
+        setCookie(HIDE_POPUP_TIP, "1", { maxAge: 60 * 60 * 24 });
         setOpen(false);
     };
 
@@ -119,13 +126,13 @@ export default function HomePage() {
                         >
                             <Box
                                 sx={{
-                                    py: 1.5,
-                                    px: 1.75,
+                                    py: { xs: 0.625, sm: 1.5 },
+                                    px: { xs: 0.625, sm: 1.75 },
                                     bgcolor: "#FFDCDC",
                                     borderRadius: "7px",
                                     position: "relative",
                                     flex: 1,
-                                    height: { xs: 65, sm: 57 },
+                                    height: { xs: "auto", sm: 57 },
                                     "&::after": {
                                         content: '""',
                                         position: "absolute",
@@ -134,6 +141,14 @@ export default function HomePage() {
                                         width: 30,
                                         height: 30,
                                         background: `url("${iconRound.src}") no-repeat bottom right`,
+                                    },
+                                    "& .MuiTypography-root": {
+                                        br: {
+                                            display: {
+                                                xs: "none",
+                                                sm: "block",
+                                            },
+                                        },
                                     },
                                 }}
                             >

@@ -61,7 +61,7 @@ export default function Section1({ data }: Props) {
             </Typography>
             <Button
                 variant="contained"
-                onClick={() => router.push(`${BASE_PATH}/${locale}`)}
+                onClick={() => router.push(`/${locale}`)}
                 sx={{
                     width: { xs: 150, sm: 290 },
                     fontSize: { xs: 16, sm: 21 },

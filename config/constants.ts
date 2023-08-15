@@ -1,6 +1,7 @@
 export const ACCESS_TOKEN =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDI1Njc3NTkwNmMxMmJmYjE0MTYyOGYiLCJpYXQiOjE2ODA4MzcxMDgsImV4cCI6MTAzMjA4MzcxMDh9.KraDNEeIcrqaGFL1ifD5UmsG1F0wAHnSiOZI8FNi9pI";
 export const HIDE_POPUP = "is_show_download";
+export const HIDE_POPUP_TIP = "hideTip";
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const configs: any = {
     android: "com.showniq://screen",

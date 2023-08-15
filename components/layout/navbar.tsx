@@ -51,7 +51,7 @@ export default function Navbar({ lang }: Props) {
 
     return (
         <header className="flex flex-col sticky z-[999] top-0 bg-white">
-            <div className="flex justify-between items-center w-full px-5 h-16 pt-5">
+            <div className="flex justify-between items-start w-full px-5 h-8 mt-5">
                 {pathname?.startsWith("/detail") ? (
                     <>
                         <IconButton
@@ -86,11 +86,16 @@ export default function Navbar({ lang }: Props) {
                 {/* <IconButton onClick={onOpenModal}>
                     <BellIcon sx={{ fill: "#000" }} />
                 </IconButton> */}
-                {!pathname.includes("detail") ? (
+                {!pathname.includes("detail") &&
+                !pathname.includes("seller") ? (
                     <LocaleSwitcher locales={lang?.locales} />
                 ) : (
                     <Link
-                        href={`/${locale}/about`}
+                        href={`${
+                            pathname.includes("detail")
+                                ? `/${locale}/seller`
+                                : `/${locale}/about`
+                        }`}
                         className={`flex items-center flex-col text-[12px] ${
                             pathname.includes("seller")
                                 ? "text-[#000000]"

@@ -127,7 +127,7 @@ export default function Section1({ data }: Props) {
                 },
                 "& .form": {
                     "&_row": {
-                        mb: 2,
+                        mb: { xs: 1.25, sm: 2 },
                         position: "relative",
                         label: {
                             fontSize: 14,
@@ -225,29 +225,40 @@ export default function Section1({ data }: Props) {
                         fullWidth
                     />
                 </Box>
-
-                <Box className="form_row">
-                    <FormControlLabel
-                        sx={{
-                            "& .MuiTypography-root": {
-                                display: "inline-flex",
-                                alignItems: "center",
-                                columnGap: 1,
+                <FormControlLabel
+                    sx={{
+                        mb: { xs: 1.25, sm: 2 },
+                        mr: 0,
+                        alignItems: { xs: "flex-start", sm: "center" },
+                        "& .MuiTypography-root": {
+                            display: "inline-flex",
+                            alignItems: "center",
+                            columnGap: 1,
+                            flexWrap: "wrap",
+                            maxWidth: { xs: 0.89, sm: 1 },
+                            small: {
+                                fontSize: { xs: "62%", sm: "75%" },
                             },
-                        }}
-                        control={
-                            <Checkbox
-                                icon={<RadioIcon sx={{ fontSize: 18 }} />}
-                                checkedIcon={
-                                    <RadioCheckedIcon sx={{ fontSize: 18 }} />
-                                }
-                                checked={checked}
-                                onChange={handleChange}
-                            />
-                        }
-                        label={<TypographyHTML content={data?.noAddress} />}
-                    />
-                </Box>
+                        },
+                    }}
+                    control={
+                        <Checkbox
+                            icon={
+                                <RadioIcon
+                                    sx={{ fontSize: { xs: 14, sm: 18 } }}
+                                />
+                            }
+                            checkedIcon={
+                                <RadioCheckedIcon
+                                    sx={{ fontSize: { xs: 14, sm: 18 } }}
+                                />
+                            }
+                            checked={checked}
+                            onChange={handleChange}
+                        />
+                    }
+                    label={<TypographyHTML content={data?.noAddress} />}
+                />
                 <Box className="form_row">
                     <label>* {data?.instagram?.label}</label>
                     <TextField
