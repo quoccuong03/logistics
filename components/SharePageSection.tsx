@@ -27,11 +27,11 @@ export default function SharePageSection({
                 )
             ) {
                 setTimeout(function () {
-                    document.location = urlApp || urlDownload;
+                    document.location = urlDownload;
                 }, 2000);
-                // if (urlApp) {
-                //     document.location = urlApp;
-                // }
+                if (urlApp) {
+                    document.location = urlApp;
+                }
                 // window.close();
             }
             return;
