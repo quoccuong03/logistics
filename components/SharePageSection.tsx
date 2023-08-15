@@ -27,16 +27,16 @@ export default function SharePageSection({
                 )
             ) {
                 setTimeout(function () {
-                    document.location = urlDownload;
+                    document.location = urlApp || urlDownload;
                 }, 2000);
-                if (urlApp) {
-                    document.location = urlApp;
-                }
+                // if (urlApp) {
+                //     document.location = urlApp;
+                // }
                 // window.close();
             }
             return;
         } else {
-            window.location.href = configs.downloadLink.pc;
+            window.location.href = urlDownload;
         }
     }, []);
     return <></>;
