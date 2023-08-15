@@ -20,7 +20,6 @@ import { FC } from "react";
 import TypographyHTML from "./TypographyHTML";
 import { useLocale } from "@/hooks/useLocale";
 interface Props {
-    lang?: any;
     open: boolean;
     onClose: () => void;
     // data: {
@@ -31,7 +30,8 @@ interface Props {
     // };
 }
 
-const ModalTips: FC<Props> = ({ lang, open, onClose }) => {
+const ModalTips: FC<Props> = ({ open, onClose }) => {
+    const locale = useLocale();
     return (
         <Dialog
             onClose={onClose}
@@ -58,7 +58,7 @@ const ModalTips: FC<Props> = ({ lang, open, onClose }) => {
                 <CloseIcon />
             </IconButton>
             <Image
-                src={require("@images/tip-vi.png")}
+                src={require(`@images/tip-${locale}.png`)}
                 className="max-w-full h-auto"
                 alt="Tips"
             />

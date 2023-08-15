@@ -8,6 +8,7 @@ import { headers } from "next/headers";
 import { Metadata } from "next";
 import { getLangs } from "@/lib/get-lang";
 import { Locale } from "@/config/i18n-config";
+import { BASE_PATH } from "@/config/constants";
 
 export const metadata: Metadata = {
     title: {
@@ -51,9 +52,9 @@ export default async function RootLayout({
     params: { lang: Locale };
 }) {
     const dataJson = await getInfoDonwload();
-
+    const { lang } = params;
     const userAgent = headers().get("user-agent");
-    let linQr = "/download";
+    let linQr = `${BASE_PATH}/${lang}/download`;
     if (dataJson?.qr_link && userAgent) {
         if (/iPad|iPhone|iPod/.test(userAgent)) {
             linQr = dataJson?.appStore;
@@ -61,7 +62,7 @@ export default async function RootLayout({
             linQr = dataJson?.googlePlay;
         }
     }
-    const { lang } = params;
+
     const dictionary = await getLangs(lang);
 
     return (

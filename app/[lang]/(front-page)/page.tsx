@@ -186,7 +186,7 @@ export default function HomePage() {
                 title={trans?.style?.block?.title}
             />
             <TopFooter lang={trans} />
-            <ModalTips open={open} onClose={handleClose} lang={trans} />
+            <ModalTips open={open} onClose={handleClose} />
         </Box>
     );
 }

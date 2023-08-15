@@ -1,25 +1,15 @@
 "use client";
-import { Box, Button, Drawer, Stack, Backdrop } from "@mui/material";
+import { Box, Button, Drawer, Stack } from "@mui/material";
 import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
 import Image from "next/image";
 import { useLocalStorage } from "@hooks/useLocalStorage";
-import { BASE_PATH, HIDE_POPUP } from "@config/constants";
+import { HIDE_POPUP } from "@config/constants";
 
-import { useRouter } from "next/navigation";
 import { useModal, useQRCode } from "@/hooks";
 import { FC } from "react";
 import TypographyHTML from "./TypographyHTML";
-import { useLocale } from "@/hooks/useLocale";
 interface Props {
     lang: any;
-    // isOpen: boolean;
-    // onClose: () => void;
-    // data: {
-    // 	img: any;
-    // 	url: string;
-    // 	id: string;
-    // 	buttonText: string;
-    // };
 }
 
 const data = {
@@ -33,13 +23,10 @@ const ModalDownload: FC<Props> = ({ lang }) => {
     const [, setHidePopup] = useLocalStorage<any>(HIDE_POPUP, "");
     const { open, onClose: onCloseM } = useModal();
     const { linkQR } = useQRCode();
-    const locale = useLocale();
-    const router = useRouter();
     const handleClosePopup = (hidden?: boolean) => {
         if (hidden) {
             setHidePopup(1);
-            // router.push("/download");
-            window.open(`${BASE_PATH}/${locale}${linkQR}`);
+            window.open(linkQR);
         }
         onCloseM();
     };
