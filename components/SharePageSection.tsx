@@ -21,20 +21,12 @@ export default function SharePageSection({
         if (platform !== "pc") {
             isMounted.current = true;
             // document.location = configs[platform];
-            if (
-                confirm(
-                    "Bạn chưa cài đặt APP SHOWNIQ, bạn có muốn đi đến cửa hàng để tải APP không?"
-                )
-            ) {
-                setTimeout(function () {
-                    document.location = urlDownload;
-                }, 2000);
-                if (urlApp) {
-                    document.location = urlApp;
-                }
-                // window.close();
+            setTimeout(function () {
+                document.location = urlDownload;
+            }, 2000);
+            if (urlApp) {
+                document.location = urlApp;
             }
-            return;
         } else {
             window.location.href = urlDownload;
         }
