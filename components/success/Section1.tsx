@@ -4,12 +4,14 @@ import { TypographyHTML } from "@/components";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useLocale } from "@/hooks/useLocale";
-import { BASE_PATH } from "@/config/constants";
+import { useModal } from "@/hooks";
 interface Props {
     data: any;
+    common: any;
 }
-export default function Section1({ data }: Props) {
+export default function Section1({ data, common }: Props) {
     const router = useRouter();
+    const { onShow } = useModal();
     const locale = useLocale();
     return (
         <Box
@@ -19,7 +21,7 @@ export default function Section1({ data }: Props) {
                 pt: { xs: 4, sm: 9.375 },
                 pl: { xs: 4, sm: 7.5 },
                 pr: { xs: 2.5, sm: 5.75 },
-                pb: { xs: 10, sm: 18.125 },
+                pb: { xs: 5, sm: 8 },
                 "& .title": {
                     fontSize: { xs: 15, sm: 22 },
                     fontWeight: 700,
@@ -31,7 +33,7 @@ export default function Section1({ data }: Props) {
                     },
                 },
                 "& .desc": {
-                    fontSize: { xs: 15, sm: 18 },
+                    fontSize: { xs: 12, sm: 18 },
                     fontWeight: 500,
                     lineHeight: 1.7,
                 },
@@ -51,20 +53,25 @@ export default function Section1({ data }: Props) {
 
             <TypographyHTML
                 content={data?.content?.dear}
-                fontSize={16}
+                fontSize={{ xs: 12, sm: 16 }}
                 fontWeight={300}
                 textAlign={"right"}
                 mt={1.25}
             />
-            <Typography fontSize={16} fontWeight={300} textAlign={"right"}>
+            <Typography
+                fontSize={{ xs: 12, sm: 16 }}
+                fontWeight={300}
+                textAlign={"right"}
+            >
                 SHOWNIQ
             </Typography>
             <Button
                 variant="contained"
-                onClick={() => router.push(`/${locale}`)}
+                onClick={onShow}
+                // onClick={() => router.push(`/${locale}`)}
                 sx={{
-                    width: { xs: 150, sm: 290 },
-                    fontSize: { xs: 16, sm: 21 },
+                    width: { xs: 200, sm: 290 },
+                    fontSize: { xs: 12, sm: 21 },
                     fontWeight: 500,
                     bgcolor: "#71EAB0 !important",
                     display: "flex",
@@ -75,7 +82,7 @@ export default function Section1({ data }: Props) {
                     color: "#000",
                 }}
             >
-                {data?.content?.btn_back}
+                {common?.download}
             </Button>
         </Box>
     );

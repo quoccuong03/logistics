@@ -18,6 +18,7 @@ const menus = [
 interface Props {
     lang: any;
 }
+
 export default function Navbar({ lang }: Props) {
     const router = useRouter();
     const pathname = usePathname();
@@ -33,7 +34,7 @@ export default function Navbar({ lang }: Props) {
 
     const handleScroll = () => {
         window.addEventListener("scroll", () => {
-            const scrollTop = window.pageYOffset;
+            const scrollTop = window.scrollY;
             if (
                 scrollTop > 40 &&
                 (pages.includes(pathname) || pathname.endsWith(locale))
@@ -124,7 +125,12 @@ export default function Navbar({ lang }: Props) {
                                           ? "border-b-[3px] border-black"
                                           : ""
                                   } ${
-                                      idx !== 0 && hightLinght
+                                      idx !== 0 &&
+                                      hightLinght &&
+                                      ((item.to === "info" &&
+                                          locale === "vi") ||
+                                          (item.to === "about" &&
+                                              locale === "en"))
                                           ? "myLightBox"
                                           : ""
                                   }`}
@@ -139,7 +145,12 @@ export default function Navbar({ lang }: Props) {
                                               ? "text-[#000000]"
                                               : "text-[#A0A0A0]"
                                       }  ${
-                                          idx !== 0 && hightLinght
+                                          idx !== 0 &&
+                                          hightLinght &&
+                                          ((item.to === "info" &&
+                                              locale === "vi") ||
+                                              (item.to === "about" &&
+                                                  locale === "en"))
                                               ? "myTextLight"
                                               : ""
                                       }`}

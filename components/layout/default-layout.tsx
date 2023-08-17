@@ -34,7 +34,9 @@ export default function DefaultLayout({
             {/* <Backdrop open={true} sx={{ position: "absolute " }}>
                 DEMO Backdrop
             </Backdrop> */}
-            <Footer linQr={linQr} lang={lang} />
+            {!pathname.includes("seller") ? (
+                <Footer linQr={linQr} lang={lang} />
+            ) : null}
             <ModalDownload lang={popupData} />
         </div>
     );

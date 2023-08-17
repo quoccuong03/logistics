@@ -27,7 +27,10 @@ export default async function SuccessPage({ params }: { params: Props }) {
     return (
         <div className="bg-[#FCF5E6] pt-[25px] min-h-screen">
             {langData?.pages?.seller ? (
-                <Section1 data={langData?.pages?.success} />
+                <Section1
+                    data={langData?.pages?.success}
+                    common={langData?.common}
+                />
             ) : null}
         </div>
     );
