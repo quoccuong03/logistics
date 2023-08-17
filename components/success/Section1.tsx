@@ -78,11 +78,12 @@ export default function Section1({ data, common }: Props) {
                     mx: "auto",
                     borderRadius: 0,
                     boxShadow: "none",
+                    textTransform: "initial",
                     mt: { xs: 2.5, sm: 5.625 },
                     color: "#000",
                 }}
             >
-                {common?.download}
+                {common?.downloadNow}
             </Button>
         </Box>
     );
