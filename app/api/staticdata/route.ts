@@ -3,8 +3,6 @@ import { NextResponse } from "next/server";
 import { Locale, i18n } from "@/config/i18n-config";
 import { BASE_PATH_STATIC_LANDING_PAGE } from "@/config/constants";
 export async function GET(request: Request) {
-    console.log("BASE_PATH_STATIC_LANDING_PAGE", BASE_PATH_STATIC_LANDING_PAGE);
-
     const { searchParams } = new URL(request.url);
     const lang: Locale =
         (searchParams?.get("lang") as Locale) ?? i18n.defaultLocale;

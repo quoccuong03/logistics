@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
     description: "Có SHOWNIQ - Thời trang thật dễ dàng",
     icons: {
-        icon: "/favicon.png",
+        icon: "@/app/favicon.ico",
     },
     openGraph: {
         title: {
@@ -53,6 +53,8 @@ export default async function RootLayout({
 }) {
     const dataJson = await getInfoDonwload();
     const { lang } = params;
+    // @ts-ignore
+    if (lang === "favicon.ico") return;
     const userAgent = headers().get("user-agent");
     let linQr = `${BASE_PATH}/${lang}/download`;
     if (dataJson?.qr_link && userAgent) {
@@ -67,7 +69,6 @@ export default async function RootLayout({
 
     return (
         <html lang={params.lang}>
-            <link rel="icon" href="/favicon.ico" sizes="any" />
             <Layout linQr={linQr} lang={dictionary}>
                 {children}
             </Layout>
