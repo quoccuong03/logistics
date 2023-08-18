@@ -1,14 +1,11 @@
 import "server-only";
 import type { Locale } from "@config/i18n-config";
+import { BASE_PATH_STATIC_LANDING_PAGE } from "@/config/constants";
 
 export const getLangs = async (locale: Locale) => {
-    console.log(
-        "process.env.NEXT_PUBLIC_BASE_HOST",
-        process.env.NEXT_PUBLIC_BASE_HOST
-    );
-
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata?lang=${locale}`,
+        // `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata?lang=${locale}`,
+        `${BASE_PATH_STATIC_LANDING_PAGE}/language/${locale}.json`,
         {
             cache: "no-cache",
         }
