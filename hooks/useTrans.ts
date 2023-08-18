@@ -1,7 +1,7 @@
 "use client";
 import { BASE_PATH, BASE_PATH_STATIC_LANDING_PAGE } from "@/config/constants";
 import { i18n } from "@/config/i18n-config";
-import axiosClient from "@/lib/axiosClient";
+// import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 
