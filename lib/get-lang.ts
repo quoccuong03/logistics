@@ -2,6 +2,11 @@ import "server-only";
 import type { Locale } from "@config/i18n-config";
 
 export const getLangs = async (locale: Locale) => {
+    console.log(
+        "process.env.NEXT_PUBLIC_BASE_HOST",
+        process.env.NEXT_PUBLIC_BASE_HOST
+    );
+
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata?lang=${locale}`,
         {
