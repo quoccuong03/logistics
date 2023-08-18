@@ -28,14 +28,6 @@ const nextConfig = {
             },
         ],
     },
-    async rewrites() {
-        return [
-            {
-                source: "/api/:path*",
-                destination: "/myApi/:path*",
-            },
-        ];
-    },
 };
 
 module.exports = nextConfig;

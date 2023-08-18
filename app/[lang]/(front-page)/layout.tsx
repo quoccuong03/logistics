@@ -67,6 +67,7 @@ export default async function RootLayout({
 
     return (
         <html lang={params.lang}>
+            <link rel="icon" href="/favicon.ico" sizes="any" />
             <Layout linQr={linQr} lang={dictionary}>
                 {children}
             </Layout>
