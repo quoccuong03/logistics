@@ -1,23 +1,9 @@
 "use client";
-import {
-    Box,
-    Button,
-    Drawer,
-    Stack,
-    Backdrop,
-    Dialog,
-    DialogTitle,
-    IconButton,
-} from "@mui/material";
-import { CloseIcon, ArrowRightLongIcon } from "@/components/icons";
+import { Dialog, IconButton } from "@mui/material";
+import { CloseIcon } from "@/components/icons";
 import Image from "next/image";
-import { useLocalStorage } from "@hooks/useLocalStorage";
-import { HIDE_POPUP } from "@config/constants";
 
-import { useRouter } from "next/navigation";
-import { useModal, useQRCode } from "@/hooks";
 import { FC } from "react";
-import TypographyHTML from "./TypographyHTML";
 import { useLocale } from "@/hooks/useLocale";
 interface Props {
     open: boolean;
