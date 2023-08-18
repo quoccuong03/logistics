@@ -1,5 +1,5 @@
 "use client";
-import { BASE_PATH } from "@/config/constants";
+import { BASE_PATH, BASE_PATH_STATIC_LANDING_PAGE } from "@/config/constants";
 import { i18n } from "@/config/i18n-config";
 import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
@@ -7,10 +7,8 @@ import { usePathname } from "next/navigation";
 
 export const fetchLangs = async (query?: any): Promise<any> => {
     return await axiosClient.get(
-        `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata`,
-        {
-            params: query,
-        }
+        // `${process.env.NEXT_PUBLIC_BASE_HOST}/api/staticdata`,
+        `${BASE_PATH_STATIC_LANDING_PAGE}/language/${query.lang}.json`
     );
 };
 
