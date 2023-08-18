@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
     description: "Có SHOWNIQ - Thời trang thật dễ dàng",
     icons: {
-        icon: "@/app/favicon.ico",
+        icon: "/favicon.ico",
     },
     openGraph: {
         title: {
