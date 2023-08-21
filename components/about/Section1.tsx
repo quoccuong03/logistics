@@ -22,7 +22,12 @@ export default function SectionOne() {
 				autoComplete="off"
 			>
 				<div>
-					<TextField id="outlined-required" label="Order number" />
+					<TextField
+						error
+						helperText="Incorrect entry."
+						id="outlined-required"
+						label="Order number"
+					/>
 					<TextField id="outlined-required" label="Customer name" />
 					<TextField id="outlined-required" label="Recipient address" />
 					<TextField id="outlined-required" label="Shipping address" />

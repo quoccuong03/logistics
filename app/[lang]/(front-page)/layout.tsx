@@ -12,20 +12,20 @@ import { BASE_PATH } from "@/config/constants";
 
 export const metadata: Metadata = {
 	title: {
-		template: "test",
-		default: "test",
+		template: "demo",
+		default: "demo",
 	},
-	description: "test",
+	description: "demo",
 	icons: {
 		icon: "/favicon.ico",
 	},
 	openGraph: {
 		title: {
-			template: "test",
-			default: "test",
+			template: "demo",
+			default: "demo",
 		},
-		description: "test",
-		url: "test",
+		description: "demo",
+		url: "demo",
 		siteName: "SHOWNIQ",
 		images: [
 			{
@@ -52,7 +52,7 @@ export default async function RootLayout({
 	params: { lang: Locale };
 }) {
 	return (
-		<html lang={params.lang}>
+		<html lang={params.lang || "vi"}>
 			<Layout>{children}</Layout>
 		</html>
 	);

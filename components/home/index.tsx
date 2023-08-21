@@ -2,6 +2,7 @@
 import { useState } from "react";
 import React from "react";
 import moment from "moment";
+import ChatBoard from "@/components/chatBoard";
 const TypeSearch = [
 	{
 		value: "number",
@@ -22,6 +23,7 @@ export default function Index() {
 	const [isDropDown, setIsDropDown] = useState(false);
 	return (
 		<div className="p-[10px]">
+			<ChatBoard />
 			<form className="mt-[20px] relative">
 				<div className="flex">
 					<label
