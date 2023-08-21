@@ -1,5 +1,5 @@
 "use client";
 import Home from "@/components/home";
-export default function HomePage() {
-	return <Home />;
+export default function HomePage(props: any) {
+	return <Home {...props} />;
 }

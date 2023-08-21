@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import queryString from "query-string";
 export default function SectionOne() {
 	const router = useRouter();
 	const [starView, setStarView] = useState(0);
 
 	return (
 		<div className="p-[10px]">
-			{" "}
 			<div className="relative overflow-x-auto">
 				<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 					<thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

@@ -31,7 +31,6 @@ const Chat: React.FC = () => {
 			const messageList: Array<typeDoc> = [];
 			// @ts-ignore
 			snapshot.forEach((doc) => {
-				console.log(doc.data());
 				const message = doc.data();
 				messageList.push({ text: message.text, id: message.id });
 			});
