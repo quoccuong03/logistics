@@ -102,3 +102,8 @@ body {
 	animation: myText 700ms infinite;
 	color: #000000;
 }
+
+input {
+	box-shadow: unset !important;
+	outline: unset !important;
+}
