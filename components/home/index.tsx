@@ -138,6 +138,7 @@ export default function Index(props: any) {
 						<div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 mt-[20px]">
 							{dataOrder.map((item: any) => (
 								<figure
+									key={item.id}
 									onClick={() => {
 										router.push(`/vi/${item.id}`);
 									}}

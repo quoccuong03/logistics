@@ -115,7 +115,7 @@ const Chat: React.FC = () => {
 							>
 								{messages.map((message, index) =>
 									message.id === "user" ? (
-										<div className="chat-message">
+										<div key={index} className="chat-message">
 											<div className="flex items-end">
 												<div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
 													<div>
@@ -132,7 +132,7 @@ const Chat: React.FC = () => {
 											</div>
 										</div>
 									) : (
-										<div className="chat-message">
+										<div key={index} className="chat-message">
 											<div className="flex items-end justify-end">
 												<div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
 													<div>

@@ -93,7 +93,10 @@ export default function SectionOne(props: any) {
 					</thead>
 					<tbody>
 						{dataOrder.map((item) => (
-							<tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+							<tr
+								key={item.order_number}
+								className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+							>
 								<th
 									scope="row"
 									className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -165,6 +168,7 @@ export default function SectionOne(props: any) {
 									onClick={() => {
 										setStarView(index);
 									}}
+									key={index}
 									className={`w-4 h-4 ${
 										index > starView
 											? "text-gray-300 dark:text-gray-500 hover:text-yellow-300"
@@ -202,7 +206,10 @@ export default function SectionOne(props: any) {
 						</button>
 					</form>
 					{listComment.map((item: any) => (
-						<article className="mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
+						<article
+							key={item.fullName}
+							className="mb-6 text-base bg-white rounded-lg dark:bg-gray-900"
+						>
 							<footer className="flex justify-between items-center mb-2">
 								<div className="flex items-center align-center">
 									<p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
@@ -215,6 +222,7 @@ export default function SectionOne(props: any) {
 									</p>
 									{Array.from(Array(5)).map((el, index) => (
 										<svg
+											key={index}
 											className={`w-4 h-4 ${
 												index > +item?.rate
 													? "text-gray-300 dark:text-gray-500 hover:text-yellow-300"
