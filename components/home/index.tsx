@@ -30,7 +30,7 @@ export default function Index(props: any) {
 	}
 	const [searchActive, setSearchActive] = useState(dataActive);
 	const [searchText, setSerchText] = useState(searchParams.search_text);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const [dataOrder, setDataOrder] = useState([]);
 
 	const _initData = () => {
@@ -154,12 +154,12 @@ export default function Index(props: any) {
 									<figcaption className="flex items-center justify-center space-x-3">
 										<div>
 											Shipping date:{" "}
-											{moment(item.shipping_date).format("YYYY/DD/MM")}
+											{moment(item.shipping_date).format("YYYY/MM/DD")}
 										</div>
 										<div className="text-sm text-gray-500 dark:text-gray-400">
 											Expected delivery date:{" "}
 											{moment(item.expected_delivery_date).format(
-												"YYYY/DD/MM",
+												"YYYY/MM/DD",
 											)}
 										</div>
 										<div>
