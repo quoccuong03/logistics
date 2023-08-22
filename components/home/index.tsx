@@ -104,7 +104,6 @@ export default function Index(props: any) {
 									newFilter.search_text = searchText;
 								}
 								newFilter.typeSearch = searchActive.value;
-								console.log(queryString.stringify(newFilter));
 								router.push(`/vi?${queryString.stringify(newFilter)}`);
 							}}
 						>
@@ -131,7 +130,12 @@ export default function Index(props: any) {
 			{dataOrder.length ? (
 				<div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 mt-[20px]">
 					{dataOrder.map((item: any) => (
-						<figure className="flex flex-col items-center justify-center p-8  bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700 cursor-pointer hover:bg-gray-100">
+						<figure
+							onClick={() => {
+								router.push(`/vi/${item.id}`);
+							}}
+							className="flex flex-col items-center justify-center p-8  bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700 cursor-pointer hover:bg-gray-100"
+						>
 							<blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
 								<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
 									<b>Order number: {item.order_number}</b>

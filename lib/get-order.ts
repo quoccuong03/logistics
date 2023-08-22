@@ -20,3 +20,13 @@ export async function addOrder(data: any): Promise<any> {
 		// throw new Error(error);
 	}
 }
+
+export async function findOrderById(data: any): Promise<any> {
+	try {
+		const res = await axiosClient.post(apiRoutes.findOrderById, data);
+		return res?.data;
+	} catch (error: any) {
+		console.log("error", error);
+		// throw new Error(error);
+	}
+}

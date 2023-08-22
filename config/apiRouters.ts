@@ -11,4 +11,7 @@ export const apiRoutes = {
 	postRegisterSeller: "/seller/register",
 	getListOrder: "/OrderShip/find",
 	addOrder: "/OrderShip/add",
+	findOrderById: "/OrderShip/findById",
+	getListCustomerFeeback: "/CustomerFeeback/geList",
+	addCustomerFeeback: "/CustomerFeeback/add",
 };

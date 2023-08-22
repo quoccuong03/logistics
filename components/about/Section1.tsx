@@ -9,7 +9,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
 import { addOrder } from "@lib/get-order";
 import { useRouter } from "next/navigation";
-export default function SectionOne() {
+export default function SectionOne(props: any) {
 	const [value, setValue] = useState<Dayjs | null>(mydate());
 	const [valueExpectOrder, setValueExpectOrder] = useState<Dayjs | null>(mydate());
 	const [dataInput, setDatInput] = useState<any>({});
@@ -136,7 +136,7 @@ export default function SectionOne() {
 								...dataInput,
 								shipping_date: value?.format("YYYY/MM/DD"),
 								expected_delivery_date: valueExpectOrder?.format("YYYY/MM/DD"),
-								live_shipping: "pending",
+								live_shipping: "Pending",
 							};
 							addOrder(newData).then(() => {
 								router.push("/vi");

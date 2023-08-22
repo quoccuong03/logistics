@@ -2,10 +2,10 @@
 // 	title: "Tìm hiểu thêm",
 // };
 import { SectionOne } from "@/components/about";
-export default async function AboutPage() {
+export default async function AboutPage(props: any) {
 	return (
 		<div className="relative">
-			<SectionOne />
+			<SectionOne {...props} />
 		</div>
 	);
 }
