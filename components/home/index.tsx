@@ -30,7 +30,7 @@ export default function Index(props: any) {
 	}
 	const [searchActive, setSearchActive] = useState(dataActive);
 	const [searchText, setSerchText] = useState(searchParams.search_text);
-	const [isDropDown, setIsDropDown] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const [dataOrder, setDataOrder] = useState([]);
 
 	const _initData = () => {
@@ -47,8 +47,10 @@ export default function Index(props: any) {
 				shipping_date: searchParams.shipping_date,
 			};
 		}
+		setIsLoading(true);
 		getListOrder(filter).then((result) => {
 			const { data } = result;
+			setIsLoading(false);
 			if (result && data) {
 				setDataOrder(data);
 			}
@@ -127,38 +129,50 @@ export default function Index(props: any) {
 					</div>
 				</div>
 			</form>
-			{dataOrder.length ? (
-				<div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 mt-[20px]">
-					{dataOrder.map((item: any) => (
-						<figure
-							onClick={() => {
-								router.push(`/vi/${item.id}`);
-							}}
-							className="flex flex-col items-center justify-center p-8  bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700 cursor-pointer hover:bg-gray-100"
-						>
-							<blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-								<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-									<b>Order number: {item.order_number}</b>
-								</h3>
-								<p className="my-4">
-									<b>Customer name: {item.customer_name}</b>
-								</p>
-							</blockquote>
-							<figcaption className="flex items-center justify-center space-x-3">
-								<div>
-									Shipping date: {moment(item.shipping_date).format("YYYY/DD/MM")}
-								</div>
-								<div className="text-sm text-gray-500 dark:text-gray-400">
-									Expected delivery date:{" "}
-									{moment(item.expected_delivery_date).format("YYYY/DD/MM")}
-								</div>
-								<div>Live shipping : {_handleRederStatus(item.live_shipping)}</div>
-							</figcaption>
-						</figure>
-					))}
-				</div>
+			{isLoading ? (
+				"Loading ..."
 			) : (
-				"NOT FOUND"
+				<>
+					{" "}
+					{dataOrder.length ? (
+						<div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 mt-[20px]">
+							{dataOrder.map((item: any) => (
+								<figure
+									onClick={() => {
+										router.push(`/vi/${item.id}`);
+									}}
+									className="flex flex-col items-center justify-center p-8  bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700 cursor-pointer hover:bg-gray-100"
+								>
+									<blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+										<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+											<b>Order number: {item.order_number}</b>
+										</h3>
+										<p className="my-4">
+											<b>Customer name: {item.customer_name}</b>
+										</p>
+									</blockquote>
+									<figcaption className="flex items-center justify-center space-x-3">
+										<div>
+											Shipping date:{" "}
+											{moment(item.shipping_date).format("YYYY/DD/MM")}
+										</div>
+										<div className="text-sm text-gray-500 dark:text-gray-400">
+											Expected delivery date:{" "}
+											{moment(item.expected_delivery_date).format(
+												"YYYY/DD/MM",
+											)}
+										</div>
+										<div>
+											Live shipping : {_handleRederStatus(item.live_shipping)}
+										</div>
+									</figcaption>
+								</figure>
+							))}
+						</div>
+					) : (
+						"NOT FOUND"
+					)}
+				</>
 			)}
 		</div>
 	);
